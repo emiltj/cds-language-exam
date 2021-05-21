@@ -5,10 +5,10 @@
     <img src="../README_images/lang_logo.png" alt="Logo" width="100" height="100">
   </a>
   
-  <h2 align="center">Image search</h2>
+  <h2 align="center">Text classification using Deep Learning</h2>
 
   <p align="center">
-    Assignment 2
+    Assignment 6
     <br />
     <a href="https://github.com/emiltj/cds-language-exam/issues">Report Bug</a>
     ·
