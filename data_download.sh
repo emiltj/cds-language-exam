@@ -43,10 +43,14 @@ printf "\n\n[INFO] Downloading data for assignment 6 ...\n\n"
 gdown https://drive.google.com/uc?id=1hUEiG2yHMdRsnIH4HsiBxh2qrvqqeiP3
 unzip game_of_thrones_script_all_seasons.zip
 rm game_of_thrones_script_all_seasons.zip
+mkdir glove
+cd glove
+gdown https://drive.google.com/uc?id=13fgtjW9pAwcYmY3CSme-Y2W4NwZniMuR
+gdown https://drive.google.com/uc?id=1t-bb-bwh9BrnAcLBFngSVpcm-SI3VLVA
 printf "[INFO] The required data for assignment 6 has been downloaded successfully"
 
 # Download data for self-assigned
-#cd ../../self-assigned
+#cd ../../../self-assigned
 #mkdir data
 #cd data
 #printf "\n\n[INFO] Downloading data for self-assigned assignment ...\n\n"

@@ -1,0 +1,414 @@
+,nodeA,nodeB,weight
+0,Catherine Cortez Masto,Kamala Harris,1
+1,Kamala Harris,Tammy Duckworth,1
+2,Kamala Harris,Maggie Hassan,1
+3,Catherine Cortez Masto,Tammy Duckworth,1
+4,Catherine Cortez Masto,Maggie Hassan,1
+5,Maggie Hassan,Tammy Duckworth,1
+6,Donald Trump,Hillary Clinton,8
+7,Donald Trump,Elizabeth Warren,4
+8,Donald Trump,Warren,2
+9,Clinton,Donald Trump,20
+10,Donald Trump,Donald Trump,2
+11,Donald Trump,Trump,14
+12,Donald Trump,Newt Gingrich,4
+13,Chris Christie,Donald Trump,4
+14,Donald Trump,Jeff Sessions,2
+15,Donald Trump,Mike Pence,10
+16,Donald Trump,Hinckley,2
+17,Donald Trump,Gingrich,2
+18,Donald Trump,Julian Castro,2
+19,Donald Trump,Tim Kaine,2
+20,Cory Booker,Donald Trump,2
+21,Donald Trump,James Hamilton,2
+22,Donald Trump,John Podesta,2
+23,Cheryl Mills,Donald Trump,2
+24,Donald Trump,Obama,2
+25,Bill Clinton,Donald Trump,2
+26,Donald Trump,Pence,2
+27,Donald Trump,Kevin Madden,2
+28,Donald Trump,Mitt Romney,2
+29,Donald Trump,Penn,2
+30,Donald Trump,Steve Peoples,2
+31,Hillary Clinton,Hillary Clinton,4
+32,Elizabeth Warren,Hillary Clinton,6
+33,Hillary Clinton,Warren,3
+34,Clinton,Hillary Clinton,34
+35,Hillary Clinton,Trump,13
+36,Hillary Clinton,Newt Gingrich,4
+37,Chris Christie,Hillary Clinton,4
+38,Hillary Clinton,Jeff Sessions,3
+39,Hillary Clinton,Mike Pence,7
+40,Hillary Clinton,Hinckley,3
+41,Gingrich,Hillary Clinton,3
+42,Hillary Clinton,Julian Castro,3
+43,Hillary Clinton,Tim Kaine,3
+44,Cory Booker,Hillary Clinton,3
+45,Hillary Clinton,James Hamilton,3
+46,Hillary Clinton,John Podesta,3
+47,Cheryl Mills,Hillary Clinton,3
+48,Hillary Clinton,Obama,3
+49,Bill Clinton,Hillary Clinton,5
+50,Hillary Clinton,Pence,3
+51,Hillary Clinton,Kevin Madden,3
+52,Hillary Clinton,Mitt Romney,3
+53,Hillary Clinton,Penn,3
+54,Hillary Clinton,Steve Peoples,3
+55,Elizabeth Warren,Warren,2
+56,Clinton,Elizabeth Warren,18
+57,Elizabeth Warren,Trump,6
+58,Elizabeth Warren,Newt Gingrich,2
+59,Chris Christie,Elizabeth Warren,2
+60,Elizabeth Warren,Jeff Sessions,2
+61,Elizabeth Warren,Mike Pence,2
+62,Elizabeth Warren,Hinckley,2
+63,Elizabeth Warren,Gingrich,2
+64,Elizabeth Warren,Elizabeth Warren,1
+65,Elizabeth Warren,Julian Castro,2
+66,Elizabeth Warren,Tim Kaine,2
+67,Cory Booker,Elizabeth Warren,2
+68,Elizabeth Warren,James Hamilton,2
+69,Elizabeth Warren,John Podesta,2
+70,Cheryl Mills,Elizabeth Warren,2
+71,Elizabeth Warren,Obama,2
+72,Bill Clinton,Elizabeth Warren,2
+73,Elizabeth Warren,Pence,2
+74,Elizabeth Warren,Kevin Madden,2
+75,Elizabeth Warren,Mitt Romney,2
+76,Elizabeth Warren,Penn,2
+77,Elizabeth Warren,Steve Peoples,2
+78,Clinton,Warren,9
+79,Trump,Warren,3
+80,Newt Gingrich,Warren,1
+81,Chris Christie,Warren,1
+82,Jeff Sessions,Warren,1
+83,Mike Pence,Warren,1
+84,Hinckley,Warren,1
+85,Gingrich,Warren,1
+86,Julian Castro,Warren,1
+87,Tim Kaine,Warren,1
+88,Cory Booker,Warren,1
+89,James Hamilton,Warren,1
+90,John Podesta,Warren,1
+91,Cheryl Mills,Warren,1
+92,Obama,Warren,1
+93,Bill Clinton,Warren,1
+94,Pence,Warren,1
+95,Kevin Madden,Warren,1
+96,Mitt Romney,Warren,1
+97,Penn,Warren,1
+98,Steve Peoples,Warren,1
+99,Clinton,Trump,31
+100,Clinton,Newt Gingrich,10
+101,Chris Christie,Clinton,10
+102,Clinton,Jeff Sessions,9
+103,Clinton,Mike Pence,13
+104,Clinton,Hinckley,9
+105,Clinton,Gingrich,9
+106,Clinton,Clinton,39
+107,Clinton,Julian Castro,9
+108,Clinton,Tim Kaine,9
+109,Clinton,Cory Booker,9
+110,Clinton,James Hamilton,9
+111,Clinton,John Podesta,9
+112,Cheryl Mills,Clinton,9
+113,Clinton,Obama,9
+114,Bill Clinton,Clinton,12
+115,Clinton,Pence,9
+116,Clinton,Kevin Madden,9
+117,Clinton,Mitt Romney,9
+118,Clinton,Penn,9
+119,Clinton,Steve Peoples,9
+120,Newt Gingrich,Trump,7
+121,Chris Christie,Trump,7
+122,Jeff Sessions,Trump,3
+123,Mike Pence,Trump,19
+124,Trump,Trump,9
+125,Hinckley,Trump,3
+126,Gingrich,Trump,3
+127,Julian Castro,Trump,3
+128,Tim Kaine,Trump,3
+129,Cory Booker,Trump,3
+130,James Hamilton,Trump,3
+131,John Podesta,Trump,3
+132,Cheryl Mills,Trump,3
+133,Obama,Trump,3
+134,Bill Clinton,Trump,3
+135,Pence,Trump,3
+136,Kevin Madden,Trump,3
+137,Mitt Romney,Trump,3
+138,Penn,Trump,3
+139,Steve Peoples,Trump,3
+140,Chris Christie,Newt Gingrich,2
+141,Jeff Sessions,Newt Gingrich,1
+142,Mike Pence,Newt Gingrich,5
+143,Hinckley,Newt Gingrich,1
+144,Gingrich,Newt Gingrich,1
+145,Julian Castro,Newt Gingrich,1
+146,Newt Gingrich,Tim Kaine,1
+147,Cory Booker,Newt Gingrich,1
+148,James Hamilton,Newt Gingrich,1
+149,John Podesta,Newt Gingrich,1
+150,Cheryl Mills,Newt Gingrich,1
+151,Newt Gingrich,Obama,1
+152,Bill Clinton,Newt Gingrich,1
+153,Newt Gingrich,Pence,1
+154,Kevin Madden,Newt Gingrich,1
+155,Mitt Romney,Newt Gingrich,1
+156,Newt Gingrich,Penn,1
+157,Newt Gingrich,Steve Peoples,1
+158,Chris Christie,Jeff Sessions,1
+159,Chris Christie,Mike Pence,5
+160,Chris Christie,Hinckley,1
+161,Chris Christie,Gingrich,1
+162,Chris Christie,Julian Castro,1
+163,Chris Christie,Tim Kaine,1
+164,Chris Christie,Cory Booker,1
+165,Chris Christie,James Hamilton,1
+166,Chris Christie,John Podesta,1
+167,Cheryl Mills,Chris Christie,1
+168,Chris Christie,Obama,1
+169,Bill Clinton,Chris Christie,1
+170,Chris Christie,Pence,1
+171,Chris Christie,Kevin Madden,1
+172,Chris Christie,Mitt Romney,1
+173,Chris Christie,Penn,1
+174,Chris Christie,Steve Peoples,1
+175,Jeff Sessions,Mike Pence,1
+176,Hinckley,Jeff Sessions,1
+177,Gingrich,Jeff Sessions,1
+178,Jeff Sessions,Julian Castro,1
+179,Jeff Sessions,Tim Kaine,1
+180,Cory Booker,Jeff Sessions,1
+181,James Hamilton,Jeff Sessions,1
+182,Jeff Sessions,John Podesta,1
+183,Cheryl Mills,Jeff Sessions,1
+184,Jeff Sessions,Obama,1
+185,Bill Clinton,Jeff Sessions,1
+186,Jeff Sessions,Pence,1
+187,Jeff Sessions,Kevin Madden,1
+188,Jeff Sessions,Mitt Romney,1
+189,Jeff Sessions,Penn,1
+190,Jeff Sessions,Steve Peoples,1
+191,Hinckley,Mike Pence,1
+192,Gingrich,Mike Pence,1
+193,Julian Castro,Mike Pence,1
+194,Mike Pence,Tim Kaine,1
+195,Cory Booker,Mike Pence,1
+196,James Hamilton,Mike Pence,1
+197,John Podesta,Mike Pence,1
+198,Cheryl Mills,Mike Pence,1
+199,Mike Pence,Obama,1
+200,Bill Clinton,Mike Pence,1
+201,Mike Pence,Pence,1
+202,Kevin Madden,Mike Pence,1
+203,Mike Pence,Mitt Romney,1
+204,Mike Pence,Penn,1
+205,Mike Pence,Steve Peoples,1
+206,Gingrich,Hinckley,1
+207,Hinckley,Julian Castro,1
+208,Hinckley,Tim Kaine,1
+209,Cory Booker,Hinckley,1
+210,Hinckley,James Hamilton,1
+211,Hinckley,John Podesta,1
+212,Cheryl Mills,Hinckley,1
+213,Hinckley,Obama,1
+214,Bill Clinton,Hinckley,1
+215,Hinckley,Pence,1
+216,Hinckley,Kevin Madden,1
+217,Hinckley,Mitt Romney,1
+218,Hinckley,Penn,1
+219,Hinckley,Steve Peoples,1
+220,Gingrich,Julian Castro,1
+221,Gingrich,Tim Kaine,1
+222,Cory Booker,Gingrich,1
+223,Gingrich,James Hamilton,1
+224,Gingrich,John Podesta,1
+225,Cheryl Mills,Gingrich,1
+226,Gingrich,Obama,1
+227,Bill Clinton,Gingrich,1
+228,Gingrich,Pence,1
+229,Gingrich,Kevin Madden,1
+230,Gingrich,Mitt Romney,1
+231,Gingrich,Penn,1
+232,Gingrich,Steve Peoples,1
+233,Julian Castro,Tim Kaine,1
+234,Cory Booker,Julian Castro,1
+235,James Hamilton,Julian Castro,1
+236,John Podesta,Julian Castro,1
+237,Cheryl Mills,Julian Castro,1
+238,Julian Castro,Obama,1
+239,Bill Clinton,Julian Castro,1
+240,Julian Castro,Pence,1
+241,Julian Castro,Kevin Madden,1
+242,Julian Castro,Mitt Romney,1
+243,Julian Castro,Penn,1
+244,Julian Castro,Steve Peoples,1
+245,Cory Booker,Tim Kaine,1
+246,James Hamilton,Tim Kaine,1
+247,John Podesta,Tim Kaine,1
+248,Cheryl Mills,Tim Kaine,1
+249,Obama,Tim Kaine,1
+250,Bill Clinton,Tim Kaine,1
+251,Pence,Tim Kaine,1
+252,Kevin Madden,Tim Kaine,1
+253,Mitt Romney,Tim Kaine,1
+254,Penn,Tim Kaine,1
+255,Steve Peoples,Tim Kaine,1
+256,Cory Booker,James Hamilton,1
+257,Cory Booker,John Podesta,1
+258,Cheryl Mills,Cory Booker,1
+259,Cory Booker,Obama,1
+260,Bill Clinton,Cory Booker,1
+261,Cory Booker,Pence,1
+262,Cory Booker,Kevin Madden,1
+263,Cory Booker,Mitt Romney,1
+264,Cory Booker,Penn,1
+265,Cory Booker,Steve Peoples,1
+266,James Hamilton,John Podesta,1
+267,Cheryl Mills,James Hamilton,1
+268,James Hamilton,Obama,1
+269,Bill Clinton,James Hamilton,1
+270,James Hamilton,Pence,1
+271,James Hamilton,Kevin Madden,1
+272,James Hamilton,Mitt Romney,1
+273,James Hamilton,Penn,1
+274,James Hamilton,Steve Peoples,1
+275,Cheryl Mills,John Podesta,1
+276,John Podesta,Obama,1
+277,Bill Clinton,John Podesta,1
+278,John Podesta,Pence,1
+279,John Podesta,Kevin Madden,1
+280,John Podesta,Mitt Romney,1
+281,John Podesta,Penn,1
+282,John Podesta,Steve Peoples,1
+283,Cheryl Mills,Obama,1
+284,Bill Clinton,Cheryl Mills,1
+285,Cheryl Mills,Pence,1
+286,Cheryl Mills,Kevin Madden,1
+287,Cheryl Mills,Mitt Romney,1
+288,Cheryl Mills,Penn,1
+289,Cheryl Mills,Steve Peoples,1
+290,Bill Clinton,Obama,1
+291,Obama,Pence,1
+292,Kevin Madden,Obama,1
+293,Mitt Romney,Obama,1
+294,Obama,Penn,1
+295,Obama,Steve Peoples,1
+296,Bill Clinton,Pence,1
+297,Bill Clinton,Kevin Madden,1
+298,Bill Clinton,Mitt Romney,1
+299,Bill Clinton,Penn,1
+300,Bill Clinton,Steve Peoples,1
+301,Kevin Madden,Pence,1
+302,Mitt Romney,Pence,1
+303,Pence,Penn,1
+304,Pence,Steve Peoples,1
+305,Kevin Madden,Mitt Romney,1
+306,Kevin Madden,Penn,1
+307,Kevin Madden,Steve Peoples,1
+308,Mitt Romney,Penn,1
+309,Mitt Romney,Steve Peoples,1
+310,Penn,Steve Peoples,1
+311,Donald Trump,Ronald Reagan,2
+312,Donald Trump,Paul Manafort,2
+313,Brexit,Donald Trump,2
+314,Donald Trump,Ted Cruz,2
+315,Donald Trump,Sean Hannity,2
+316,Donald Trump,Donald Trump's,2
+317,Mike Pence,Mike Pence,6
+318,Mike Pence,Ronald Reagan,4
+319,Mike Pence,Paul Manafort,4
+320,Brexit,Mike Pence,4
+321,Mike Pence,Ted Cruz,4
+322,Mike Pence,Sean Hannity,4
+323,Donald Trump's,Mike Pence,4
+324,Ronald Reagan,Trump,4
+325,Paul Manafort,Trump,4
+326,Brexit,Trump,4
+327,Ted Cruz,Trump,4
+328,Sean Hannity,Trump,4
+329,Donald Trump's,Trump,4
+330,Clinton,Ronald Reagan,1
+331,Clinton,Paul Manafort,1
+332,Brexit,Clinton,1
+333,Clinton,Ted Cruz,1
+334,Clinton,Sean Hannity,1
+335,Clinton,Donald Trump's,1
+336,Paul Manafort,Ronald Reagan,1
+337,Newt Gingrich,Ronald Reagan,1
+338,Chris Christie,Ronald Reagan,1
+339,Hillary Clinton,Ronald Reagan,1
+340,Brexit,Ronald Reagan,1
+341,Ronald Reagan,Ted Cruz,1
+342,Ronald Reagan,Sean Hannity,1
+343,Donald Trump's,Ronald Reagan,1
+344,Newt Gingrich,Paul Manafort,1
+345,Chris Christie,Paul Manafort,1
+346,Hillary Clinton,Paul Manafort,1
+347,Brexit,Paul Manafort,1
+348,Paul Manafort,Ted Cruz,1
+349,Paul Manafort,Sean Hannity,1
+350,Donald Trump's,Paul Manafort,1
+351,Brexit,Newt Gingrich,1
+352,Newt Gingrich,Ted Cruz,1
+353,Newt Gingrich,Sean Hannity,1
+354,Donald Trump's,Newt Gingrich,1
+355,Brexit,Chris Christie,1
+356,Chris Christie,Ted Cruz,1
+357,Chris Christie,Sean Hannity,1
+358,Chris Christie,Donald Trump's,1
+359,Brexit,Hillary Clinton,1
+360,Hillary Clinton,Ted Cruz,1
+361,Hillary Clinton,Sean Hannity,1
+362,Donald Trump's,Hillary Clinton,1
+363,Brexit,Ted Cruz,1
+364,Brexit,Sean Hannity,1
+365,Brexit,Donald Trump's,1
+366,Sean Hannity,Ted Cruz,1
+367,Donald Trump's,Ted Cruz,1
+368,Donald Trump's,Sean Hannity,1
+369,Hillary Clinton's,Maura Pally,2
+370,Maura Pally,Peter Schweizer,1
+371,Hillary Clinton,Maura Pally,2
+372,Frank Giustra,Maura Pally,1
+373,Clinton,Maura Pally,3
+374,Bill Clinton,Maura Pally,1
+375,Maura Pally,Schweizer,1
+376,Clintons,Maura Pally,2
+377,Allison Moore,Maura Pally,1
+378,Hillary Clinton's,Peter Schweizer,2
+379,Hillary Clinton,Hillary Clinton's,4
+380,Frank Giustra,Hillary Clinton's,2
+381,Clinton,Hillary Clinton's,6
+382,Bill Clinton,Hillary Clinton's,2
+383,Hillary Clinton's,Schweizer,2
+384,Clintons,Hillary Clinton's,4
+385,Allison Moore,Hillary Clinton's,2
+386,Hillary Clinton's,Hillary Clinton's,1
+387,Hillary Clinton,Peter Schweizer,2
+388,Frank Giustra,Peter Schweizer,1
+389,Clinton,Peter Schweizer,3
+390,Bill Clinton,Peter Schweizer,1
+391,Peter Schweizer,Schweizer,1
+392,Clintons,Peter Schweizer,2
+393,Allison Moore,Peter Schweizer,1
+394,Frank Giustra,Hillary Clinton,2
+395,Hillary Clinton,Schweizer,2
+396,Clintons,Hillary Clinton,4
+397,Allison Moore,Hillary Clinton,2
+398,Clinton,Frank Giustra,3
+399,Bill Clinton,Frank Giustra,1
+400,Frank Giustra,Schweizer,1
+401,Clintons,Frank Giustra,2
+402,Allison Moore,Frank Giustra,1
+403,Clinton,Schweizer,3
+404,Clinton,Clintons,6
+405,Allison Moore,Clinton,3
+406,Bill Clinton,Schweizer,1
+407,Bill Clinton,Clintons,2
+408,Allison Moore,Bill Clinton,1
+409,Clintons,Schweizer,2
+410,Allison Moore,Schweizer,1
+411,Clintons,Clintons,1
+412,Allison Moore,Clintons,2

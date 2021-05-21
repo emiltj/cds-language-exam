@@ -1,0 +1,4 @@
+It is clear that the mean sentiment scores for the headlines fluctuate on a daily basis. 
+However, when smoothing using different window sizes, larger trends become visible - especially using a 7-day rolling mean smoothing. 
+One of these trends is an especially positive trend around the dates 15th of March to the 22 of March, 2003.
+It is hard to make any inferences as to what might have caused this.
