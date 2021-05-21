@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/emiltj/cds-language-exam">
-    <img src="README_images/lang_logo.png" alt="Logo" width="200" height="200">
+    <img src="README_images/lang_logo.png" alt="Logo" width="100" height="100">
   </a>
   <h1 align="center">CDS Language Analytics</h1>
 
