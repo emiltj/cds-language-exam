@@ -5,10 +5,10 @@
     <img src="../README_images/lang_logo.png" alt="Logo" width="100" height="100">
   </a>
   
-  <h2 align="center">Image search</h2>
+  <h2 align="center">Network analysis</h2>
 
   <p align="center">
-    Assignment 2
+    Assignment 4
     <br />
     <a href="https://github.com/emiltj/cds-language-exam/issues">Report Bug</a>
     ·
