@@ -77,7 +77,7 @@ The data is not contained within this repository, considering the sheer size of 
 bash data_download.sh
 ```
 
-After cloning the repo, creating the virutal environment and retrieving the data you should be ready to go. Move to the assignment folders and read the README's for further instructions.
+After cloning the repo, creating the virutal environment and retrieving the data you should be ready to go. Move to the assignment folders and read the READMEs for further instructions.
 
 <!-- REPOSITORY STRUCTURE -->
 ## Repository structure
