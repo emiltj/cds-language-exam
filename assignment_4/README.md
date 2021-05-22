@@ -81,7 +81,7 @@ As can be seen in the table above, the script for generating weighted edgelists 
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_visualization.png"><img src="./out/viz/network_visualization.png" alt="Logo" width="700" height="512"></a></p>
 <p align="center"><em>The network visualized (showing the 15 heighest weighted connections)</em><p/>
 
-When looking at the visualization of the network of the 15 strongest connections
+When looking at the visualization of the network of the 15 strongest connections, it appears that Hillary Clinton, Barack Obama and Donald Trump have some of the strongest connections. However, it should of course be noted that a large portion of strong connections are, in fact, to themselves. This is a result of the edgelist used as input. Otherwise, the script seems to produce the desired outcome.
 
 |    |                 |                        |                        |                     | 
 |----|-----------------|------------------------|------------------------|---------------------| 
@@ -96,7 +96,7 @@ When looking at the visualization of the network of the 15 strongest connections
 
 As can be seen in the table above, the problem identified in the creation of the edgelist leaks through - when looking at the excerpt Clinton appears twice. Does Clinton refer to Bill Clinton or Hillary? Or perhaps sometimes Bill and other times Hillary? We cannot know for sure. Regardless when looking at eigenvector centrality, it seems that Trump and Clinton have many connections to other highly connected people. When looking at betweenness centrality, it appears that Clinton functions as a link between a lot of other nodes, glueing many people together. When looking at degree centrality - sheer number of connections, Clinton and Trump appears at the clear top.
 
-Important to note though; the short summary of the results here are merely on the basis of the small excerpt for reasons of simplicity. It is also worthwhile mentioning that the exact scores are not to be trusted too much, due to the same people appearing as multiple nodes (e.g. Clinton, Hillary Clinton, etc.) 
+Important to note though; the short summary of the results here are merely on the basis of the small excerpt for reasons of simplicity. It is also worthwhile mentioning that the exact scores are not to be trusted too much, due to the same people appearing as multiple nodes (e.g. Clinton, Hillary Clinton, etc.). The script producing this table, seems to work according to the desired outcome although another edgelist would have been desired.
 
 <!-- USAGE -->
 ## Usage
@@ -106,20 +106,24 @@ Make sure to follow the instructions in the README.md located at the parent leve
 Subsequently, use the following code (when within the ```cds-language-exam``` folder):
 
 ```bash
-cd assignment_3
+cd assignment_4
 source ../lang101/bin/activate # If not already activated
-python ___________________________________________________________________.py
+python create_edgelist.py
+python network.py
 ```
 
 ### Optional arguments:
 
-image_search.py arguments for commandline to consider:
+create_edgelist.py arguments for commandline to consider:
 -       "-f"
         "--filepath", 
         type = str,
         default = os.path.join("data", "*.jpg"), # Default path to corpus, when none is specified
         required = False,
         help= "str - path to image corpus")
+
+network.py arguments for commandline to consider:
+
 
 <!-- CONTACT -->
 ## Contact
