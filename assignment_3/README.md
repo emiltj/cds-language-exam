@@ -34,6 +34,14 @@
 <!-- ASSIGNMENT DESCRIPTION -->
 ## Assignment description
 
+Use the dataset ["A million headlines dataset"](https://www.kaggle.com/therohk/million-headlines) - headlines from the Australian news source ABC (Start Date: 2003-02-19 ; End Date: 2020-12-31).
+
+Do the following:
+* Calculate the sentiment score for every headline in the data. You can do this using the spaCyTextBlob approach that we covered in class or any other dictionary-based approach in Python.
+* Create and save a plot of sentiment over time with a 1-week rolling average
+* Create and save a plot of sentiment over time with a 1-month rolling average
+* Make sure that you have clear values on the x-axis and that you include the following: a plot title; labels for the x and y axes; and a legend for the plot
+* Write a short summary (no more than a paragraph) describing what the two plots show. You should mention the following points: 1) What (if any) are the general trends? 2) What (if any) inferences might you draw from them?
 
 <!-- METHODS -->
 ## Methods
@@ -42,12 +50,18 @@
 
 **On a more general level (this applies to all assignments):**
 
+I have tried to as accessible and user-friendly as possible. This has been attempted by the use of:
+* Smaller functions. These are intended to solve the sub-tasks of the assignment. This is meant to improve readability of the script, as well as simplifying the use of the script.
+* Information prints. Information is printed to the terminal to allow the user to know what is being processed in the background
+* Argparsing. Arguments that let the user determine the behaviour and paths of the script (see <a href="#optional-arguments">"Optional arguments"</a> section for more information)
+
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
 It is clear that the mean sentiment scores for the headlines fluctuate on a daily basis. 
 However, when smoothing using different window sizes, larger trends become visible - especially using a 7-day rolling mean smoothing. 
 One of these trends is an especially positive trend around the dates 15th of March to the 22 of March, 2003.
 It is hard to make any inferences as to what might have caused this.
+
 **he mage:**
 
 **Output):**
