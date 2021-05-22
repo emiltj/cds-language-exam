@@ -60,15 +60,18 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
 
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores.png"><img src="./out/daily_sentiment_scores.png" alt="Logo" width="240" height="150"></a></p>
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores.png"><img src="./out/daily_sentiment_scores.png" alt="Logo" width="768" height="512"></a></p>
 <p align="center"><em>Sentiment scores over time, no smoothing</em><p/>
 
-When looking at the raw sentiment scores of the ABC news articles it can be hard to find any general patterns due to the great fluctuation that is apparent on a daily basis. To be able to discern any patterns, we need to extract information from the noisy signal by attenuating the higher frequency components of this signal.
+When looking at the sentiment scores of the ABC news articles it can be hard to find any general patterns due to the great fluctuation that is apparent on a daily basis. To be able to discern any patterns, we need to extract information from the noisy signal by attenuating the higher frequency components of this signal.
 
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores_weekly_smooth.png""><img src="./out/daily_sentiment_scores_weekly_smooth.png" alt="Logo" width="240" height="150"></a>   <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores_monthly_smooth.png"><img src="./out/daily_sentiment_scores_monthly_smooth.png" alt="Logo" width="240" height="150"></a></p>
-<p align="center"><em>Sentiment scores over time, 7-day smoothing &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Sentiment scores over time, 30-day smoothing</em><p/>
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_weekly_smooth.png""><img src="./out/daily_sentiment_scores_weekly_smooth.png" alt="Logo" width="768" height="512"></a>
+<p align="center"><em>Sentiment scores over time, 7-day smoothing </em><p/>
+  
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_monthly_smooth.png"><img src="./out/daily_sentiment_scores_monthly_smooth.png" alt="Logo" width="768" height="512"></a></p>
+<p align="center">Sentiment scores over time, 30-day smoothing</em><p/>
 
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores_combined.png"><img src="./out/daily_sentiment_scores_combined.png" alt="Logo" width="240" height="150"></a></p>
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_combined.png"><img src="./out/daily_sentiment_scores_combined.png" alt="Logo" width="768" height="512"></a></p>
 <p align="center"><em>Sentiment scores over time, combined</em><p/>
 
 When looking at the smoothed signal, we can start to detect low-frequency patterns in the oscillations.  __________________________ insert text  
