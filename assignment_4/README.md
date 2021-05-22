@@ -5,10 +5,10 @@
     <img src="../README_images/lang_logo.png" alt="Logo" width="100" height="100">
   </a>
   
-  <h2 align="center">Image search</h2>
+  <h2 align="center">Network analysis</h2>
 
   <p align="center">
-    Assignment 2
+    Assignment 4
     <br />
     <a href="https://github.com/emiltj/cds-language-exam/issues">Report Bug</a>
     ·
@@ -33,7 +33,17 @@
 
 <!-- ASSIGNMENT DESCRIPTION -->
 ## Assignment description
+This command-line tool will take a given dataset and perform simple network analysis. In particular, it will build networks based on entities appearing together in the same documents, like we did in class.
 
+Your script should be able to be run from the command line
+It should take any weighted edgelist as an input, providing that edgelist is saved as a CSV with the column headers "nodeA", "nodeB"
+For any given weighted edgelist given as an input, your script should be used to create a network visualization, which will be saved in a folder called viz.
+It should also create a data frame showing the degree, betweenness, and eigenvector centrality for each node. It should save this as a CSV in a folder called output.
+
+* Your script should be able to be run from the command line
+* It should take any weighted edgelist as an input, providing that edgelist is saved as a CSV with the column headers "nodeA", "nodeB"
+* For any given weighted edgelist given as an input, your script should be used to create a network visualization, which will be saved in a folder called viz.
+* It should also create a data frame showing the degree, betweenness, and eigenvector centrality for each node. It should save this as a CSV in a folder called output.
 
 <!-- METHODS -->
 ## Methods
@@ -41,6 +51,10 @@
 **Specifically for this assignment:**
 
 **On a more general level (this applies to all assignments):**
+I have tried to as accessible and user-friendly as possible. This has been attempted by the use of:
+* Smaller functions. These are intended to solve the sub-tasks of the assignment. This is meant to improve readability of the script, as well as simplifying the use of the script.
+* Information prints. Information is printed to the terminal to allow the user to know what is being processed in the background
+* Argparsing. Arguments that let the user determine the behaviour and paths of the script (see <a href="#optional-arguments">"Optional arguments"</a> section for more information)
 
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion

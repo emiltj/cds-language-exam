@@ -1,4 +1,3 @@
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
@@ -18,7 +17,6 @@
   </p>
 </p>
 
-
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
@@ -33,7 +31,6 @@
   </ol>
 </details>
 
-
 <!-- ABOUT THE PROJECT -->
 ## About the project
 
@@ -45,7 +42,6 @@
 
 This project contains the exam portofolio for the Spring 2021 module _Language Analytics_ as part of the bachelor's tilvalg in [_Cultural Data Science_](https://bachelor.au.dk/en/supplementary-subject/culturaldatascience/) at Aarhus University.
 This README contains all the necessary information needed to get an overview of the repository, as well the installation steps required for running the scripts in the assignments.
-
 
 <!-- GETTING STARTED -->
 ## Getting started
@@ -86,7 +82,7 @@ This repository has the following structure:
 
 | Column | Description|
 |--------|:-----------|
-```assignment_*/``` | Directory containing the four assignments
+```assignment_*/``` | Directory containing the 5 assignments
 ```utils/``` | Utility functions written by our instructor [Ross Deans Kristensen-McLachlan](https://pure.au.dk/portal/en/persons/ross-deans-kristensenmclachlan(29ad140e-0785-4e07-bdc1-8af12f15856c).html), utilized in a range of the assignments.
 ```README_images/``` | Directory containing the few images used in the READMEs.
 ```report.pdf``` | Document that provides a full overview of the exam project. The information contained in this document is the collated information from all READMEs.
@@ -102,17 +98,18 @@ This repository has the following structure:
 Four assignments have been chosen for this portfolio and are included within the assignment directories. Information on script execution, preprocessing steps, results and discussion can be seen in the READMEs located within each of the assignment directories.
 
 The four assignments are:
-* Assignment 3 - Image search 
-* Assignment 4 - Logistic Regression and Neural Network benchmark MNIST classification
-* Assignment 5 - CNN classification of impressionist paintings
-* Assignment 6 - Stylized paintings and classification (self-assigned)
+* Assignment 3 - Sentiment analysis 
+* Assignment 4 - Network analysis
+* Assignment 5 - (Un)supervised machine learning - LDA and Topic modeling on philosophical texts
+* Assignment 6 - Text classification using Deep Learning
+* Assignment 7 - (self-assigned)
 
 <!-- DATA -->
 ## Data
 The datasets are provided by courtesy of:
 - [Yann Lecun](http://yann.lecun.com/exdb/mnist/) - MNIST dataset
-- [Maria-Elena Nilsback and Andrew Zisserman](https://www.robots.ox.ac.uk/~vgg/data/flowers/17/) - Flowers dataset
-- [Panchajanya Banerjee](https://www.kaggle.com/delayedkarma/impressionist-classifier-data) - Impressionist paintings dataset
+- _________________________________________
+- _________________________________________
 
 <!-- CONTACT -->
 ## Contact
@@ -124,4 +121,3 @@ You can do so on [Slack](https://app.slack.com/client/T01908QBS9X/D01A1LFRDE0) o
 ## Acknowledgements
 * [Ross Deans Kristensen-McLachlan](https://pure.au.dk/portal/en/persons/ross-deans-kristensenmclachlan(29ad140e-0785-4e07-bdc1-8af12f15856c).html) and [Kristoffer Laigaard Nielbo](https://pure.au.dk/portal/en/persons/kristoffer-laigaard-nielbo(aef8887c-d4e9-4270-9031-1a15553f5590).html) - Our competent instructors for the module on Language Analytics
 * [othneildrew (githubuser)](https://github.com/othneildrew/Best-README-Template) - Providing the template that I used to create the READMEs
-* [Johan Horsmans](https://github.com/JohanHorsmans) - With whom I generated the idea for the last assignment
