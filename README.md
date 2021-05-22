@@ -107,7 +107,7 @@ The four assignments are:
 <!-- DATA -->
 ## Data
 The datasets are provided by courtesy of:
-- [Yann Lecun](http://yann.lecun.com/exdb/mnist/) - MNIST dataset
+- [Rohit Kulkarna](https://www.kaggle.com/therohk/million-headlines) - Million headlines dataset, used for assignment 3
 - _________________________________________
 - _________________________________________
 
