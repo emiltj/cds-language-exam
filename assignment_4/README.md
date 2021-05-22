@@ -65,7 +65,7 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 **Creating an edgelist:**
 
 **Network analysis:**
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_viz.png"><img src="./out/viz/network_viz.png" alt="Logo" width="256" height="256"></a></p>
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_viz.png"><img src="./out/viz/network_viz.png" alt="Logo" width="512" height="512"></a></p>
 
 <!-- USAGE -->
 ## Usage
