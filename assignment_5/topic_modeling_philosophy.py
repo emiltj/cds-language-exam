@@ -148,14 +148,14 @@ def main(inpath, subset):
 
     # Build bigram and trigram models
     print(f"[INFO] Building bigram and trigram models (preparing for LDA) ...") # Info for terminal
-    bigram = gensim.models.Phrases(df["sentence_lowered"], min_count=5, threshold=100) # Higher threshold means fewer phrases
-    trigram = gensim.models.Phrases(bigram[df["sentence_lowered"]], min_count = 1, threshold=100)
+    bigram = gensim.models.Phrases(df["sentence_lowered"], min_count = 5, threshold = 100) # Higher threshold means fewer phrases
+    trigram = gensim.models.Phrases(bigram[df["sentence_lowered"]], min_count = 1, threshold = 100)
     bigram_mod = gensim.models.phrases.Phraser(bigram)
     trigram_mod = gensim.models.phrases.Phraser(trigram)
 
     # Acquire a list of lists. Each of these lists contain all unique words that have one of the postags: 'NOUN', "ADJ", "VERB", "ADV"
     texts_processed = lda_utils.process_words(df["sentence_lowered"], nlp, bigram_mod, trigram_mod,
-                                             allowed_postags=['NOUN']) # Only consider certain postags.
+                                             allowed_postags = ['NOUN']) # Only consider certain postags.
 
     # Create dictionary (converting each word into an integer value, which functions like an ID)
     id2word = corpora.Dictionary(texts_processed)
@@ -165,23 +165,23 @@ def main(inpath, subset):
 
     # Build an LDA model
     print(f"[INFO] Creating LDA model ...") # Info for terminal
-    lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus,
-                                           id2word=id2word,
-                                           num_topics= 5, 
-                                           random_state=100,
-                                           chunksize=10,
-                                           passes=10,
-                                           iterations=100,
-                                           per_word_topics=True, 
-                                           minimum_probability=0.0)
+    lda_model = gensim.models.ldamodel.LdaModel(corpus = corpus,
+                                           id2word = id2word,
+                                           num_topics = 5, 
+                                           random_state = 100,
+                                           chunksize = 10,
+                                           passes = 10,
+                                           iterations = 100,
+                                           per_word_topics = True, 
+                                           minimum_probability = 0.0)
 
     # Getting LDA performance and printing
     print_lda_performance(lda_model, corpus, texts_processed, id2word)
 
     # Create data frame with information topic keywords and which entries have which dominant topic.
-    df_topic_keywords = lda_utils.format_topics_sentences(ldamodel=lda_model, 
-                                                          corpus=corpus, 
-                                                          texts=texts_processed)
+    df_topic_keywords = lda_utils.format_topics_sentences(ldamodel = lda_model, 
+                                                          corpus = corpus, 
+                                                          texts = texts_processed)
 
     # Merge topic dataframe with the philosophical entries
     df_topic_keywords = df.reset_index(drop = True).join(df_topic_keywords)

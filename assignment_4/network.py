@@ -82,7 +82,7 @@ if __name__=="__main__":
         "-n",
         "--n", 
         type = int,
-        default = 30, # Default when not specifying anything in the terminal
+        default = 15, # Default when not specifying anything in the terminal
         required = False, # Since we have a default value, it is not required to specify this argument
         help = "int specifying number of node + edge pairs wanted in the analysis (top n weighted pairs)")
     args = parser.parse_args()
