@@ -60,6 +60,17 @@ More specifically, I want to investigate whether particular schools of philosoph
 
 **Specifically for this assignment:**
 
+For this assignment, I first aggregated all data from the same book title together as I wanted to look at individual books for my visualizations. I then built bigram and trigram models - contiguous sequences of 2 or 3 items (with items being individual words in this analysis). I then processed the data using these models, only keeping nouns, adjectives, verbs and adverbs. As this kind of analysis only takes vectors, I created a dictionary so I could convert each word in each of the entries into an integer value (with the value functioning like an ID for the dictionary).
+Using the processed corpus, I built an LDA model with 5 topics. The topics are  ________________________________________________________________________________________________________________________________________________________________________
+
+* Merge paragraphs from the same books together in the philosophical text corpus.
+* Perform LDA, using bigram and trigram models ensure that the LDA utilizes 5 topics
+* Create a visualization that depicts each philosophical schools' respective topic prevalence from all 5 topics.
+* Reduce the 5-dimensional space to 2 dimensions using Principal Component Analysis (PCA)
+* Plot the individual books in this PCA-space (with X and Y axes showing principal component 1 and 2)
+* Plot the individual schools in this PCA-space (with X and Y axes showing principal component 1 and 2)
+* Save a document showing the most important words for each of the 5 topics
+
 **On a more general level (this applies to all assignments):**
 
 I have tried to as accessible and user-friendly as possible. This has been attempted by the use of:
