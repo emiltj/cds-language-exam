@@ -92,7 +92,16 @@ Given the exploratory nature of this assignment, little rockhard results have be
 
 <p align="center"><em>Left: Plot of title topic prevalence (projected onto a 2D PCA space). Colored by school of thought. </em><p/> <p align="center"><em>Right: Plot of the mean topic prevalence for titles within a philosophical school (projected onto 2D PCA space)</em><p/>
 
-**Words of greatest importance in each topic**
+**Topic keywords**
+|                |                                                                                  | 
+|----------------|----------------------------------------------------------------------------------| 
+| Dominant_Topic | Topic_Keywords                                                                   | 
+| 2.0            | "country, price, value, labour, part, capital, money, quantity, land, trade"     | 
+| 4.0            | "man, thing, body, god, part, idea, mind, nature, reason, way"                   | 
+| 3.0            | "woman, man, life, madness, form, movement, history, world, language, century"   | 
+| 0.0            | "world, object, thing, self, time, consciousness, sense, concept, way, relation" | 
+
+What constitutes the different topics?
 
 **LDA html output**
 
