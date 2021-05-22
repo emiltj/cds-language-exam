@@ -39,9 +39,9 @@ Train an LDA model on your data to extract structured information that can provi
 
 _Tips_
 
-_* Think carefully about the kind of preprocessing steps your text data may require - and document these decisions!
-* Your choice of data will (or should) dictate the task you choose - that is to say, some data are clearly more suited to supervised than unsupervised learning and vice versa. * Make sure you use an appropriate method for the data and for the question you want to answer
-_* Your peer reviewer needs to see how you came to your results - they don't strictly speaking need lots of fancy command line arguments set up using argparse(). You should still try to have well-structured code, of course, but you can focus less on having a fully-featured command line tool
+* _Think carefully about the kind of preprocessing steps your text data may require - and document these decisions!_
+* _Your choice of data will (or should) dictate the task you choose - that is to say, some data are clearly more suited to supervised than unsupervised learning and vice versa. * Make sure you use an appropriate method for the data and for the question you want to answer_
+* _Your peer reviewer needs to see how you came to your results - they don't strictly speaking need lots of fancy command line arguments set up using argparse(). You should still try to have well-structured code, of course, but you can focus less on having a fully-featured command line tool_
 
 ### My assignment description
 This assignment seeks to use Latent Dirichlet Analysis (LDA) as a tool topic modeling tool to investigate philosophical texts in an exploratory manner.
