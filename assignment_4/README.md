@@ -63,7 +63,6 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 ## Results and discussion
 
 **Creating an edgelist:**
-<p align="center">
 |    |                    |                 |        | 
 |----|--------------------|-----------------|--------| 
 |    | nodeA              | nodeB           | weight | 
@@ -78,13 +77,12 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 | 8  | John F. Kerry      | Narendra Modi   | 1      | 
 | 9  | Kerry              | Laurent Fabius  | 12     | 
 | 10 | Francois Hollande  | Kerry           | 17     | 
-<em>Output edgelist generated from the script</em>
-<p/>
+<em>The head of the output edgelist - generated from the script</em>
 
-As can be seen in the table above, the script for generating weighted edgelists has been sucessfully in that it indeed has created a weighted edgelist. The entity extraction of people has correctly both identified John F. Kerry and Kerry as entities. As can be seen in the table however, the script was not programmed to merge entities referring to the save person into a single entity, i.e. changing "Kerry" into John F. Kerry to avoid the problem we see above. Additional processing ought to have been carried out to circumvent this problem.
+As can be seen in the table above, the script for generating weighted edgelists has been sucessfully in that it indeed has created a weighted edgelist. The entity extraction of people has correctly both identified John F. Kerry and Kerry as entities. As can be seen in the table however, the script was not programmed to merge entities referring to the save person into a single entity, i.e. changing "Kerry" into "John F. Kerry" to avoid the problem we see above. Additional processing ought to have been carried out to circumvent this problem.
 
 **Network analysis:**
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_viz.png"><img src="./out/viz/network_viz.png" alt="Logo" width="700" height="512"></a></p>
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_visualization.png"><img src="./out/viz/network_visualization.png" alt="Logo" width="700" height="512"></a></p>
 <p align="center"><em>The network visualized</em><p/>
 
 
