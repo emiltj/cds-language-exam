@@ -63,9 +63,41 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 ## Results and discussion
 
 **Creating an edgelist:**
+|    |                    |                 |        | 
+|----|--------------------|-----------------|--------| 
+|    | nodeA              | nodeB           | weight | 
+| 0  | John F. Kerry      | Kerry           | 21     | 
+| 1  | John F. Kerry      | Laurent Fabius  | 2      | 
+| 2  | Francois Hollande  | John F. Kerry   | 1      | 
+| 3  | John F. Kerry      | Obama           | 76     | 
+| 4  | Benjamin Netanyahu | John F. Kerry   | 7      | 
+| 5  | Jane Hartley       | John F. Kerry   | 1      | 
+| 6  | John F. Kerry      | Victoria Nuland | 1      | 
+| 7  | Eric H. Holder Jr. | John F. Kerry   | 1      | 
+| 8  | John F. Kerry      | Narendra Modi   | 1      | 
+| 9  | Kerry              | Laurent Fabius  | 12     | 
+| 10 | Francois Hollande  | Kerry           | 17     | 
+| 11 | Kerry              | Kerry           | 333    | 
+| 12 | Kerry              | Obama           | 521    | 
+| 13 | Benjamin Netanyahu | Kerry           | 52     | 
+| 14 | Jane Hartley       | Kerry           | 26     | 
+| 15 | Kerry              | Victoria Nuland | 6      | 
+| 16 | Eric H. Holder Jr. | Kerry           | 6      | 
+| 17 | Kerry              | Narendra Modi   | 10     | 
+| 18 | Francois Hollande  | Laurent Fabius  | 1      | 
+| 19 | Laurent Fabius     | Obama           | 9      | 
+| 20 | Benjamin Netanyahu | Laurent Fabius  | 4      | 
+<p align="center"><em>Output edgelist generated from the script</em><p/>
+
+As can be seen in the table above, the script for generating weighted edgelists has been sucessfully in that it indeed has created a weighted edgelist. The entity extraction of people has correctly both identified Donald Trump and Trump as entities. As can be seen in the table however, the script did not merge Trump and Donald Trump into a single entity; additional processing ought to have been carried out to circumvent this problem. This could have been done by
 
 **Network analysis:**
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_viz.png"><img src="./out/viz/network_viz.png" alt="Logo" width="700" height="512"></a></p>
+<p align="center"><em>The network visualized</em><p/>
+
+
+<p align="center"><em>Centrality measures</em><p/>
+
 
 <!-- USAGE -->
 ## Usage
