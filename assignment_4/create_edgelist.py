@@ -77,10 +77,10 @@ def main(inpath):
     # Read data
     texts = pd.read_csv(inpath)
     
-    texts = texts.sample(10)
+    #texts = texts.sample(10)
 
     # Subset to not include "fake" and only keep text column
-    texts = texts[texts["label"]=="REAL"]["text"]
+    texts = texts[texts["label"] == "REAL"]["text"]
 
     # Empty list for appending to
     texts_entities = []
@@ -114,7 +114,7 @@ def main(inpath):
         counted_edges.append((source, target, weight))
 
     # Create a dataframe which contains the edgelist, with "weight" according to how many times the pairs appeared in the different articles 
-    edges_df = pd.DataFrame(counted_edges, columns=["nodeA", "nodeB", "weight"])
+    edges_df = pd.DataFrame(counted_edges, columns = ["nodeA", "nodeB", "weight"])
 
     # Define outpath and save dataframe
     if not os.path.exists("out"): # If the folder does not already exist, create it
