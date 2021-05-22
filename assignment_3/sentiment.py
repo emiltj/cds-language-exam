@@ -40,7 +40,7 @@ def calc_sentiment(text_col):
     text_col: A column strings (pd.Series)
     '''
     # Info for terminal use
-    print("[INFO] Calculating sentiment scores ...")
+    print("[INFO] Calculating sentiment scores (this may take a while) ...")
 
     # Calculate sentiment for all headlines and add the sentiment score to the dataframe
     sentiment_score = []
@@ -61,7 +61,7 @@ def calc_daily_avg_sentiment(date_col, sentiment_score_col):
     sentiment_score_col: Column with sentiment scores for all entries (pd.Series)
     '''
     # Info for terminal use
-    print("[INFO] Calculating mean daily sentiment scores (this may take while) ...")
+    print("[INFO] Calculating mean daily sentiment scores ...")
 
     # Get a list of all unique dates
     unique_dates = list(date_col.unique())
@@ -96,7 +96,7 @@ def calc_daily_avg_sentiment(date_col, sentiment_score_col):
     return df_daily
 
 # Plotting the scores
-def plot_sentiment(df, outname):
+def plot_sentiment(df):
     '''
     Function that plots sentiment scores.
     
@@ -146,15 +146,32 @@ def plot_sentiment(df, outname):
     plt.tight_layout() # So that the font doesn't overlap
     fig.autofmt_xdate() # Tilt x-axis labels, to make room for them
     
-    # Saving the plot
-    # If the folder does not already exist, create it
+     # If the folder does not already exist, create it
     if not os.path.exists("out"):
         os.makedirs("out")
+        
+    # Saving plot (all combined)
+    plt.savefig(os.path.join("out", "daily_sentiment_scores_combined.png"))
     
-    # Create outpath for plot and save
-    outpath = os.path.join("out", outname)
-    plt.savefig(outpath)
-    print(f"[INFO] A sentiment_polarity plot has been saved succesfully: \"{outpath}\"")
+    # Saving subplot 1 (showing sentiment scores daily and smoothed over 7 and 30 days)
+    extent1 = axes_1.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+    fig.savefig(os.path.join("out", "daily_sentiment_scores.png"), bbox_inches=extent1.expanded(1.125, 1.2))
+    
+    # Saving subplot 2 (showing sentiment scores daily)
+    extent2 = axes_2.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+    fig.savefig(os.path.join("out", "daily_sentiment_scores.png"), bbox_inches=extent2.expanded(1.125, 1.2))
+    
+    # Saving subplot 3 (showing sentiment scores daily, smoothed over a 7-day period)
+    extent3 = axes_3.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+    fig.savefig(os.path.join("out", "daily_sentiment_scores_weekly_smooth.png"), bbox_inches=extent3.expanded(1.125, 1.2))
+        
+    # Saving subplot 4 (showing sentiment scores daily, smoothed over a 30-day period)
+    extent4 = axes_4.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
+    fig.savefig(os.path.join("out", "daily_sentiment_scores_monthly_smooth.png"), bbox_inches=extent4.expanded(1.125, 1.2))
+
+    # Info for terminal
+    print("[INFO] Plots of sentiment scores over time have been saved to \"out\"")
+
 
 ############### Defining main function ###############
 def main(inputpath, test):
@@ -181,7 +198,7 @@ def main(inputpath, test):
     df_daily = calc_daily_avg_sentiment(date_col = df["publish_date"], sentiment_score_col = df["sentiment_score"])
     
     # Save plot of the sentiment scores over time
-    plot_sentiment(df_daily, "sentiment_polarity_plot.png")
+    plot_sentiment(df_daily)
 
 ############### Defining use when called from terminal ################
 if __name__=="__main__":
