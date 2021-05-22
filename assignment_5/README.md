@@ -80,10 +80,30 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
+Given the exploratory nature of this assignment, little rockhard results have been generated. Instead, an interpretation of the visual output will be presented in this section.
 
-**he mage:**
+**Topic prevalence in schools of philosophical thought**
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/plot_topic_prob.png"><img src="./out/plot_topic_prob.png" alt="Logo" width="1024" height="512"></a>
 
-**Output):**
+
+**PCA visualizations of schools of philosophical thought**
+
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools.png"><img src="./out/pca_schools.png" alt="Logo" width="350" height="256"></a>   <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools_agg.png"><img src="./out/pca_schools_agg.png" alt="Logo" width="350" height="256"></a></p>
+
+<p align="center"><em>Left: Plot of title topic prevalence (projected onto a 2D PCA space). Colored by school of thought. </em><p/> <p align="center"><em>Right: Plot of the mean topic prevalence for titles within a philosophical school (projected onto 2D PCA space)</em><p/>
+
+**Topic keywords**
+|                |                                                                                  | 
+|----------------|----------------------------------------------------------------------------------| 
+| Dominant_Topic | Topic_Keywords                                                                   | 
+| 2.0            | "country, price, value, labour, part, capital, money, quantity, land, trade"     | 
+| 4.0            | "man, thing, body, god, part, idea, mind, nature, reason, way"                   | 
+| 3.0            | "woman, man, life, madness, form, movement, history, world, language, century"   | 
+| 0.0            | "world, object, thing, self, time, consciousness, sense, concept, way, relation" | 
+
+What constitutes the different topics?
+
+**LDA html output**
 
 <!-- USAGE -->
 ## Usage
