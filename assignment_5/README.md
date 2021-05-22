@@ -80,10 +80,15 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
+Given the exploratory nature of this assignment, little rockhard results have been generated. Instead, an interpretation of the visual output will be presented in this section.
 
-**he mage:**
+**Topic prevalence in schools of philosophical thought**
 
-**Output):**
+**PCA visualizations of schools of philosophical thought**
+
+**Words of greatest importance in each topic**
+
+**LDA html output**
 
 <!-- USAGE -->
 ## Usage
