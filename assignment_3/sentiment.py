@@ -1,20 +1,25 @@
 #!/usr/bin/python
 
 ############### Importing libraries ################
-import os, re, datetime, glob, spacy, argparse
+import os, re, datetime, glob, spacy, argparse, spacy
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
 from spacytextblob.spacytextblob import SpacyTextBlob
-spacy_text_blob = SpacyTextBlob()
 nlp = spacy.load("en_core_web_sm")
+spacy_text_blob = SpacyTextBlob()
 
 ############### Defining functions to be used in main ###############
 def convert_to_datetime(date_col):
     '''
-    Function which converts a column to datetime
+    Function which converts a column to datetime.
+    
+    date_col: A date column (pd.Series)
     '''
+    # Info for terminal use
+    print("[INFO] Converting date column to datetime format ...")
+    
     # Creating an empty list which is going to contain the dates in date format instead of numerical
     dates = []
     
@@ -30,21 +35,34 @@ def convert_to_datetime(date_col):
 # Calculate sentiment scores for each headline
 def calc_sentiment(text_col):
     '''
-    Function that calculates sentiment scores for a column of strings
+    Function that calculates sentiment scores for a column of strings.
+    
+    text_col: A column strings (pd.Series)
     '''
+    # Info for terminal use
+    print("[INFO] Calculating sentiment scores ...")
+
     # Calculate sentiment for all headlines and add the sentiment score to the dataframe
     sentiment_score = []
     for doc in nlp.pipe(list(text_col)):
         score = doc._.sentiment.polarity
         sentiment_score.append(score)
-
+        
+    # Return the sentiment score
     return sentiment_score
 
 # Calculate daily average sentiment scores. Also smoothed scores
 def calc_daily_avg_sentiment(date_col, sentiment_score_col):
     '''
-    Function that calculates daily average sentiment scores from date column and sentiment score column. Returns a data frame with average scores and average scores smoothed over a weekly and a monthly basis.
+    Function that calculates daily average sentiment scores from date column and sentiment score column. 
+    Returns a data frame with average scores and average scores smoothed over a weekly and a monthly basis.
+    
+    date_col: Column with dates in date() format (pd.Series)
+    sentiment_score_col: Column with sentiment scores for all entries (pd.Series)
     '''
+    # Info for terminal use
+    print("[INFO] Calculating mean daily sentiment scores (this may take while) ...")
+
     # Get a list of all unique dates
     unique_dates = list(date_col.unique())
 
@@ -78,9 +96,12 @@ def calc_daily_avg_sentiment(date_col, sentiment_score_col):
     return df_daily
 
 # Plotting the scores
-def plot_sentiment(df):
+def plot_sentiment(df, outname):
     '''
-    Function that plots sentiment scores
+    Function that plots sentiment scores.
+    
+    df: Dataframe containing raw sentiment scores, and sentiment scores smoothed daily and weekly. Also has to contain a date column.
+    outname: Name of file to be saved
     '''
     # Adding a figure which is large enough for multiple subplots
     fig = plt.figure(figsize = (42.0, 8.0))
@@ -125,12 +146,24 @@ def plot_sentiment(df):
     plt.tight_layout() # So that the font doesn't overlap
     fig.autofmt_xdate() # Tilt x-axis labels, to make room for them
     
-    # To save
-    plt.savefig("sentiment_polarity_plot.png")
-    print("A new file succesfully been created: \"sentiment_polarity_plot.png\"")
+    # Saving the plot
+    # If the folder does not already exist, create it
+    if not os.path.exists("out"):
+        os.makedirs("out")
+    
+    # Create outpath for plot and save
+    outpath = os.path.join("out", outname)
+    plt.savefig(outpath)
+    print(f"[INFO] A sentiment_polarity plot has been saved succesfully: \"{outpath}\"")
 
 ############### Defining main function ###############
 def main(inputpath, test):
+    '''
+    Main function.
+    
+    inputpath: Path to news document
+    test: Bool, specifying whether to run a test of the script on only a subset of the data (to allow for faster processing)
+    '''
     # Read csv for inputpath
     df = pd.read_csv(inputpath)
     
@@ -146,12 +179,14 @@ def main(inputpath, test):
     
     # Calculate daily average sentiment scores as well as the weekly and monthly smoothing
     df_daily = calc_daily_avg_sentiment(date_col = df["publish_date"], sentiment_score_col = df["sentiment_score"])
-    plot_sentiment(df_daily)
+    
+    # Save plot of the sentiment scores over time
+    plot_sentiment(df_daily, "sentiment_polarity_plot.png")
 
 ############### Defining use when called from terminal ################
 if __name__=="__main__":
     # Define parser
-    parser = argparse.ArgumentParser(description='A script that computes sentiment scores for headlines and averages sentiment scores of headlines within dates. Furthermore smoothes this average over a window of 7 and 30 days, respectively - as well as plots the average sentiment scores for each day.')
+    parser = argparse.ArgumentParser(description='[SCRIPT DESCRIPTION] A script that computes sentiment scores for headlines and averages sentiment scores of headlines within dates. Furthermore smoothes this average over a window of 7 and 30 days, respectively - as well as plots the average sentiment scores for each day.')
 
     # Add inpath argument
     parser.add_argument(
@@ -162,14 +197,14 @@ if __name__=="__main__":
     required = False,
     help = f"str - path to .csv. n")
 
-    # Add outpath argument
+    # Add test argument
     parser.add_argument(
     '-t',
     '--test',
     type = bool,
     default = False,
     required = False,
-    help = 'bool - if True, then performs only on a subset. False is on the full subset')
+    help = 'bool - if True, then performs only on a subset. False is on the full dataset')
 
     # Taking all the arguments we added to the parser and input into "args"
     args = parser.parse_args()
