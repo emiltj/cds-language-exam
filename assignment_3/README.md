@@ -60,8 +60,13 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
 
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_polarity_plot.png"><img src="./out/sentiment_polarity_plot.png" alt="Logo" width="1200" height="300"></a></p>
-<p align="center"><em>Sentiment scores over time</em><p/>
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores.png"><img src="./out/daily_sentiment_scores.png" alt="Logo" width="240" height="150"></a></p>
+<p align="center"><em>Sentiment scores over time, no smoothing</em><p/>
+
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores_weekly_smooth.png""><img src="./out/daily_sentiment_scores_weekly_smooth.png" alt="Logo" width="240" height="150"></a>   <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores_monthly_smooth.png"><img src="./out/daily_sentiment_scores_monthly_smooth.png" alt="Logo" width="240" height="150"></a></p>
+<p align="center"><em>Sentiment scores over time, 7-day smoothing &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Sentiment scores over time, 30-day smoothing</em><p/>
+
+
 
 The plot quite clearly depicts a pattern of great fluctuation on a daily basis. However, when smoothing the sentiment scores more general trends become visible - especially when using a 7-day rolling mean smoothing. 
 One of these trends is an especially positive trend around the dates 15th of March to the 22 of March, 2003.
