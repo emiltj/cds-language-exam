@@ -49,6 +49,9 @@ It should also create a data frame showing the degree, betweenness, and eigenvec
 ## Methods
 
 **Specifically for this assignment:**
+A prerequisite for completing this assignment is having a weighted edgelist. I have therefore decided to include an additional script, which generates a weighted edgelist (```create_edgelist.py```). This script takes the ```fake_or_real_news.csv``` dataset and extracts its entities with the label \[PERSON\]. It utilizes the model _en_core_web_sm_ from the SpaCy library. It then find entity pairs (entities that appear within the same document) and counts how often these pairs have appeared in all news articles - these counts are the weight of each of the unique pairs. The weighted edgelist is then saved as a .csv.
+
+The actual assignment script ```network.py``` takes the newly created weighted edgelist as input and the argument _n_ that specifies how many of the heighest weighted node pairs the network analysis should include. It plots the network using the package _networkx_ and saves it to directory ```viz```. It also calculates centrality measures and saves it as a .csv in the folder  ```output```. The measures are eigenvector centrality, betweenness centrality and degree centrality. Eigenvector centrality is a measure of influence of a node - nodes with many connections to other well connected nodes will have higher scores. Betweenness centrality is a measure of centrality in a network - a node that lies on communication flows can control the flow. Calculated by computing the shortest paths between all nodes, then determining the fraction of the number of these paths that go through a given node in question, compared to total number of paths. In a weighted network such as this one, scores are higher given higher edge weights. Degree centrality is merely the number of connections a given node has.
 
 **On a more general level (this applies to all assignments):**
 I have tried to as accessible and user-friendly as possible. This has been attempted by the use of:
@@ -59,9 +62,10 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
 
-**he mage:**
+**Creating an edgelist:**
 
-**Output):**
+**Network analysis:**
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_viz.png"><img src="./out/viz/network_viz.png" alt="Logo" width="256" height="256"></a></p>
 
 <!-- USAGE -->
 ## Usage
