@@ -83,14 +83,14 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 Given the exploratory nature of this assignment, little rockhard results have been generated. Instead, an interpretation of the visual output will be presented in this section.
 
 **Topic prevalence in schools of philosophical thought**
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/plot_topic_prob.png"><img src="./out/plot_topic_prob.png" alt="Logo" width="512" height="512"></a>
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/plot_topic_prob.png"><img src="./out/plot_topic_prob.png" alt="Logo" width="748" height="512"></a>
   
 https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/plot_topic_prob.png
 
 
 **PCA visualizations of schools of philosophical thought**
 
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools.png"><img src="./out/pca_schools.png" alt="Logo" width="256" height="256"></a>   <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools_agg.png"><img src="./out/pca_schools_agg.png" alt="Logo" width="256" height="256"></a></p>
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools.png"><img src="./out/pca_schools.png" alt="Logo" width="512" height="256"></a>   <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools_agg.png"><img src="./out/pca_schools_agg.png" alt="Logo" width="512" height="256"></a></p>
 
 <p align="center"><em>Plot of title topic prevalence (projected onto a 2D PCA space). Colored by school of thought &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Plot of the mean topic prevalence for titles within a philosophical school (projected onto 2D PCA space)</em><p/>
 
