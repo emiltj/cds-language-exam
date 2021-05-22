@@ -115,15 +115,26 @@ python network.py
 ### Optional arguments:
 
 create_edgelist.py arguments for commandline to consider:
--       "-f"
-        "--filepath", 
-        type = str,
-        default = os.path.join("data", "*.jpg"), # Default path to corpus, when none is specified
+-       '-i',
+        '--inpath',
+        type = str, 
+        default = os.path.join("data", "fake_or_real_news.csv"), # Default when not specifying a path
         required = False,
-        help= "str - path to image corpus")
+        help = "Inputpath for generating edgelist")
 
 network.py arguments for commandline to consider:
-
+-       "-i",
+        "--inpath", 
+        type = str,
+        default = os.path.join("out","weighted_edgelist.csv"), # Default when not specifying a path
+        required = False, # Since we have a default value, it is not required to specify this argument
+        help = "str containing path to edgelist file")
+-       "-n",
+        "--n", 
+        type = int,
+        default = 25, # Default when not specifying anything in the terminal
+        required = False, # Since we have a default value, it is not required to specify this argument
+        help = "int specifying number of node + edge pairs wanted in the analysis (top n weighted pairs)")
 
 <!-- CONTACT -->
 ## Contact
