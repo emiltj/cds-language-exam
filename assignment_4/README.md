@@ -49,6 +49,9 @@ It should also create a data frame showing the degree, betweenness, and eigenvec
 ## Methods
 
 **Specifically for this assignment:**
+A prerequisite for completing this assignment is having a weighted edgelist. I have therefore decided to include an additional script, which generates a weighted edgelist (```create_edgelist.py```). This script takes the ```fake_or_real_news.csv``` dataset and extracts its entities with the label \[PERSON\]. It utilizes the model _en_core_web_sm_ from the SpaCy library. It then find entity pairs (entities that appear within the same document) and counts how often these pairs have appeared in all news articles - these counts are the weight of each of the unique pairs. The weighted edgelist is then saved as a .csv.
+
+The actual assignment script ```network.py``` takes the newly created weighted edgelist as input and the argument _n_ that specifies how many of the heighest weighted node pairs the network analysis should include. It plots the network using the package _networkx_ and saves it to directory ```viz```. It also calculates centrality measures and saves it as a .csv in the folder  ```output```. The measures are eigenvector centrality, betweenness centrality and degree centrality. Eigenvector centrality is a measure of influence of a node - nodes with many connections to other well connected nodes will have higher scores. Betweenness centrality is a measure of centrality in a network - a node that lies on communication flows can control the flow. Calculated by computing the shortest paths between all nodes, then determining the fraction of the number of these paths that go through a given node in question, compared to total number of paths. In a weighted network such as this one, scores are higher given higher edge weights. Degree centrality is merely the number of connections a given node has.
 
 **On a more general level (this applies to all assignments):**
 I have tried to as accessible and user-friendly as possible. This has been attempted by the use of:
@@ -59,9 +62,34 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
 
-**he mage:**
+**Creating an edgelist:**
+<p align="center">
+|    |                    |                 |        | 
+|----|--------------------|-----------------|--------| 
+|    | nodeA              | nodeB           | weight | 
+| 0  | John F. Kerry      | Kerry           | 21     | 
+| 1  | John F. Kerry      | Laurent Fabius  | 2      | 
+| 2  | Francois Hollande  | John F. Kerry   | 1      | 
+| 3  | John F. Kerry      | Obama           | 76     | 
+| 4  | Benjamin Netanyahu | John F. Kerry   | 7      | 
+| 5  | Jane Hartley       | John F. Kerry   | 1      | 
+| 6  | John F. Kerry      | Victoria Nuland | 1      | 
+| 7  | Eric H. Holder Jr. | John F. Kerry   | 1      | 
+| 8  | John F. Kerry      | Narendra Modi   | 1      | 
+| 9  | Kerry              | Laurent Fabius  | 12     | 
+| 10 | Francois Hollande  | Kerry           | 17     | 
+<em>Output edgelist generated from the script</em>
+<p/>
 
-**Output):**
+As can be seen in the table above, the script for generating weighted edgelists has been sucessfully in that it indeed has created a weighted edgelist. The entity extraction of people has correctly both identified John F. Kerry and Kerry as entities. As can be seen in the table however, the script was not programmed to merge entities referring to the save person into a single entity, i.e. changing "Kerry" into John F. Kerry to avoid the problem we see above. Additional processing ought to have been carried out to circumvent this problem.
+
+**Network analysis:**
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_viz.png"><img src="./out/viz/network_viz.png" alt="Logo" width="700" height="512"></a></p>
+<p align="center"><em>The network visualized</em><p/>
+
+
+<p align="center"><em>Centrality measures</em><p/>
+
 
 <!-- USAGE -->
 ## Usage
