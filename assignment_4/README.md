@@ -77,6 +77,7 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 | 8  | John F. Kerry      | Narendra Modi   | 1      | 
 | 9  | Kerry              | Laurent Fabius  | 12     | 
 | 10 | Francois Hollande  | Kerry           | 17     | 
+
 <em>The head of the output edgelist - generated from the script</em>
 
 As can be seen in the table above, the script for generating weighted edgelists has been sucessfully in that it indeed has created a weighted edgelist. The entity extraction of people has correctly both identified John F. Kerry and Kerry as entities. As can be seen in the table however, the script was not programmed to merge entities referring to the save person into a single entity, i.e. changing "Kerry" into "John F. Kerry" to avoid the problem we see above. Additional processing ought to have been carried out to circumvent this problem.
@@ -85,6 +86,20 @@ As can be seen in the table above, the script for generating weighted edgelists 
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_visualization.png"><img src="./out/viz/network_visualization.png" alt="Logo" width="700" height="512"></a></p>
 <p align="center"><em>The network visualized</em><p/>
 
+|    |                 |                        |                        |                     | 
+|----|-----------------|------------------------|------------------------|---------------------| 
+|    | node            | eigenvector_centrality | betweenness_centrality | degree_centrality   | 
+| 0  | Clinton         | 0.5276992157079976     | 0.7087912087912088     | 0.8571428571428571  | 
+| 1  | Trump           | 0.5359784095931499     | 0.4670329670329671     | 0.6428571428571428  | 
+| 2  | Obama           | 0.2877321039031794     | 0.0                    | 0.2857142857142857  | 
+| 3  | Hillary Clinton | 0.22647028527916035    | 0.0                    | 0.14285714285714285 | 
+| 4  | Bush            | 0.23017534121767486    | 0.14285714285714288    | 0.3571428571428571  | 
+| 5  | Cruz            | 0.21691893908246254    | 0.0                    | 0.2857142857142857  | 
+| 6  | Donald Trump    | 0.22647028527916035    | 0.0                    | 0.14285714285714285 | 
+| 7  | Hillary         | 0.11235411372791775    | 0.0                    | 0.07142857142857142 | 
+| 8  | Rubio           | 0.2659257043545763     | 0.01098901098901099    | 0.3571428571428571  | 
+| 9  | Bill Clinton    | 0.11235411372791775    | 0.0                    | 0.07142857142857142 | 
+| 10 | Clintons        | 0.11235411372791775    | 0.0                    | 0.07142857142857142 | 
 
 <p align="center"><em>Centrality measures</em><p/>
 
