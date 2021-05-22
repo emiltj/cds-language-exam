@@ -19,8 +19,8 @@ import utils.classifier_utils as clf
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.model_selection import ShuffleSplit
-from sklearn.preprocessing import LabelEncoder
-from sklearn import metrics
+from sklearn.preprocessing import LabelEncoder, LabelBinarizer
+from sklearn.metrics import classification_report, confusion_matrix
 
 # tools from tensorflow
 import tensorflow as tf
@@ -36,19 +36,63 @@ from tensorflow.keras.optimizers import SGD, Adam
 # matplotlib
 import matplotlib.pyplot as plt
 
-tf.keras.backend.clear_session()
-
 ############################### Defining functions to be used in main ###############################
-def create_embedding_matrix(filepath, word_index, embedding_dim):
+def tokenize_X(X_train, X_test, num_words):
+    '''
+    Function that tokenizes X_train and X_test. 
+    E.g. going from "She's your new queen too." to [172, 8, 275, 103, 129] - each word now has an index pointing to a vocabulary list.
+    
+    X_train: Features from the training set (words)
+    X_test: Features from the test set (words)
+    num_words: Number of words to include
+    '''
+    
+    # Initialize tokenizer, using num_words as number of words
+    tokenizer = Tokenizer(num_words = num_words)
+    
+    # Fit tokenizer to training data
+    tokenizer.fit_on_texts(X_train)
+    
+    # Make tokens into sequences
+    X_train_tokens = tokenizer.texts_to_sequences(X_train)
+    X_test_tokens = tokenizer.texts_to_sequences(X_test)
+    
+    # Return the sequenized tokens
+    return X_train_tokens, X_test_tokens, tokenizer
+
+def apply_padding(X_train, X_test, maxlen, placement):
+    '''
+    Function that applies padding to X_train and X_test.
+    
+    X_train: Features for the training set
+    X_test: Features for the test set
+    maxlen: Length of longest feature set in X_train
+    placement: Whether to pad prior or posterior to the text
+    '''
+    # Apply padding to train
+    X_train_pad = pad_sequences(X_train, 
+                            padding = placement, # sequences can be padded "pre" or "post"
+                            maxlen = maxlen)
+
+    # Apply padding to test
+    X_test_pad = pad_sequences(X_test, 
+                           padding = placement, 
+                           maxlen = maxlen)
+    
+    # Return padded elements
+    return X_train_pad, X_test_pad
+
+def create_embedding_matrix(filepath, word_index, embeddingdim):
     """ 
-    A helper function to read in saved GloVe embeddings and create an embedding matrix
+    A helper function to read in saved GloVe embeddings and create an embedding matrix.
+    Courtesy of Ross
     
     filepath: path to GloVe embedding
     word_index: indices from keras Tokenizer
-    embedding_dim: dimensions of keras embedding layer
+    embeddingedim: dimensions of keras embedding layer
     """
     vocab_size = len(word_index) + 1  # Adding again 1 because of reserved 0 index
-    embedding_matrix = np.zeros((vocab_size, embedding_dim))
+    embedding_matrix = np.zeros((vocab_size, embeddingdim))
 
     with open(filepath) as f:
         for line in f:
@@ -56,16 +100,19 @@ def create_embedding_matrix(filepath, word_index, embedding_dim):
             if word in word_index:
                 idx = word_index[word] 
                 embedding_matrix[idx] = np.array(
-                    vector, dtype=np.float32)[:embedding_dim]
+                    vector, dtype=np.float32)[:embeddingdim]
 
     return embedding_matrix
 
-def plot_history(H, epoch):
+def plot_history(H, epoch, outpath):
     """
     Utility function for plotting model history using matplotlib
+    Courtesy of Ross (with a minor change)
+    
     
     H: model history 
     epochs: number of epochs for which the model was trained
+    outpath: Outpath to save the training history plot to
     """
     plt.style.use("fivethirtyeight")
     plt.figure()
@@ -79,11 +126,19 @@ def plot_history(H, epoch):
     plt.legend()
     plt.tight_layout()
     plt.show()
-    plt.savefig(os.path.join("out", f'cnn_training_history.png'), format='png', dpi=100)
+    plt.savefig(outpath, format='png', dpi=100)
 
 ############### Defining main function ###############
-def main(inpath, epoch, batchsize, glove_dim):
+def main(inpath, epoch, batchsize, glovedim, embeddingdim):
+    '''
+    Main function of the script.
     
+    inpath: Path to the Game of Thrones script .csv
+    epoch: Number of epochs for training
+    batchsize: Batchsize
+    glovedim: Which glove to use - number of dimensions
+    embeddingdim: Dimensionality for the embedding
+    '''
     # Load in the data:
     script = pd.read_csv(inpath)
 
@@ -94,95 +149,94 @@ def main(inpath, epoch, batchsize, glove_dim):
                                                         random_state = 42,
                                                         stratify = script['Season'].values) # If full dataset has 12% sentences from season 1, have 12% of sentences in train + test
 
-    # CountVectorizer() had a token count array for each sentence
-    # Here we simply have an array of numbers, which corresponds to a word's index in the vocabulary (of all words)
-    # Tokenize X
-    tokenizer = Tokenizer(num_words = 2500) # Num_words = the most common num_words-1
-    
-    # Fit tokenizer to training data
-    tokenizer.fit_on_texts(X_train)
-    
-    # Make tokens into sequences
-    X_train_toks = tokenizer.texts_to_sequences(X_train)
-    X_test_toks = tokenizer.texts_to_sequences(X_test)
-    
-     # Overall vocabulary size (adding 1 because of reserved 0 index)
+    # Tokenize X_train and X_test (i.e. going from "She's your new queen too." to [172, 8, 275, 103, 129]
+    # Each word now has an index pointing to a vocabulary list.
+    X_train_tokens, X_test_tokens, tokenizer = tokenize_X(X_train, X_test, 10000)
+
+    # Find lenght of longest quote in train
+    maxlen = max([len(elem) for elem in X_train]) # Maxlength to be longest element in X_train
+
+    # Apply padding to X_train and X_test
+    X_train, X_test = apply_padding(X_train_tokens, X_test_tokens, maxlen, "post")
+
+    # Get labelnames before we binarize labels
+    labelnames = set(y_train)
+
+    # Binarize labels
+    lb = LabelBinarizer()
+    y_train_encoded = lb.fit_transform(y_train)
+    y_test_encoded = lb.fit_transform(y_test)
+
+    # Defining overall vocabulary size (adding 1 because of reserved 0 index)
     vocab_size = len(tokenizer.word_index) + 1 
 
-    # Apply padding
-    maxlen = max([len(elem) for elem in X_train_toks]) # Maxlength to be longest element in X_train
-
-    X_train_pad = pad_sequences(X_train_toks, 
-                                padding='post', # sequences can be padded "pre" or "post"
-                                maxlen=maxlen)
-
-    X_test_pad = pad_sequences(X_test_toks, 
-                               padding='post', 
-                               maxlen=maxlen)
-
-    # Encode labels from "Season 8" -> "8"
-    label_encoder = LabelEncoder()
-    y_test_encoded = label_encoder.fit_transform(y_test)
-    y_train_encoded = label_encoder.fit_transform(y_train)
-
-    # Load in embedding matrix
-    embedding_dim = 50 # define embedding size we want to work with
-
     # Create an embedding matrix, from glove (depending on argument)
-    if glove_dim == 50:
+    if glovedim == 50:
         glove = "glove.6B.50d.txt"
-    elif glove_dim == 100:
+    elif glovedim == 100:
         glove = "glove.6B.100d.txt"
-        
+
+    # Creating an embedding matrix
     embedding_matrix = create_embedding_matrix(os.path.join("data", "glove", glove),
                                                tokenizer.word_index, 
-                                               embedding_dim)
-    
-    # Define model
+                                               embeddingdim)
+
+    # Define model type, optimizer, layers and compile model
     model = Sequential() # Initialize sequential model
-
-    # Define optimizer
-    opt = tf.keras.optimizers.Adam(learning_rate=0.001)
-
-    # add Embedding layer
-    model.add(Embedding(input_dim = vocab_size,     # vocab size from Tokenizer()
-                        output_dim = embedding_dim, # user defined embedding size
-                        input_length = maxlen, # maxlen of padded docs
-                        weights = [embedding_matrix],
-                        trainable = False)) # Embeddings are static     
+    opt = tf.keras.optimizers.Adam(learning_rate = 0.01) # Define optimizer
+    # Add embedding layer
+    model.add(Embedding(input_dim = vocab_size, # Vocabulary size (from Tokenizer())
+                        output_dim = embeddingdim, # Embedding dimensions as defined by argument
+                        input_length = maxlen, # Input length should be length of inputs after padding
+                        weights = [embedding_matrix], # Weights from the embedding matrix
+                        trainable = True)) # The model may train on the embeddings
 
     # CONV+ReLU -> MaxPool -> FC+ReLU -> Out
-    model.add(Conv1D(8, 3, 
-                    activation='relu'))
+    model.add(Conv1D(8, 3, activation='relu'))
     model.add(GlobalMaxPool1D())
-    model.add(Dense(8, kernel_regularizer=L2(0.1), 
-                    activation='relu'))
-    model.add(Dense(1, 
-                    activation='softmax')) # softmax because multiclass
-
-    # Compile model
-    model.compile(loss = 'categorical_crossentropy', # categorical, because multiclass
-                  optimizer = opt,
-                  metrics = ['accuracy'])
+    model.add(Dense(16, kernel_regularizer = L2(0.1), activation = 'relu'))
+    model.add(Dense(8,  activation = 'softmax')) # softmax because multiclass
+    model.compile(loss = 'categorical_crossentropy', optimizer = opt, metrics = ['accuracy']) # Compile model (loss categorical - multiple classes)
 
     # Train model
-    print(f"[INFO] Commencing training, using {epoch} epochs")
-    history = model.fit(X_train_pad, y_train_encoded,
+    print(f"[INFO] Training CNN classifier ...")
+    history = model.fit(X_train, y_train_encoded,
                         epochs = epoch,
                         verbose = True,
-                        validation_data = (X_test_pad, y_test_encoded),
+                        validation_data = (X_test, y_test_encoded),
                         batch_size = batchsize)
 
-    
-    # Show plot of accuracy and loss over epochs and save it
-    plot_history(history, epoch)
-    print(f"A plot history report has been saved succesfully: \"out/cnn_training_history.png\"")
-    
-    loss, accuracy = model.evaluate(X_train_pad, y_train_encoded, verbose=False)
-    print("Training Accuracy: {:.4f}".format(accuracy))
-    loss, accuracy = model.evaluate(X_test_pad, y_test_encoded, verbose=False)
-    print("Testing Accuracy:  {:.4f}".format(accuracy))
+    # Print accuracy/loss over epochs (and save)
+    outpath = os.path.join("out", 'cnn_training_history.png')
+    plot_history(history, epoch, outpath)
+    print(f"[INFO] A plot of the training history has been saved succesfully: \"{outpath}\"")
 
+    # Get predictions:
+    predictions = model.predict(X_test)
+
+    # Get classification report from predictions
+    classif_report = pd.DataFrame(classification_report(y_test_encoded.argmax(axis = 1),
+                                    predictions.argmax(axis = 1),
+                                    target_names = labelnames, 
+                                    zero_division = 0,
+                                    output_dict = True))
+
+    # If the folder does not already exist, create it
+    if not os.path.exists("out"):
+        os.makedirs("out")
+
+    # Printing and saving classification_report
+    print(classif_report)
+    classif_report_outname = os.path.join("out", 'cnn_classification_report.csv')
+    classif_report.to_csv(classif_report_outname, sep=',', index = True)
+    print(f"[INFO] A classification report has been saved succesfully: \"{classif_report_outname}\"")
+
+    # Print overview of potential overfitting of the model
+    loss, accuracy = model.evaluate(X_train, y_train_encoded, verbose = False)
+    print("[PERFORMANCE INFO] Training Accuracy: {:.4f}".format(accuracy))
+    loss, accuracy = model.evaluate(X_test, y_test_encoded, verbose = False)
+    print("[PERFORMANCE INFO] Testing Accuracy:  {:.4f}".format(accuracy))
+    
 ############################### Defining use when called from terminal ################################
 if __name__=="__main__":
     # Initialise ArgumentParser class
@@ -197,12 +251,12 @@ if __name__=="__main__":
         required = False,
         help= "str - specifying inpath to Game of Thrones script")
     
-    # Add inpath argument
+    # Add epoch argument
     parser.add_argument(
         "-e",
         "--epoch", 
         type = int,
-        default = 5,
+        default = 10,
         required = False,
         help= "int - specifying number of epochs for the cnn model training")
     
@@ -211,11 +265,11 @@ if __name__=="__main__":
         "-b",
         "--batchsize",
         type = int, 
-        default = 200,
+        default = 100,
         required = False,
         help = "int - specifying batch size")
     
-    # Add inpath argument
+    # Add glove dimensions argument
     parser.add_argument(
         "-g",
         "--glovedim", 
@@ -224,9 +278,17 @@ if __name__=="__main__":
         required = False,
         help= "int - specifying which how many dimensions should be in the glove embedding to use. Options: 50 or 100")
 
+    # Add embedding dimension argument
+    parser.add_argument(
+        "-E",
+        "--embeddingdim", 
+        type = int,
+        default = 50,
+        required = False,
+        help= "int - specifying dimensions for the embedding")
     
     # Taking all the arguments we added to the parser and input into "args"
     args = parser.parse_args()
     
     # Performing main function
-    main(args.inpath, args.epoch, args.batchsize, args.glovedim)
+    main(args.inpath, args.epoch, args.batchsize, args.glovedim, args.embeddingdim)

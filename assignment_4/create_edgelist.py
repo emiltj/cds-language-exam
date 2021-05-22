@@ -18,6 +18,8 @@ plt.rcParams["figure.figsize"] = (20,20)
 def extract_people_entities(text):
     '''
     From string, extract and return all text entities that have the label "PERSON".
+    
+    text: A string to extract entities from
     '''
     # Create temporary list 
     text_entities = []
@@ -40,6 +42,8 @@ def extract_people_entities(text):
 def create_edgelist(texts_entities):
     '''
     Function that takes a list of text entities and returns an edgelist of all pairs.
+    
+    Text_entities: A list of lists, with the nested lists containing entities for a given text
     '''
     # Empty list for appending to
     edgelist = []
@@ -64,6 +68,12 @@ def create_edgelist(texts_entities):
 
 ############### Defining main function ###############
 def main(inpath):
+    ''' 
+    Main function of the script.
+    
+    inpath: Path to the news data
+    '''
+    
     # Read data
     texts = pd.read_csv(inpath)
     

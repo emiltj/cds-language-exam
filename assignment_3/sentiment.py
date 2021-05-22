@@ -160,7 +160,7 @@ if __name__=="__main__":
     type = str,
     default = os.path.join("data", "abcnews-date-text.csv"),
     required = False,
-    help = f"str - path to .csv. note that the csv has to have same formatting as \"{os.path.join("cds-language", "data", "abcnews-date-text.csv")}\"")
+    help = f"str - path to .csv. n")
 
     # Add outpath argument
     parser.add_argument(

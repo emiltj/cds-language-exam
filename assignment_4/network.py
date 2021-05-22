@@ -14,12 +14,16 @@ import spacy
 nlp = spacy.load("en_core_web_sm")
 
 ############### Defining main function ###############
-def main(edgelist, n, save):
+def main(inpath, n, save):
     '''
-    Main function for the script
+    Main function for the script.
+    
+    inpath: Path to a weighted edelist
+    n: Number of pairs to include (starts from heighest weighted pair, and takes next heighest weighted pair and so on)
+    save: Whether to save or not
     '''
     # Load in the edgelist
-    weighted_edgelist = pd.read_csv(edgelist, index_col = 0)
+    weighted_edgelist = pd.read_csv(inpath, index_col = 0)
 
     # Get only the "n" strongest connections
     weighted_edgelist = weighted_edgelist.sort_values(by=['weight'], ascending = False, na_position='last').iloc[0:n,:]
@@ -57,7 +61,7 @@ def main(edgelist, n, save):
         viz_folder = os.path.join("out", "viz")
         if not os.path.exists(viz_folder):
             os.makedirs(viz_folder)
-        viz_plot = os.path.join(viz_folder, "network_viz.png")
+        viz_plot = os.path.join(viz_folder, "network_visualization.png")
         plt.savefig(viz_plot, dpi=300, bbox_inches="tight")
 
         print(f"[INFO] A new visualization has been created succesfully: \"{viz_plot}\"") 
@@ -82,7 +86,7 @@ if __name__=="__main__":
         "-n",
         "--n", 
         type = int,
-        default = 15, # Default when not specifying anything in the terminal
+        default = 25, # Default when not specifying anything in the terminal
         required = False, # Since we have a default value, it is not required to specify this argument
         help = "int specifying number of node + edge pairs wanted in the analysis (top n weighted pairs)")
     args = parser.parse_args()

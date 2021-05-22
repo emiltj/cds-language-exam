@@ -22,7 +22,9 @@ import matplotlib.pyplot as plt
 ############################### Defining main function ###############################
 def main(inpath):
     '''
-    Main function of the script
+    Main function of the script.
+    
+    inpath: Specifies path to the GoT script
     '''
     # Load in the data:
     script = pd.read_csv(inpath)
