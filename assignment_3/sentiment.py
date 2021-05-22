@@ -114,8 +114,8 @@ def plot_sentiment(df):
 
     # Defining axes_1 plot
     axes_1.plot(df["date"], df["sentiment_score"], "b", linewidth = 2)
-    axes_1.plot(df["date"], df["sentiment_score_weekly_smooth"], "g", linewidth = 2)
-    axes_1.plot(df["date"], df["sentiment_score_monthly_smooth"], "r", linewidth = 2)
+    axes_1.plot(df["date"], df["sentiment_score_weekly_smooth"], "g", linewidth = 1)
+    axes_1.plot(df["date"], df["sentiment_score_monthly_smooth"], "r", linewidth = 1)
     axes_1.set_title("Mean sentiment score of headlines")
     axes_1.set_xlabel("Dates")
     axes_1.set_ylabel("Mean sentiment scores")
@@ -126,21 +126,21 @@ def plot_sentiment(df):
     axes_2.set_title("Mean sentiment score of headlines")
     axes_2.set_ylabel("Mean sentiment score")
     axes_2.set_xlabel("Dates")
-    axes_2.plot(df["date"], df["sentiment_score"], "b", linewidth = 2)
+    axes_2.plot(df["date"], df["sentiment_score"], "b", linewidth = 1)
     axes_2.xaxis_date() # Tell matplotlib to interpret the x-axis values as dates
 
     # Defining axes_3 plot
     axes_3.set_title("Mean sentiment score of headlines \n (smoothed, 7-day window)")
     axes_3.set_ylabel("Mean sentiment score (smoothed, 7-days)")
     axes_3.set_xlabel("Dates")
-    axes_3.plot(df["date"], df["sentiment_score_weekly_smooth"], "g", linewidth = 2)
+    axes_3.plot(df["date"], df["sentiment_score_weekly_smooth"], "g", linewidth = 1)
     axes_3.xaxis_date() # Tell matplotlib to interpret the x-axis values as dates
 
     # Defining axes_4 plot
     axes_4.set_title("Mean sentiment score of headlines \n (smoothed, 30-day window)")
     axes_4.set_ylabel("Mean sentiment score (smoothed, 30-days)")
     axes_4.set_xlabel("Dates")
-    axes_4.plot(df["date"], df["sentiment_score_monthly_smooth"], "r", linewidth = 2)
+    axes_4.plot(df["date"], df["sentiment_score_monthly_smooth"], "r", linewidth = 1)
     axes_4.xaxis_date() # Tell matplotlib to interpret the x-axis values as dates
 
     plt.tight_layout() # So that the font doesn't overlap
@@ -151,19 +151,19 @@ def plot_sentiment(df):
         os.makedirs("out")
         
     # Saving plot (all combined)
-    plt.savefig(os.path.join("out", "daily_sentiment_scores_combined.png"))
+    plt.savefig(os.path.join("out", "daily_sentiment_scores_by_side.png"))
     
     # Saving subplot 1 (showing sentiment scores daily and smoothed over 7 and 30 days)
     extent1 = axes_1.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
-    fig.savefig(os.path.join("out", "daily_sentiment_scores.png"), bbox_inches=extent1.expanded(1.125, 1.2))
+    fig.savefig(os.path.join("out", "daily_sentiment_scores_combined.png"), bbox_inches=extent1.expanded(1.125, 1.2))
     
     # Saving subplot 2 (showing sentiment scores daily)
     extent2 = axes_2.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
-    fig.savefig(os.path.join("out", "daily_sentiment_scores.png"), bbox_inches=extent2.expanded(1.125, 1.2))
+    fig.savefig(os.path.join("out", "daily_sentiment_scores.png"), bbox_inches=extent2.expanded(1.09, 1.2))
     
     # Saving subplot 3 (showing sentiment scores daily, smoothed over a 7-day period)
     extent3 = axes_3.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
-    fig.savefig(os.path.join("out", "daily_sentiment_scores_weekly_smooth.png"), bbox_inches=extent3.expanded(1.125, 1.2))
+    fig.savefig(os.path.join("out", "daily_sentiment_scores_weekly_smooth.png"), bbox_inches=extent3.expanded(1.1, 1.2))
         
     # Saving subplot 4 (showing sentiment scores daily, smoothed over a 30-day period)
     extent4 = axes_4.get_window_extent().transformed(fig.dpi_scale_trans.inverted())
