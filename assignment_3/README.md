@@ -48,7 +48,7 @@ Do the following:
 
 **Specifically for this assignment:**
 
-The script first converts the dates to datetime format and then calculates the sentiment scores for each of the headlines. To calculate sentiment scores, I use the SpaCy model [en_core_web_sm](https://spacy.io/usage/models). After calculating the sentiment scores the average for each day is then computed. The smoothed scores are subsequently computed using moving windows of window sizes 7 and 30 (weekly and monthly smoothing). For creating the plots, I used matplotlib to have all 4 subplots in a single plot to provide a clear overview.
+The script first converts the dates to datetime format and then calculates the sentiment scores for each of the headlines. To calculate sentiment scores, I use the SpaCy model [en_core_web_sm](https://spacy.io/usage/models). After calculating the sentiment scores the average for each day is then computed. The signal of sentiment scores over days is quite noisy and it can be hard to discern any patterns long term, low frequency patterns. By smoothing or applying a low-pass filter, we filter away the high frequency oscillations of the signal. This allows for better seeing the general patterns of the data. With this as a reason, the daily sentiment scores are smoothed, using moving windows of window sizes 7 and 30 (weekly and monthly smoothing). For creating the plots, I used matplotlib to have all 4 subplots in a single plot to provide a clear overview.
 
 **On a more general level (this applies to all assignments):**
 
@@ -63,14 +63,16 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores.png"><img src="./out/daily_sentiment_scores.png" alt="Logo" width="240" height="150"></a></p>
 <p align="center"><em>Sentiment scores over time, no smoothing</em><p/>
 
+When looking at the raw sentiment scores of the ABC news articles it can be hard to find any general patterns due to the great fluctuation that is apparent on a daily basis. To be able to discern any patterns, we need to extract information from the noisy signal by attenuating the higher frequency components of this signal.
+
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores_weekly_smooth.png""><img src="./out/daily_sentiment_scores_weekly_smooth.png" alt="Logo" width="240" height="150"></a>   <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores_monthly_smooth.png"><img src="./out/daily_sentiment_scores_monthly_smooth.png" alt="Logo" width="240" height="150"></a></p>
 <p align="center"><em>Sentiment scores over time, 7-day smoothing &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Sentiment scores over time, 30-day smoothing</em><p/>
 
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores_combined.png"><img src="./out/daily_sentiment_scores_combined.png" alt="Logo" width="240" height="150"></a></p>
+<p align="center"><em>Sentiment scores over time, combined</em><p/>
 
-
-The plot quite clearly depicts a pattern of great fluctuation on a daily basis. However, when smoothing the sentiment scores more general trends become visible - especially when using a 7-day rolling mean smoothing. 
-One of these trends is an especially positive trend around the dates 15th of March to the 22 of March, 2003.
-It is hard to make any inferences as to what might have caused this spike in positivity around that date.
+When looking at the smoothed signal, we can start to detect low-frequency patterns in the oscillations.  __________________________ insert text  
+It can be hard to make any inferences as to what might have caused the spikes in positivity around the years __ and __ and similarly also hard to explain the drop around the year ???. An educated guess would be that ____
 
 <!-- USAGE -->
 ## Usage
