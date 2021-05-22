@@ -90,7 +90,7 @@ Given the exploratory nature of this assignment, little rockhard results have be
 
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools.png"><img src="./out/pca_schools.png" alt="Logo" width="350" height="256"></a>   <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools_agg.png"><img src="./out/pca_schools_agg.png" alt="Logo" width="350" height="256"></a></p>
 
-<p align="center"><em><strong>Left:<\strong> Plot of title topic prevalence (projected onto a 2D PCA space). Colored by school of thought. <strong>Right:<\strong> Plot of the mean topic prevalence for titles within a philosophical school (projected onto 2D PCA space)</em><p/>
+<p align="center"><em>Left: Plot of title topic prevalence (projected onto a 2D PCA space). Colored by school of thought. </em><p/> <p align="center"><em>Right: Plot of the mean topic prevalence for titles within a philosophical school (projected onto 2D PCA space)</em><p/>
 
 **Words of greatest importance in each topic**
 
