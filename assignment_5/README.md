@@ -44,15 +44,16 @@ _Tips_
 * _Your peer reviewer needs to see how you came to your results - they don't strictly speaking need lots of fancy command line arguments set up using argparse(). You should still try to have well-structured code, of course, but you can focus less on having a fully-featured command line tool_
 
 ### My assignment description
-This assignment seeks to use Latent Dirichlet Analysis (LDA) as a tool topic modeling tool to investigate philosophical texts in an exploratory manner.
-More specifically, I want to investigate whether particular schools of philosophical thought cluster together in terms of topics. To dig a little bit deeper, I also want to do the same type of investigation into the individual books that make up the corpus - in other words not just look at schools as a homogeneous group.
+This assignment seeks to use Latent Dirichlet Analysis (LDA) as a tool of topic modeling. It investigate historical philosophical texts from different schools of philosophical thought in an exploratory manner. More specifically, it seeks to investigate whether particular schools of philosophical have similarities in terms of topics - e.g. _Do texts from German Idealism incorporate the same topics as Nietzsches texts?_ and _Do old Greek philosophical schools cluster together in terms of topics?_. 
+
+Moreover, to dig a little bit deeper than entire schools as a whole, I also want to do the same type of investigation into the individual books of the different philosophical schools. And not limit this exploratory project to just looking at texts from schools as a homogeneous group.
 
 * Merge paragraphs from the same books together in the philosophical text corpus.
-* Perform LDA, using bigram and trigram models ensure that the LDA utilizes 5 topics
-* Create a visualization that depicts each philosophical schools' respective topic prevalence from all 5 topics.
-* Reduce the 5-dimensional space to 2 dimensions using Principal Component Analysis (PCA)
-* Plot the individual books in this PCA-space (with X and Y axes showing principal component 1 and 2)
-* Plot the individual schools in this PCA-space (with X and Y axes showing principal component 1 and 2)
+* Perform LDA, using bigram and trigram models. Ensure that the LDA utilizes 5 topics
+* Create a visualization that depicts each philosophical schools' respective topic prevalence.
+* Reduce the 5-dimensional topic space to 2 dimensions using Principal Component Analysis (PCA)
+* Plot the schools in this PCA-space (with X and Y axes showing principal component 1 and 2, respectively)
+* Plot the individual books in this PCA-space (with X and Y axes showing principal component 1 and 2, respectively)
 * Save a document showing the most important words for each of the 5 topics
 
 <!-- METHODS -->
