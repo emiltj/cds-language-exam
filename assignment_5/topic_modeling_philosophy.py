@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-############################## Importing libraries ###############################
+'''
+###############################################################
+--------------- Import of modules and libraries ---------------
+###############################################################
+'''
 import sys, os, random, spacy, nltk, gensim, logging, warnings, gensim, argparse
 sys.path.append(os.path.join(".."))
 import pandas as pd
@@ -27,7 +31,12 @@ warnings.filterwarnings('ignore')
 logging.basicConfig(format = '%(asctime)s : %(levelname)s : %(message)s', level = logging.ERROR)
 random.seed(1023)
 
-############################## Defining functions to be used in main ##############################
+
+'''
+###############################################################
+------------ Defining functions to be used in main ------------
+###############################################################
+'''
 def print_lda_performance(lda_model, corpus, texts_processed, diction):
     '''
     Function that prints LDA model performance on the measures of Perplexity and Coherence score
@@ -125,7 +134,11 @@ def pca_plot(df, group, title, outname):
     pca_plot.get_figure().savefig(outpath)
     print(f"[INFO] A new file has been created successfully \"{outpath}\"") # Info for terminal
     
-############################## Defining main function ##############################
+'''
+###############################################################
+---------- Defining the main function of the script -----------
+###############################################################
+'''
 def main(inpath, test):
     '''
     Main function of the script
@@ -256,7 +269,11 @@ def main(inpath, test):
     pyLDAvis.save_html(vis, outpath)
     print(f"[INFO] A new file has been created successfully \"{outpath}\"") # Info for terminal
 
-############################## Defining behaviour when called from command line ##############################
+'''
+###############################################################
+----------- Defining use when called from terminal ------------
+###############################################################
+'''
 if __name__=="__main__":
     # Initialize ArgumentParser class
     parser = argparse.ArgumentParser(description = "[SCRIPT DESCRIPTION] Perform LDA on the philosophical texts' data set and visualization the relationship between the different philosophical schools")
