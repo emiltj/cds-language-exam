@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-############### Importing libraries ################
+'''
+###############################################################
+--------------- Import of modules and libraries ---------------
+###############################################################
+'''
 import os, re, datetime, glob, spacy, argparse, spacy
 import numpy as np
 import pandas as pd
@@ -10,7 +14,12 @@ from spacytextblob.spacytextblob import SpacyTextBlob
 nlp = spacy.load("en_core_web_sm")
 spacy_text_blob = SpacyTextBlob()
 
-############### Defining functions to be used in main ###############
+
+'''
+###############################################################
+------------ Defining functions to be used in main ------------
+###############################################################
+'''
 def convert_to_datetime(date_col):
     '''
     Function which converts a column to datetime.
@@ -173,7 +182,12 @@ def plot_sentiment(df):
     print("[INFO] Plots of sentiment scores over time have been saved to \"out\"")
 
 
-############### Defining main function ###############
+
+'''
+###############################################################
+---------- Defining the main function of the script -----------
+###############################################################
+'''
 def main(inputpath, test):
     '''
     Main function.
@@ -200,7 +214,12 @@ def main(inputpath, test):
     # Save plot of the sentiment scores over time
     plot_sentiment(df_daily)
 
-############### Defining use when called from terminal ################
+
+'''
+###############################################################
+----------- Defining use when called from terminal ------------
+###############################################################
+'''
 if __name__=="__main__":
     # Define parser
     parser = argparse.ArgumentParser(description='[SCRIPT DESCRIPTION] A script that computes sentiment scores for headlines and averages sentiment scores of headlines within dates. Furthermore smoothes this average over a window of 7 and 30 days, respectively - as well as plots the average sentiment scores for each day.')
