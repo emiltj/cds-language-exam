@@ -64,22 +64,14 @@ Moreover, to dig a little bit deeper than entire schools as a whole, I also want
 For this assignment, I first aggregated all entries from the same book title together, to have the entire text of one book as one entry. I wanted to look at individual books for my visualizations. I then built bigram and trigram models which would find contiguous sequences of 2 or 3 items (phrases of 2 or 3 words). The models had a threshold score of 100, which meant that they would only allow phrases if the score of the phrase was greater than the threshold. Using the models, I processed the entries (i.e. books), only keeping nouns. I then created a dictionary so I could convert the processed data into vectors. A word in an entry would then be converted into an integer value (with the value functioning like an ID for the dictionary).
 Using the processed corpus I built an LDA model with a default of K=5 topics . As the number of topics is mostly an arbitrary choice, I let the user be enabled to specify another number, using the argument --ntopics. A perplexity score (a statistical measure of how well the model predicts a sample) and a coherence score (measure of the degree of semantic similarity between high scoring words in the topic) are printed to the terminal upon running the script. The prevalences of the topics are then computed for each book title. 
 These prevalence scores for each book title are then used to create a plot.
-- PCA is utilized to reduce the K(5 as default) dimensions (from K topics) to 2 dimensions, in order to plot the books in PCA-space. They are here colored by the respective school of philosophical thought.
+- PCA is utilized to reduce the K dimensions (number of topics - 5 as default) to 2 dimensions, in order to plot the books in PCA-space. They are here colored by the respective school of philosophical thought.
 
 The topic prevalences of all books from the same philosophical school are then averaged together, to get a simplistic measure of topic prevalence in each philosophical school.
 
 - A plot is created that show the topic prevalence distribution across schools of philosophical thought. 
 - Again, PCA is utilized to reduce the K (5 as default) dimensions (from K topics) to 2 dimensions in order to plot the different schools in PCA-space. 
 
-Finally, a document showing the heighest weighted words for each of the 5 topics is saved.
-
-* Merge paragraphs from the same books together in the philosophical text corpus.
-* Perform LDA, using bigram and trigram models ensure that the LDA utilizes 5 topics
-* Create a visualization that depicts each philosophical schools' respective topic prevalence from all 5 topics.
-* Reduce the 5-dimensional space to 2 dimensions using Principal Component Analysis (PCA)
-* Plot the individual books in this PCA-space (with X and Y axes showing principal component 1 and 2)
-* Plot the individual schools in this PCA-space (with X and Y axes showing principal component 1 and 2)
-* Save a document showing the most important words for each of the 5 topics
+Finally, I also saved an interactive HTML document that shows the intertopic distance also using PCA, as well as a .csv document showing the heighest weighted words for each of the K topics.
 
 **On a more general level (this applies to all assignments):**
 
@@ -90,9 +82,9 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
-Given the exploratory nature of this assignment, little rockhard results have been generated. Instead, an interpretation of the visual output will be presented in this section.
+Given the exploratory nature of this assignment few quantitative results have been generated. As a consequence, this section will provide an overview and interpretation of the visual output.
 
-__________________________ These performance metrics can be compared across different K's (numbers of topics), if one wants to experiment finding the optimal number of topics.  
+Please do note that this section looks at the results for K = 5. As performance metrics can be compared across different K's (numbers of topics) using the argument, one may  want to experiment finding the optimal number of topics.  
 
 
 **Topic prevalence in schools of philosophical thought**
