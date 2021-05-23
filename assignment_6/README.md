@@ -48,9 +48,9 @@ In particular, I want you to see how accurately you can model the relationship b
 
 **Specifically for this assignment:**
 
-For the Logistic Regression (LR) classification task, I start by loading in the data. I then do a stratified train-test split of the data, as the data set is unbalanced. Stratification locks the distribution of classes in the train and test sets - i.e. if season 1 entries account for 23% of the entire dataset, then both the train and test set will consist of 23% data from season 1. The dialogue is then vectorized. The sentences are converted to vectors as CNN's only take vectors as input. Each number in the vectors represent a word index in a vocabulary list (which contains the feature names). The feature vectors and the labels from the training data are then used to train the LR classifer, a model which is subsequently tested on the test split. A classification matrix is saved, a long with a confusion matrix to the folder ```out``` .
+For the Logistic Regression (LR) classification task, I start by loading in the data. I then do a stratified train-test split of the data, as the data set is unbalanced. Stratification locks the distribution of classes in the train and test sets - i.e. if season 1 entries account for 23% of the entire dataset, then both the train and test set will consist of 23% data from season 1. The dialogue is then vectorized. The sentences are converted to vectors as LR only take vectors as input. Each number in the vectors represent a word index in a vocabulary list (which contains the feature names). The feature vectors and the labels from the training data are then used to train the LR classifer, a model which is subsequently tested on the test split. A classification matrix is saved, a long with a confusion matrix to the folder ```out``` .
 
-For the Convolutional Neural Networks (CNN) classification task, the data is split up into a train-test split using stratification.
+For the Convolutional Neural Networks (CNN) classification task, the data is split in a similar fashion to the LR, using stratification. The sentences are then converted to vectors to enable them to be used as input for the CNN. All feature vectors are then padded with 0's until the reach the vector length of the longest vector so as to have the same length. The labels are then binarized using sklearn's LabelBinarizer() and an embedding matrix is create using one either the 50D or 100D Glove models - which one can be specified through the use of the argument --glovedim (for more information on the Glove models, see [here](https://nlp.stanford.edu/projects/glove/)). After the embedding is created, I define a sequential model using keras and use the embedding matrix to create an embedding layer as the first layer, succeeded by a convolutional layer with ReLU activation, followed by a max pooling layer and two fully connected network layers. The model is then trained on the training data, and tested on the test data - and using the predictions, a classification matrix is saved to the folder ```out```.
 
 
 
@@ -65,6 +65,8 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
 
+F1-scores for unbalanced test sets
+
 **Logistic Regression classification:**
 
 |           |                     |                     |                     |                     |                     |                     |                     |                     |                    |                     |                    | 
@@ -75,7 +77,7 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 | f1-score  | 0.30  | 0.31  | 0.25                | 0.27 | 0.25 | 0.28  | 0.33   | 0.13 | 0.28 | 0.27  | 0.27 | 
 | support   | 477.0               | 587.0               | 536.0               | 517.0               | 455.0               | 429.0               | 366.0               | 220.0               | 0.28 | 3587.0              | 3587.0             | 
 
-
+When looking at the results
 
 **Convolutional Neural Networks classification:**
 
@@ -100,18 +102,46 @@ Subsequently, use the following code (when within the ```cds-language-exam``` fo
 ```bash
 cd assignment_3
 source ../lang101/bin/activate # If not already activated
-python ___________________________________________________________________.py
+python lr_got.py
+python cnn_got.py
 ```
 
 ### Optional arguments:
 
-image_search.py arguments for commandline to consider:
--       "-f"
-        "--filepath", 
+lr_got.py arguments for commandline to consider:
+
+
+cnn_got.py arguments for commandline to consider:
+-       "-i",
+        "--inpath", 
         type = str,
-        default = os.path.join("data", "*.jpg"), # Default path to corpus, when none is specified
+        default = os.path.join("data", "Game_of_Thrones_Script.csv"),
         required = False,
-        help= "str - path to image corpus")
+        help= "str - specifying inpath to Game of Thrones script")
+-       "-e",
+        "--epoch", 
+        type = int,
+        default = 10,
+        required = False,
+        help= "int - specifying number of epochs for the cnn model training")
+-       "-b",
+        "--batchsize",
+        type = int, 
+        default = 100,
+        required = False,
+        help = "int - specifying batch size")
+-       "-g",
+        "--glovedim", 
+        type = int,
+        default = 50,
+        required = False,
+        help= "int - specifying which how many dimensions should be in the glove embedding to use. Options: 50 or 100")
+-       "-E",
+        "--embeddingdim", 
+        type = int,
+        default = 50,
+        required = False,
+        help= "int - specifying dimensions for the embedding")
 
 <!-- CONTACT -->
 ## Contact
