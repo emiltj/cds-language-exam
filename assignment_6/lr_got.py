@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-############################### Importing libraries ################################
+'''
+###############################################################
+--------------- Import of modules and libraries ---------------
+###############################################################
+'''
 # system tools
 import os, sys, argparse
 sys.path.append(os.path.join(".."))
@@ -19,7 +23,11 @@ from sklearn import metrics
 # matplotlib
 import matplotlib.pyplot as plt
 
-############################### Defining main function ###############################
+'''
+###############################################################
+---------- Defining the main function of the script -----------
+###############################################################
+'''
 def main(inpath):
     '''
     Main function of the script.
@@ -79,7 +87,11 @@ def main(inpath):
     conf_matrix.to_csv(conf_outpath)
     print(f"[INFO] Confusion matrix has been saved succesfully: \"{conf_outpath}\"")
 
-############################### Defining use when called from terminal ################################
+'''
+###############################################################
+----------- Defining use when called from terminal ------------
+###############################################################
+'''
 if __name__=="__main__":
     # Initialise ArgumentParser class
     parser = argparse.ArgumentParser(description = "[SCRIPT DESCRIPTION] Script that trains a logistic regression classifier to predict season from dialogue")
