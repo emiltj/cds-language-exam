@@ -93,8 +93,8 @@ def topic_prob_plot(df, group, title, outname):
     Takes argument group (which group to group by), title (title of plot) and outname (name for output file).
     '''
     # Create plot over the different philosophical schools' aggregated topic probability distributions
-    plot_topic_prob = sns.scatterplot(data = df.groupby(group).mean().T).set_title(title)
-    plot_topic_prob
+    plot_topic_prob = sns.scatterplot(data = df.groupby(group).mean().T, # Group by school and take mean for each group. Also transpose
+                                      s = 250).set_title(title) # Large points to be able to see
 
     # If the folder does not already exist, create it
     if not os.path.exists("out"):
@@ -111,9 +111,11 @@ def pca_plot(df, group, title, outname):
     Function that creates and saves a relplot of a PCA dataset (df).
     Takes argument group (which group to group by), title (title of plot) and outname (name for output file).
     '''
-    pca_plot = sns.relplot(
-    data = df,
-    x = "principal component 1", y = "principal component 2", hue = group).fig.suptitle("")
+    pca_plot = sns.relplot(data = df,
+                           x = "principal component 1",
+                           y = "principal component 2",
+                           s = 100, # Large dots to be able to see clearly on the plots
+                           hue = group).fig.suptitle("")
     
     # If the folder does not already exist, create it
     if not os.path.exists("out"):
