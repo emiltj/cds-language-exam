@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-############### Importing libraries ################
+'''
+###############################################################
+--------------- Import of modules and libraries ---------------
+###############################################################
+'''
 import os
 import sys
 import argparse
@@ -14,7 +18,12 @@ import networkx as nx
 import matplotlib.pyplot as plt
 plt.rcParams["figure.figsize"] = (20,20)
 
-############### Defining functions to be used in main ###############
+
+'''
+###############################################################
+------------ Defining functions to be used in main ------------
+###############################################################
+'''
 def extract_people_entities(text):
     '''
     From string, extract and return all text entities that have the label "PERSON".
@@ -66,7 +75,12 @@ def create_edgelist(texts_entities):
     # Return the edgelist
     return edgelist
 
-############### Defining main function ###############
+
+'''
+###############################################################
+---------- Defining the main function of the script -----------
+###############################################################
+'''
 def main(inpath):
     ''' 
     Main function of the script.
@@ -127,7 +141,12 @@ def main(inpath):
     edges_df.to_csv(outpath, sep=",", encoding='utf-8', header = True)
     print(f"A new file has been created \"{outpath}\"")
 
-############### Defining use when called from terminal ################
+
+'''
+###############################################################
+----------- Defining use when called from terminal ------------
+###############################################################
+'''
 if __name__=="__main__":
     # Define parser
     parser = argparse.ArgumentParser(
