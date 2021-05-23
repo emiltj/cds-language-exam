@@ -225,7 +225,7 @@ def main(inpath, test):
     principal_components_school_agg = principal_components_school.groupby("school").mean()
 
     # Saving to out folder
-    topic_keywords.to_csv(os.path.join("out", "topic_keywords.csv"), index=False)
+    # topic_keywords.to_csv(os.path.join("out", "topic_keywords.csv"), index=False)
 
     # Plotting and saving the topic prevalence in each of the 10 schools
     topic_prob_plot(df_topic_keywords.set_index("school")[["0", "1", "2", "3", "4"]], 

@@ -213,6 +213,8 @@ def main(inpath, epoch, batchsize, glovedim, embeddingdim):
 
     # Get predictions:
     predictions = model.predict(X_test)
+    
+    # Evaluation (classification report and confusion matrix)
 
     # Get classification report from predictions
     classif_report = pd.DataFrame(classification_report(y_test_encoded.argmax(axis = 1),
@@ -220,17 +222,32 @@ def main(inpath, epoch, batchsize, glovedim, embeddingdim):
                                     target_names = labelnames, 
                                     zero_division = 0,
                                     output_dict = True))
-
+    
+    # Get confusion matrix
+    conf_matrix = pd.DataFrame(confusion_matrix(y_test_encoded.argmax(axis = 1),
+                                    predictions.argmax(axis = 1)))
+    
+    # Print performance to terminal
+    print(f"[PERFORMANCE INFO] Classification report:") # Info to terminal
+    print(classif_report)
+    print(f"[PERFORMANCE INFO] Confusion matrix (rows refer to True class, while columns refer to Predicted class):") # Info to terminal
+    print(conf_matrix)
+    
+    # Save performance in "out"
     # If the folder does not already exist, create it
     if not os.path.exists("out"):
         os.makedirs("out")
 
-    # Printing and saving classification_report
-    print(classif_report)
-    classif_report_outname = os.path.join("out", 'cnn_classification_report.csv')
-    classif_report.to_csv(classif_report_outname, sep=',', index = True)
-    print(f"[INFO] A classification report has been saved succesfully: \"{classif_report_outname}\"")
-
+    # Define outpath
+    classif_outpath = os.path.join("out", "cnn_classif_report.csv")
+    conf_outpath = os.path.join("out", "cnn_conf_matrix.csv")
+    
+    # Save (and print info to terminal)
+    classif_report.to_csv(classif_outpath)
+    print(f"[INFO] Classification report has been saved succesfully: \"{classif_outpath}\"")
+    conf_matrix.to_csv(conf_outpath)
+    print(f"[INFO] Confusion matrix has been saved succesfully: \"{conf_outpath}\"")
+    
     # Print overview of potential overfitting of the model
     loss, accuracy = model.evaluate(X_train, y_train_encoded, verbose = False)
     print("[PERFORMANCE INFO] Training Accuracy: {:.4f}".format(accuracy))
