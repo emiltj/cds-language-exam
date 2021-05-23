@@ -89,8 +89,7 @@ The LR model performs with an average macro F1-score of 0.27 and seems to predic
 | f1-score  | 0.33  | 0.26  | 0.17 | 0.24  | 0.14  | 0.12 | 0.26  | 0.12 | 0.22 | 0.21 | 0.21 | 
 | support   | 477.0               | 587.0               | 536.0               | 517.0               | 455.0               | 429.0               | 366.0               | 220.0               | 0.22 | 3587.0              | 3587.0              | 
 
-
-
+The CNN model perform notably worse than the LR model with a macro average F1-score of 0.21. In general deep neural networks tend to perform better that logistic regressions, given optimal layer architecture, enough data and enough training. However, in this case we see the opposite. Why might this be? Utilizing the embedding that only excludes certain word types result in the model not being able to learn patterns that might be prevalent in these word types. It might be that the words excluded carried important information in distinguishing between seasons. However, without testing the impact of using other word embeddings or other methods, the reasons for the relatively low performance remains unknown.
 
 <!-- USAGE -->
 ## Usage
