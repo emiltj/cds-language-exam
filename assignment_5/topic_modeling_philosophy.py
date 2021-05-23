@@ -105,7 +105,6 @@ def topic_prob_plot(df, group, title, outname):
     plot_topic_prob.get_figure().savefig(outpath)
     print(f"[INFO] A new file has been created successfully \"{outpath}\"") # Info for terminal
     
-    
 def pca_plot(df, group, title, outname):
     '''
     Function that creates and saves a relplot of a PCA dataset (df).
@@ -127,7 +126,7 @@ def pca_plot(df, group, title, outname):
     print(f"[INFO] A new file has been created successfully \"{outpath}\"") # Info for terminal
     
 ############################## Defining main function ##############################
-def main(inpath, subset):
+def main(inpath, test):
     '''
     Main function of the script
     '''
@@ -135,7 +134,8 @@ def main(inpath, subset):
     df = pd.read_csv(inpath)
 
     # Running on subset of "only" 50000 entries for faster processing
-    if subset == True:
+    if test == True:
+        print("[INFO] Running a test on a subset of the full data (sampling only 50000 entries) ... ")
         df = df[["title", "author", "school", "sentence_lowered"]].sample(50000)
 
     # The dataset contains multiple entries from the same books. This can be problematic for performing LDA.
@@ -234,10 +234,16 @@ def main(inpath, subset):
                     "plot_topic_prob.png")
 
     # Plotting and saving a PCA_plot reduced to two dimensions. Grouping by school, but showing individual points for each title
-    pca_plot(principal_components_school, "school", "Texts by school in topic model space (reduced to 2D PCA)", "pca_schools.png")
+    pca_plot(principal_components_school, 
+             "school", 
+             "Texts by school in topic model space (reduced to 2D PCA)", 
+             "pca_schools.png")
 
     # Plotting and saving a PCA_plot reduced to two dimensions. Grouping by school and showing a single point for each school
-    pca_plot(principal_components_school_agg, "school", "Aggregated texts within school in topic model space (reduced to 2D PCA)", "pca_schools_agg.png")
+    pca_plot(principal_components_school_agg,
+             "school", 
+             "Aggregated texts within school in topic model space (reduced to 2D PCA)", 
+             "pca_schools_agg.png")
 
     # Here looking at the intertopic distance + which tokens are most salient/important for each topic.  ***NOTE***
     vis = pyLDAvis.gensim.prepare(lda_model, corpus, dictionary = lda_model.id2word)
@@ -266,15 +272,15 @@ if __name__=="__main__":
     
     # Add subset argument
     parser.add_argument(
-        "-s",
-        "--subset", 
+        "-t",
+        "--test", 
         type = bool,
-        default = True,
+        default = False,
         required = False,
-        help= "bool - specifying whether to run only on a subset of 50000 randomly sampled entries or on the full dataset")
+        help= "bool - specifying whether to run a test on a subset of 50000 randomly sampled entries or on the full dataset")
     
     # Taking all the arguments we added to the parser and input into "args"
     args = parser.parse_args()
     
     # Perform main function
-    main(args.inpath, args.subset)
+    main(args.inpath, args.test)
