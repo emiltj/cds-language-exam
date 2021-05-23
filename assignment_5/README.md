@@ -108,10 +108,12 @@ When plotting the different schools' intertopic distance (grouped by mean scores
 **LDA html output**
 
 <p align="center">
-<a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/LDA_html_screenshot.png"><img src="./out/LDA_html_screenshot.png" alt="Logo" width="960" height="612">
-<em> 
-Screenshot of the html, showing the. NOTE: The topics are ordered by presence in the data which means that 1 does not cross-correspond to the previous plots.
-</em>
+  <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/LDA_html_screenshot.png"><img src="./out/LDA_html_screenshot.png" alt="Logo" width="960"  height="612">
+</a>
+<p align="center">
+  <em> 
+  Screenshot of the html showing which words make up the topics. NOTE: The topics are ordered by presence in the data which means that 1 does not cross-correspond to the previous plots.
+  </em>
 </a>
 
 The LDA html output provides information on which topics are most prevalent (size of circles) and also which words are most deemed most important for the topic (words on the right). Opening the file in your favorite editor would allow you interact, by pointing your mouse to a given topic. Please note that this plot have the topics ordered by presence in the data which means that 1 does not cross-correspond to the previous plots.
