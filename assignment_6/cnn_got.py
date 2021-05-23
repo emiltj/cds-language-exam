@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-############################### Importing libraries ################################
+'''
+###############################################################
+--------------- Import of modules and libraries ---------------
+###############################################################
+'''
 # system tools
 import os, sys, argparse
 sys.path.append(os.path.join(".."))
@@ -36,7 +40,11 @@ from tensorflow.keras.optimizers import SGD, Adam
 # matplotlib
 import matplotlib.pyplot as plt
 
-############################### Defining functions to be used in main ###############################
+'''
+###############################################################
+------------ Defining functions to be used in main ------------
+###############################################################
+'''
 def tokenize_X(X_train, X_test, num_words):
     '''
     Function that tokenizes X_train and X_test. 
@@ -128,7 +136,12 @@ def plot_history(H, epoch, outpath):
     plt.show()
     plt.savefig(outpath, format='png', dpi=100)
 
-############### Defining main function ###############
+
+'''
+###############################################################
+---------- Defining the main function of the script -----------
+###############################################################
+'''
 def main(inpath, epoch, batchsize, glovedim, embeddingdim):
     '''
     Main function of the script.
@@ -254,7 +267,11 @@ def main(inpath, epoch, batchsize, glovedim, embeddingdim):
     loss, accuracy = model.evaluate(X_test, y_test_encoded, verbose = False)
     print("[PERFORMANCE INFO] Testing Accuracy:  {:.4f}".format(accuracy))
     
-############################### Defining use when called from terminal ################################
+'''
+###############################################################
+----------- Defining use when called from terminal ------------
+###############################################################
+'''
 if __name__=="__main__":
     # Initialise ArgumentParser class
     parser = argparse.ArgumentParser(description = "[SCRIPT DESCRIPTION] Script that trains a convolutional neural networks classifier to predict season from dialogue")
