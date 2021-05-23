@@ -153,9 +153,9 @@ def main(inpath, subset):
     bigram_mod = gensim.models.phrases.Phraser(bigram)
     trigram_mod = gensim.models.phrases.Phraser(trigram)
 
-    # Acquire a list of lists. Each of these lists contain all unique words that have one of the postags: 'NOUN', "ADJ", "VERB", "ADV"
+    # Acquire a list of lists. Each of these lists contain all unique words that have the postags: 'NOUN', "ADJ", "VERB", "ADV"
     texts_processed = lda_utils.process_words(df["sentence_lowered"], nlp, bigram_mod, trigram_mod,
-                                             allowed_postags = ['NOUN']) # Only consider certain postags.
+                                             allowed_postags = ["NOUN", "ADJ", "VERB", "ADV" ]) # Only consider certain postags.
 
     # Create dictionary (converting each word into an integer value, which functions like an ID)
     id2word = corpora.Dictionary(texts_processed)
