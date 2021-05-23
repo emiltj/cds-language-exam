@@ -108,7 +108,7 @@ When plotting the different schools' intertopic distance (grouped by mean scores
 **LDA html output**
 
 <p align="center">
-<a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/LDA_html_screenshot.png"><img src="./out/LDA_html_screenshot.png" alt="Logo" width="1024" height="512">
+<a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/LDA_html_screenshot.png"><img src="./out/LDA_html_screenshot.png" alt="Logo" width="960" height="612">
 <em> 
 Screenshot of the html, showing the. NOTE: The topics are ordered by presence in the data which means that 1 does not cross-correspond to the previous plots.
 </em>
