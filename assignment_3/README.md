@@ -68,15 +68,19 @@ When looking at the sentiment scores of the ABC news articles it can be hard to 
 
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_weekly_smooth.png""><img src="./out/sentiment_scores_weekly_smooth.png" alt="Logo" width="768" height="512"></a>
 <p align="center"><em>Sentiment scores over time, 7-day smoothing </em><p/>
-  
+
+Looking at the signal once smoothed with the 7-days moving averaging window, some trends seem to be discernable; spike in positivity around 2015-16 and a drop around 2019.
+
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_monthly_smooth.png"><img src="./out/sentiment_scores_monthly_smooth.png" alt="Logo" width="768" height="512"></a></p>
-<p align="center">Sentiment scores over time, 30-day smoothing</em><p/>
+<p align="center"><em>Sentiment scores over time, 30-day smoothing</em><p/>
+
+Looking at the smoothed signal once smoothed over a 30-day period, the trend described above seem to be even easier to see. Do note that the values on the y-axis also change, due to outliers having less of a say when averaging across this many days.
 
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_combined.png"><img src="./out/sentiment_scores_combined.png" alt="Logo" width="768" height="512"></a></p>
 <p align="center"><em>Sentiment scores over time, combined</em><p/>
 
-When looking at the smoothed signal, we can start to detect low-frequency patterns in the oscillations.  __________________________ insert text  
-It can be hard to make any inferences as to what might have caused the spikes in positivity around the years __ and __ and similarly also hard to explain the drop around the year ???. An educated guess would be that ____
+In general, when looking at the smoothed signal, we can start to detect low-frequency patterns in the oscillations as the higher frequencies are attenuated.  
+It can be hard to make any inferences as to what might have caused the spike in positivity around the year 2015-16 and similarly also hard to explain the drops around the year 2010 as many factors play in. However, given the horrible bush fires that killed hundreds of people and occurred in late 2019 and early 2020 it does not come as a surprise that there is a large drop in positive sentiment in the news articles in the Australian news around that time.
 
 <!-- USAGE -->
 ## Usage
