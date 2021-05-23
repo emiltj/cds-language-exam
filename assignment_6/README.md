@@ -40,7 +40,8 @@ In class this week, we've seen how deep learning models like CNNs can be used fo
 You can find the data [here](https://www.kaggle.com/albenft/game-of-thrones-script-all-seasons)
 
 In particular, I want you to see how accurately you can model the relationship between each season and the lines spoken. That is to say - can you predict which season a line comes from? Or to phrase that another way, is dialogue a good predictor of season?
-* Start by making a baseline using a 'classical' ML solution such as CountVectorization + LogisticRegression and use this as a means of evaluating how well your model performs. * Then you should try to come up with a solution which uses a DL model, such as the CNNs we went over in class.
+* Start by making a baseline using a 'classical' ML solution such as CountVectorization + LogisticRegression and use this as a means of evaluating how well your model performs.
+* Then you should try to come up with a solution which uses a DL model, such as the CNNs we went over in class.
 
 <!-- METHODS -->
 ## Methods
