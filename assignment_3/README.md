@@ -48,7 +48,8 @@ Do the following:
 
 **Specifically for this assignment:**
 
-The script first converts the dates to datetime format and then calculates the sentiment scores for each of the headlines. To calculate sentiment scores, I use the SpaCy model [en_core_web_sm](https://spacy.io/usage/models). After calculating the sentiment scores the average for each day is then computed. The signal of sentiment scores over days is quite noisy and it can be hard to discern any patterns long term, low frequency patterns. By smoothing or applying a low-pass filter, we filter away the high frequency oscillations of the signal. This allows for better seeing the general patterns of the data. With this as a reason, the daily sentiment scores are smoothed, using moving windows of window sizes 7 and 30 (weekly and monthly smoothing). For creating the plots, I used matplotlib to have all 4 subplots in a single plot to provide a clear overview.
+The script first converts the dates to datetime format and then calculates the sentiment scores for each of the headlines. To calculate sentiment scores, I use the SpaCy model [en_core_web_sm](https://spacy.io/usage/models). Sentiment analysis using this approach not only rates sentences as being positive or negative, but actually applies scores based on the structure and wording of the sentence. It takes into account the word dependecies, as well as intensifiers that may strengthen the sentiment of a given word - i.e. given stronger negative score for "I am _very_ angry" as opposed to "I am angry", although the word "very" is neutrally charged by itself (read more [here](https://spacy.io/universe/project/spacy-textblob)).
+After calculating the sentiment scores they are then averaged for each day. The signal of averaged sentiment scores is quite noisy and it can be hard to discern any long term low frequency patterns. By smoothing or applying a low-pass filter, we filter away the high frequency oscillations of the signal. This allows for better seeing the more general, long ranging patterns of the data. With this as rationale, the daily sentiment scores are smoothed using moving averaging, by applying rolling windows of window sizes 7 and 30 (weekly and monthly smoothing). For creating the plots, I used matplotlib and included plots on the scores for each day both smoothed and unsmoothed. I also chose to have a plot of all 4 subplots in a single plot to provide a clear overview of the increase in interpretability that smoothing can enable.
 
 **On a more general level (this applies to all assignments):**
 
@@ -60,22 +61,26 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
 
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/daily_sentiment_scores.png"><img src="./out/daily_sentiment_scores.png" alt="Logo" width="768" height="512"></a></p>
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores.png"><img src="./out/sentiment_scores.png" alt="Logo" width="768" height="512"></a></p>
 <p align="center"><em>Sentiment scores over time, no smoothing</em><p/>
 
 When looking at the sentiment scores of the ABC news articles it can be hard to find any general patterns due to the great fluctuation that is apparent on a daily basis. To be able to discern any patterns, we need to extract information from the noisy signal by attenuating the higher frequency components of this signal.
 
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_weekly_smooth.png""><img src="./out/daily_sentiment_scores_weekly_smooth.png" alt="Logo" width="768" height="512"></a>
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_weekly_smooth.png""><img src="./out/sentiment_scores_weekly_smooth.png" alt="Logo" width="768" height="512"></a>
 <p align="center"><em>Sentiment scores over time, 7-day smoothing </em><p/>
-  
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_monthly_smooth.png"><img src="./out/daily_sentiment_scores_monthly_smooth.png" alt="Logo" width="768" height="512"></a></p>
-<p align="center">Sentiment scores over time, 30-day smoothing</em><p/>
 
-<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_combined.png"><img src="./out/daily_sentiment_scores_combined.png" alt="Logo" width="768" height="512"></a></p>
+Looking at the signal once smoothed with the 7-days moving averaging window, some trends seem to be discernable; spike in positivity around 2015-16 and a drop around 2019.
+
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_monthly_smooth.png"><img src="./out/sentiment_scores_monthly_smooth.png" alt="Logo" width="768" height="512"></a></p>
+<p align="center"><em>Sentiment scores over time, 30-day smoothing</em><p/>
+
+Looking at the smoothed signal once smoothed over a 30-day period, the trend described above seem to be even easier to see. Do note that the values on the y-axis also change, due to outliers having less of a say when averaging across this many days.
+
+<p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_3/out/sentiment_scores_combined.png"><img src="./out/sentiment_scores_combined.png" alt="Logo" width="768" height="512"></a></p>
 <p align="center"><em>Sentiment scores over time, combined</em><p/>
 
-When looking at the smoothed signal, we can start to detect low-frequency patterns in the oscillations.  __________________________ insert text  
-It can be hard to make any inferences as to what might have caused the spikes in positivity around the years __ and __ and similarly also hard to explain the drop around the year ???. An educated guess would be that ____
+In general, when looking at the smoothed signal, we can start to detect low-frequency patterns in the oscillations as the higher frequencies are attenuated.  
+It can be hard to make any inferences as to what might have caused the spike in positivity around the year 2015-16 and similarly also hard to explain the drops around the year 2010 as many factors play in. However, given the horrible bush fires that killed hundreds of people and occurred in late 2019 and early 2020 it does not come as a surprise that there is a large drop in positive sentiment in the news articles in the Australian news around that time.
 
 <!-- USAGE -->
 ## Usage

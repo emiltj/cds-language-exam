@@ -108,8 +108,8 @@ The four assignments are:
 ## Data
 The datasets are provided by courtesy of:
 - [Rohit Kulkarna](https://www.kaggle.com/therohk/million-headlines) - Million headlines dataset, used for assignment 3
-- _________________________________________
-- _________________________________________
+- [Kourosh Alizadeh](https://www.kaggle.com/kouroshalizadeh/history-of-philosophy) - History of Philosophy dataset, used for assginment 5
+- [Alben Tumanggor](https://www.kaggle.com/albenft/game-of-thrones-script-all-seasons) - Game of Thrones script dataset, used for assignment 6
 
 <!-- CONTACT -->
 ## Contact
