@@ -89,14 +89,16 @@ Please do note that this section looks at the results for K = 5. As performance 
 **Topic prevalence in schools of philosophical thought**
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/plot_topic_prob.png"><img src="./out/plot_topic_prob.png" alt="Logo" width="1024" height="512"></a>
 
-When looking at the schools' topic prevalences it becomes apparent that __
+When looking at the schools' topic prevalences the first thing that comes up is the high prevalence of topic 1 in the school of Aristotle and Empiricism. Stoicms and Plato seems to be unrelated to most topics, say for topic 4 and 3, respectively.
 
 **PCA visualizations of schools of philosophical thought**
 
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools.png"><img src="./out/pca_schools.png" alt="Logo" width="350" height="256"></a>   <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools_agg.png"><img src="./out/pca_schools_agg.png" alt="Logo" width="350" height="256"></a></p>
 <p align="center"><em>Left: Plot of title topic prevalence (projected onto a 2D PCA space). Colored by school of thought. </em><p/> <p align="center"><em>Right: Plot of the mean topic prevalence for titles within a philosophical school (projected onto 2D PCA space)</em><p/>
 
-When plotting the different schools intertopic distance, we can see that there seem to be some clustering going on; with ____ and ___ 
+When plotting the different book titles' intertopic distance, we can see that there seem to be some clustering going on. A lot of texts appear at the bottom and perhaps especially at the far left and at the right. There doesn't seem to be any clearcut clustering of the texts of the same school, which may lead us to believe that the topic prevalence doesn't fully correlate with school of thought.
+
+When plotting the different schools' intertopic distance (grouped by mean scores of each school) interesting relations become evident. Aristole and Empricism seem to have a low distance between the two, which makes sense when also taking into account the similiarities in the [plot over the topic prevalence in schools of philosophical thought](https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/plot_topic_prob.png).
 
 **Topic keywords**
 |                |                                                                                  | 
