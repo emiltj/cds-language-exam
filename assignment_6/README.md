@@ -33,7 +33,15 @@
 
 <!-- ASSIGNMENT DESCRIPTION -->
 ## Assignment description
+_Winter is... hopefully over._
 
+In class this week, we've seen how deep learning models like CNNs can be used for text classification purposes. For your assignment this week, I want you to see how successfully you can use these kind of models to classify a specific kind of cultural data - scripts from the TV series Game of Thrones.
+
+You can find the data [here](https://www.kaggle.com/albenft/game-of-thrones-script-all-seasons)
+
+In particular, I want you to see how accurately you can model the relationship between each season and the lines spoken. That is to say - can you predict which season a line comes from? Or to phrase that another way, is dialogue a good predictor of season?
+* Start by making a baseline using a 'classical' ML solution such as CountVectorization + LogisticRegression and use this as a means of evaluating how well your model performs.
+* Then you should try to come up with a solution which uses a DL model, such as the CNNs we went over in class.
 
 <!-- METHODS -->
 ## Methods
