@@ -76,13 +76,13 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 
 <em>Excerpt from the generated edgelist</em>
 
-As can be seen in the table above, the script for generating weighted edgelists has been sucessfully in that it indeed has created a weighted edgelist. The entity extraction of people has correctly both identified John F. Kerry and Kerry as entities. As can be seen in the table however, the script was not programmed to merge entities referring to the save person into a single entity, i.e. changing "Kerry" into "John F. Kerry" to avoid the problem we see above. Additional processing ought to have been carried out to circumvent this problem.
+As can be seen in the table above, the script for generating weighted edgelists has been sucessfully in that it indeed has created a weighted edgelist. The entity extraction of people has correctly both identified John F. Kerry and Kerry as entities. As can be seen in the table however, the script was not programmed to merge entities referring to the save person into a single entity. I.e. changing "Kerry" into "John F. Kerry" to avoid the problem we see above - with pairs of entities that refer to the same person. Additional processing ought to have been carried out to circumvent this problem.
 
 **Network analysis:**
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_visualization.png"><img src="./out/viz/network_visualization.png" alt="Logo" width="700" height="512"></a></p>
 <p align="center"><em>The network visualized (showing the 15 heighest weighted connections)</em><p/>
 
-When looking at the visualization of the network of the 15 strongest connections, it appears that Hillary Clinton, Barack Obama and Donald Trump have some of the strongest connections. However, it should of course be noted that a large portion of strong connections are, in fact, to themselves. This is a result of the edgelist used as input. Otherwise, the script seems to produce the desired outcome.
+When looking at the visualization of the network of the 15 strongest connections (default argument), it appears that Hillary Clinton, Barack Obama and Donald Trump have some of the strongest connections. However, it should of course be noted that a large portion of strong connections are, in fact, to themselves. This is a result of the edgelist used as input. Otherwise, the script seems to produce the desired outcome.
 
 |    |                 |                        |                        |                     | 
 |----|-----------------|------------------------|------------------------|---------------------| 
@@ -97,7 +97,7 @@ When looking at the visualization of the network of the 15 strongest connections
 
 As can be seen in the table above, the problem identified in the creation of the edgelist leaks through - when looking at the excerpt Clinton appears twice. Does Clinton refer to Bill Clinton or Hillary? Or perhaps sometimes Bill and other times Hillary? We cannot know for sure. Regardless when looking at eigenvector centrality, it seems that Trump and Clinton have many connections to other highly connected people. When looking at betweenness centrality, it appears that Clinton functions as a link between a lot of other nodes, glueing many people together. When looking at degree centrality - sheer number of connections, Clinton and Trump appears at the clear top.
 
-Important to note though; the short summary of the results here are merely on the basis of the small excerpt for reasons of simplicity. It is also worthwhile mentioning that the exact scores are not to be trusted too much, due to the same people appearing as multiple nodes (e.g. Clinton, Hillary Clinton, etc.). The script producing this table, seems to work according to the desired outcome although another edgelist would have been desired.
+Important to note though; the short summary of the results here are merely on the basis of the small excerpt for reasons of clarification. It is also worthwhile mentioning that the exact scores are not to be trusted too much, due to the same people appearing as multiple nodes (e.g. Clinton, Hillary Clinton, etc.). The script producing this table, seems to work according to the desired outcome. Another edgelist without duplicates to test this script would have been desired.
 
 <!-- USAGE -->
 ## Usage
