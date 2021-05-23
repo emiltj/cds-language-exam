@@ -48,14 +48,30 @@ In particular, I want you to see how accurately you can model the relationship b
 
 **Specifically for this assignment:**
 
+For the Logistic Regression (LR) classification task, I start by loading in the data. I then do a stratified train-test split of the data, as the data set is unbalanced. Stratification locks the distribution of classes in the train and test sets - i.e. if season 1 entries account for 23% of the entire dataset, then both the train and test set will consist of 23% data from season 1. The dialogue is then vectorized. The sentences are converted to vectors as CNN's only take vectors as input. Each number in the vectors represent a word index in a vocabulary list (which contains the feature names). The feature vectors and the labels from the training data are then used to train the LR classifer, a model which is subsequently tested on the test split. A classification matrix is saved, a long with a confusion matrix to the folder ```out``` .
+
+For the Convolutional Neural Networks (CNN) classification task, the data is split up into a train-test split using stratification.
+
+
+
 **On a more general level (this applies to all assignments):**
+
+I have tried to as accessible and user-friendly as possible. This has been attempted by the use of:
+
+* Smaller functions. These are intended to solve the sub-tasks of the assignment. This is meant to improve readability of the script, as well as simplifying the use of the script.
+* Information prints. Information is printed to the terminal to allow the user to know what is being processed in the background
+* Argparsing. Arguments that let the user determine the behaviour and paths of the script (see "Optional arguments" section for more information)
 
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
 
-**he mage:**
+**Logistic Regression classification:**
 
-**Output):**
+
+
+**Convolutional Neural Networks classification:**
+
+
 
 <!-- USAGE -->
 ## Usage
