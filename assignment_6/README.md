@@ -52,7 +52,7 @@ For the Logistic Regression (LR) classification task, I start by loading in the 
 
 For the Convolutional Neural Networks (CNN) classification task, the data is split in a similar fashion to the LR, using stratification. The sentences are then converted to vectors to enable them to be used as input for the CNN. All feature vectors are then padded with 0's until the reach the vector length of the longest vector so as to have the same length. The labels are then binarized using sklearn's LabelBinarizer() and an embedding matrix is create using one either the 50D or 100D Glove models - which one can be specified through the use of the argument --glovedim (for more information on the Glove models, see [here](https://nlp.stanford.edu/projects/glove/)). After the embedding is created, I define a sequential model using keras and use the embedding matrix to create an embedding layer as the first layer, succeeded by a convolutional layer with ReLU activation, followed by a max pooling layer and two fully connected network layers. The model is then trained on the training data, and tested on the test data - and using the predictions, a classification matrix is saved to the folder ```out```.
 
-
+It is also worth noting that when tuning either the c-parameter in the LR classifier or the layers in the CNN, such as has been done here, we risk overfitting to the testing data. Given enough data, it is generally advisable to include a hold out set - another test set that is only to be tested on when parameters have been tuned to maximum performance on the test set. These scripts do include a holdout set and the results ought to be scrutinized accordingly.
 
 **On a more general level (this applies to all assignments):**
 
@@ -65,7 +65,7 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
 
-F1-scores for unbalanced test sets
+Although accuracy is often in the focus when evaluating machine learning classification performance, I choose to focus on F1-scores as the harmonic mean between recall and precision provide a metric that is less likely to be misinterpreted. Using accuracy as a metric for the combined classification performance in an unbalanced dataset such as this would not accurately convey the performance of the model, as classes with more data would be weighed as more important.
 
 **Logistic Regression classification:**
 
@@ -77,7 +77,7 @@ F1-scores for unbalanced test sets
 | f1-score  | 0.30  | 0.31  | 0.25                | 0.27 | 0.25 | 0.28  | 0.33   | 0.13 | 0.28 | 0.27  | 0.27 | 
 | support   | 477.0               | 587.0               | 536.0               | 517.0               | 455.0               | 429.0               | 366.0               | 220.0               | 0.28 | 3587.0              | 3587.0             | 
 
-When looking at the results
+The LR model performs with an average macro F1-score of 0.27 and seems to predict some seasons better than others. The F1-score for season 8 is at 0.13, which shows that the model had difficulties with predictions here. When looking at the precision and recall it becomes apparent that the model misplaced many season 8 quotes as belonging to other seasons. On the contrary, of those few that were actually classified as season 8 a relatively large portion was actually classified as coming from season 8. The support score for this season is significantly lower than for the other classes. This all points in the direction that the model learned that it achieved higher performances by classifying only the quotes that it was very confident belonged to season 8, as season 8 - given that so few quotes actually were from season 8.
 
 **Convolutional Neural Networks classification:**
 
