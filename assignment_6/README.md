@@ -100,7 +100,7 @@ Make sure to follow the instructions in the README.md located at the parent leve
 Subsequently, use the following code (when within the ```cds-language-exam``` folder):
 
 ```bash
-cd assignment_3
+cd assignment_6
 source ../lang101/bin/activate # If not already activated
 python lr_got.py
 python cnn_got.py
@@ -109,7 +109,18 @@ python cnn_got.py
 ### Optional arguments:
 
 lr_got.py arguments for commandline to consider:
-
+-       "-i",
+        "--inpath", 
+        type = str,
+        default = os.path.join("data", "Game_of_Thrones_Script.csv"),
+        required = False,
+        help = "str - specifying inpath to Game of Thrones script")
+-       "-C",
+        "--C", 
+        type = int,
+        default = 1,
+        required = False,
+        help = "int - specifying c parameter for the model")
 
 cnn_got.py arguments for commandline to consider:
 -       "-i",
