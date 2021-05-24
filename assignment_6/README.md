@@ -97,6 +97,7 @@ Another reason for the low performance may be related to overfitting of the mode
 <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_6/out/cnn_training_history.png">
 <img src="out/cnn_training_history.png" alt="Logo" width="320" height="240">
 </a>
+  
 <em>Training history of the CNN model</em>
 </p>
 
