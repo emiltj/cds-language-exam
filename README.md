@@ -33,7 +33,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About the project
-<p align="center"><img src="assignment_3/out/sentiment_scores_combined.png" alt="Logo" width="384" height="256"></p>
+<p align="center"><img src="assignment_3/out/sentiment_scores_combined.png" alt="Logo" width="512" height="341"></p>
 <p align="center"><em>Example image from one of the assignments</em>
 </p>
 
