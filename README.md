@@ -33,8 +33,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About the project
-
-<p align="center"><img src="README_images/analysis_example.png" alt="Logo" width="375" height="295"></p>
+<p align="center"><img src="assignment_3/out/sentiment_scores_combined.png" alt="Logo" width="384" height="256"></p>
 <p align="center"><em>Example image from one of the assignments</em>
 </p>
 
