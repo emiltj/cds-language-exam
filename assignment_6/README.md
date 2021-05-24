@@ -98,6 +98,7 @@ Another reason for the low performance may be related to overfitting of the mode
 <img src="out/cnn_training_history.png" alt="Logo" width="320" height="240">
 </a>
 <em>Training history of the CNN model</em>
+</p>
 
 <!-- USAGE -->
 ## Usage
