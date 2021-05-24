@@ -72,7 +72,7 @@ The data is not contained within this repository, considering the sheer size of 
 bash data_download.sh
 ```
 
-After cloning the repo, creating the virutal environment and retrieving the data you should be ready to go. Move to the assignment folders and read the READMEs for further instructions.
+After cloning the repo, creating the virtual environment and retrieving the data you should be ready to go. Move to the assignment folders and read the READMEs for further instructions.
 
 <!-- REPOSITORY STRUCTURE -->
 ## Repository structure
@@ -94,14 +94,14 @@ This repository has the following structure:
 
 <!-- ASSIGNMENTS -->
 ## Assignments
-Four assignments have been chosen for this portfolio and are included within the assignment directories. Information on script execution, preprocessing steps, results and discussion can be seen in the READMEs located within each of the assignment directories.
+5 assignments have been chosen for this portfolio and are included within the assignment directories. Information on script execution, preprocessing steps, results and discussion can be seen in the READMEs located within each of the assignment directories.
 
-The four assignments are:
+The five assignments are:
 * Assignment 3 - Sentiment analysis 
 * Assignment 4 - Network analysis
 * Assignment 5 - (Un)supervised machine learning - LDA and Topic modeling on philosophical texts
 * Assignment 6 - Text classification using Deep Learning
-* Assignment 7 - (self-assigned)
+* Assignment 7 - LSTM models for text generation (self-assigned)
 
 <!-- DATA -->
 ## Data
@@ -109,6 +109,7 @@ The datasets are provided by courtesy of:
 - [Rohit Kulkarna](https://www.kaggle.com/therohk/million-headlines) - Million headlines dataset, used for assignment 3
 - [Kourosh Alizadeh](https://www.kaggle.com/kouroshalizadeh/history-of-philosophy) - History of Philosophy dataset, used for assginment 5
 - [Alben Tumanggor](https://www.kaggle.com/albenft/game-of-thrones-script-all-seasons) - Game of Thrones script dataset, used for assignment 6
+- [Thorben Schomacker](https://www.kaggle.com/tschomacker/grimms-fairy-tales) - Grimms fairytales dataset, used for assignment 7
 
 <!-- CONTACT -->
 ## Contact
