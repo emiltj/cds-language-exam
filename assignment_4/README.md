@@ -81,7 +81,7 @@ As can be seen in the table above, the script for generating weighted edgelists 
 
 **Network analysis:**
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_4/out/viz/network_visualization.png"><img src="./out/viz/network_visualization.png" alt="Logo" width="700" height="512"></a></p>
-<p align="center"><em>The network visualized (showing the 15 heighest weighted connections)</em><p/>
+<p align="center"><em>The network visualized (showing the 15 highest weighted connections)</em><p/>
 
 When looking at the visualization of the network of the 15 strongest connections (default argument), it appears that Hillary Clinton, Barack Obama and Donald Trump have some of the strongest connections. However, it should of course be noted that a large portion of strong connections are, in fact, to themselves. This is a result of the edgelist used as input. Otherwise, the script seems to produce the desired outcome.
 
