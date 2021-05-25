@@ -44,9 +44,9 @@ _Tips_
 * _Your peer reviewer needs to see how you came to your results - they don't strictly speaking need lots of fancy command line arguments set up using argparse(). You should still try to have well-structured code, of course, but you can focus less on having a fully-featured command line tool_
 
 ### My assignment description
-This assignment seeks to use Latent Dirichlet Analysis (LDA) as a tool of topic modeling. It investigate historical philosophical texts from different schools of philosophical thought in an exploratory manner. More specifically, it seeks to investigate whether particular schools of philosophical have similarities in terms of topics - e.g. _Do texts from German Idealism incorporate the same topics as Nietzsches texts?_ and _Do old Greek philosophical schools cluster together in terms of topics?_
+This assignment seeks to use Latent Dirichlet Analysis (LDA) as a tool of topic modeling. It investigate historical philosophical texts from different schools of philosophical thought in an exploratory manner. More specifically, it seeks to investigate whether particular schools of philosophical have similarities in terms of topics - seeking answers to questions such as: _Do texts from German Idealism incorporate the same topics as Nietzsches texts?_ and _Do old Greek philosophical schools cluster together in terms of topics?_
 
-Moreover, to dig a little bit deeper than entire schools as a whole, I also want to do the same type of investigation into the individual books of the different philosophical schools (not limiting this exploratory project to just looking at texts from schools as a homogeneous group).
+Moreover, to dig a little bit deeper than entire schools as a whole, I also want to do the same type of investigation into the individual books of the different philosophical schools (not limiting this exploratory project to just looking at texts from schools as a homogeneous group). _Are books from the same philosophical school even similar in the first place, in terms of topics?_
 
 * Merge paragraphs from the same books together in the philosophical text corpus.
 * Perform LDA, using bigram and trigram models. Ensure that the LDA utilizes K=5 topics
@@ -60,15 +60,8 @@ Moreover, to dig a little bit deeper than entire schools as a whole, I also want
 
 **Specifically for this assignment:**
 
-For this assignment, I first aggregated all entries from the same book title together, to have the entire text of one book as one entry. I wanted to look at individual books for my visualizations. I then built bigram and trigram models which would find contiguous sequences of 2 or 3 items (phrases of 2 or 3 words). The models had a threshold score of 100, which meant that they would only allow phrases if the score of the phrase was greater than the threshold. Using the models, I processed the entries (i.e. books), only keeping nouns. I then created a dictionary so I could convert the processed data into vectors. A word in an entry would then be converted into an integer value (with the value functioning like an ID for the dictionary).
-Using the processed corpus I built an LDA model with a default of K=5 topics . As the number of topics is mostly an arbitrary choice, I let the user be enabled to specify another number, using the argument --ntopics. A perplexity score (a statistical measure of how well the model predicts a sample) and a coherence score (measure of the degree of semantic similarity between high scoring words in the topic) are printed to the terminal upon running the script. The prevalences of the topics are then computed for each book title. 
-These prevalence scores for each book title are then used to create a plot.
-- PCA is utilized to reduce the K dimensions (number of topics - 5 as default) to 2 dimensions, in order to plot the books in PCA-space. They are here colored by the respective school of philosophical thought.
-
-The topic prevalences of all books from the same philosophical school are then averaged together, to get a simplistic measure of topic prevalence in each philosophical school.
-
-- A plot is created that show the topic prevalence distribution across schools of philosophical thought. 
-- Again, PCA is utilized to reduce the K (5 as default) dimensions (from K topics) to 2 dimensions in order to plot the different schools in PCA-space. 
+For this assignment, I first aggregated all entries from the same book title together, to have the entire text of one book as one entry. I did this as I wanted to look at individual books for my visualizations. I then built bigram and trigram models which would find contiguous sequences of 2 or 3 items (phrases of 2 or 3 words). The models had a threshold score of 100, which meant that they would only allow phrases if the score of the phrase was greater than the threshold. Using the models, I processed the entries (i.e. books), only keeping nouns, verbs, adverbs, and adjectives. I then created a dictionary so I could convert the processed data into vectors. A word in an entry would then be converted into an integer value (with the value functioning like an ID for the dictionary).
+Using the processed corpus I built an LDA model with a default of K=5 topics . As the number of topics is mostly an arbitrary choice, I let the user be enabled to specify another number, using the argument --ntopics. A perplexity score (a statistical measure of how well the model predicts a sample) and a coherence score (measure of the degree of semantic similarity between high scoring words in the topic) are printed to the terminal upon running the script. The prevalences of the topics are then computed for each book title. Using PCA, the 5 dimensions (one for each topic) are reduced to 2 dimensions. All books are then plotted in this PCA-space and colored by the respective school that they belong to. The topic prevalences of all books from the same philosophical school are then averaged together, to get a simplistic measure of topic prevalence in each philosophical school. A plot is then created that show the topic prevalence distribution across schools of philosophical thought. To be able to see if some schools have a similar topic distribution more clearly, PCA is once again utilized. The average topic prevalences for each school are plotted in this PCA-space.
 
 Finally, I also saved an interactive HTML document that shows the intertopic distance also using PCA. This also gives lists of the most important words for each topic.
 
@@ -81,17 +74,16 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
-Given the exploratory nature of this assignment few quantitative results have been generated. As a consequence, this section will provide an overview and interpretation of the visual output.
+Given the exploratory nature of this assignment few quantitative results have been generated. As a consequence, this section will rather provide an overview and interpretation of the visual output.
 
 Please do note that this section looks at the results for K = 5. As performance metrics can be compared across different K's (numbers of topics) using the argument, one may  want to experiment finding the optimal number of topics.
 
 **Topic prevalence in schools of philosophical thought**
 <p align="center">
-<a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/plot_topic_prob.png"><img src="./out/plot_topic_prob.png" alt="Logo" width="1024" height="512">
+<a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/plot_topic_prob.png"><img src="./out/plot_topic_prob.png" alt="Logo" width="1024" height="512"></a>
 <em> 
 Plot showing the topic prevalence of the different schools of philosophical thought
 </em>
-</a>
 
 When looking at the schools' topic prevalences the first thing that comes up is the high prevalence of topic 4 in the school of Aristotle. Topic 3 seems quite prevalent in books on Feminism, while Plato and Stoicms seems to be unrelated to most topics, say for topic 3.
 
@@ -115,7 +107,7 @@ When plotting the different schools' intertopic distance (grouped by mean scores
   </em>
 </a>
 
-The LDA html output provides information on which topics are most prevalent (size of circles) and also which words are most deemed most important for the topic (words on the right). Opening the file in your favorite editor would allow you interact, by pointing your mouse to a given topic. Please note that this plot have the topics ordered by presence in the data which means that 1 does not cross-correspond to the previous plots.
+The LDA html output provides information on which topics are most prevalent (size of circles) and also which words are most deemed most important for the topic (words on the right). Opening the file in your favorite HTML viewer would allow you interact, by pointing your mouse to a given topic. Please note that this plot have the topics ordered by presence in the data which means that 1 does not cross-correspond to the previous plots.
 
 <!-- USAGE -->
 ## Usage

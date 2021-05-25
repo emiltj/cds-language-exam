@@ -1,6 +1,10 @@
 #!/usr/bin/python
 
-############### Importing libraries ################
+'''
+###############################################################
+--------------- Import of modules and libraries ---------------
+###############################################################
+'''
 from collections import Counter
 from itertools import combinations
 from tqdm import tqdm
@@ -13,7 +17,11 @@ import matplotlib.pyplot as plt
 import spacy
 nlp = spacy.load("en_core_web_sm")
 
-############### Defining main function ###############
+'''
+###############################################################
+---------- Defining the main function of the script -----------
+###############################################################
+'''
 def main(inpath, n):
     '''
     Main function for the script.
@@ -64,7 +72,11 @@ def main(inpath, n):
 
     print(f"[INFO] A new visualization has been created succesfully: \"{viz_plot}\"") 
 
-############### Defining use when called from terminal ################
+'''
+###############################################################
+----------- Defining use when called from terminal ------------
+###############################################################
+'''
 if __name__=="__main__":
     # Initialize parser
     parser = argparse.ArgumentParser(
