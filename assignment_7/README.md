@@ -36,12 +36,12 @@
 
 <p align="center">
 <a href="https://github.com/emiltj/cds-language-exam/README_images/text_generation_pipeline.png">
-<img src="../README_images/text_generation_pipeline.png" alt="Logo" width="269" height="148">
+<img src="../README_images/text_generation_pipeline.png" alt="Logo" width="538" height="296">
 </a>
 
 <p align="center">
 <a href="https://github.com/emiltj/cds-language-exam/README_images/text_generative_models.png">
-<img src="../README_images/text_generative_models.png" alt="Logo" width="430" height="148">
+<img src="../README_images/text_generative_models.png" alt="Logo" width="860" height="296">
 </a>
 
 <!-- METHODS -->
