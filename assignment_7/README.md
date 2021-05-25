@@ -34,7 +34,14 @@
 <!-- ASSIGNMENT DESCRIPTION -->
 ## Assignment description
 
-This assignment seeks to generative new textual content by implementing a Recurrent Neural Network (RNN). More specifically, this assignment seeks see whether it is possible to generate new content in line with the folklore fairytales by written by the Brothers Grimm (Jacob Ludwig Karl Grimm and Wilhelm Carl Grimm).
+This assignment seeks to generative new textual content by implementing a Recurrent Neural Network (RNN). More specifically, this assignment seeks see whether it is possible to generate new textual content in line with the text from [the corpus](https://www.kaggle.com/tschomacker/grimms-fairy-tales) of folklore fairytales written by the Brothers Grimm (Jacob Ludwig Karl Grimm and Wilhelm Carl Grimm). The project intends to investigate the questions: _How well can a neural network learn the patterns of the writings of the Brothers Grimm?_ and _Using the trained model - is it possible to generate new textual content that could have been something you read in an old fairytale?_.
+
+Try using a text generative approach that learns and predicts on word-level, rather than on a character level.
+
+* Train a Long Short-Term Memory (LTSM) artificial Recurrent Neural Network (RNN) on the corpus
+* Use sequences of 50 words as input for the model
+* 
+* 
 
 to train a LSTM model to learn the patterns in a corpus of fairytales written by
 
