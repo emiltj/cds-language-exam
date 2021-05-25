@@ -56,7 +56,13 @@ For this assignment I started out by loading in the text corpus. The text was th
 </a>
 
 <p align="center"><em>Visualization of the text generation pipeline utilized in the script</em></p>
-  
+
+The model consists of an embedding layer followed by two LTSM layers of depth 128 and 100 as per default. Using the argument --l, one may specify another structure for the LTSM layers, however. The model implements LTSM layers due to their way of handling the vanishing gradient problem (the problem of shrinking gradients over time in backpropagation), that is prevalent in traditional RNNs. It does so by the use of feedback connections called gates. The LTSM layers are succeeded by a dense layer (32 nodes) and an output layer that uses softmax and has the number of nodes equal to number of possible predictions.
+
+The model is then trained on the data, learning the patterns in the sequences to be able to predict the next word in the sequence. Epochs and batchsize can be determines using the arguments (for more information, see section "Optional arguments").
+
+
+
 <p align="center">
 <a href="https://github.com/emiltj/cds-language-exam/README_images/text_generative_models.png">
 <img src="../README_images/text_generative_models.png" alt="Logo" width="860" height="296">
