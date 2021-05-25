@@ -58,10 +58,7 @@ For this assignment I started out by loading in the text corpus. The text was th
 <p align="center"><em>Visualization of the text generation pipeline utilized in the script</em></p>
 
 The model consists of an embedding layer followed by two LTSM layers of depth 128 and 100 as per default. Using the argument --l, one may specify another structure for the LTSM layers, however. The model implements LTSM layers due to their way of handling the vanishing gradient problem (the problem of shrinking gradients over time in backpropagation), that is prevalent in traditional RNNs. It does so by the use of feedback connections called gates. The LTSM layers are succeeded by a dense layer (32 nodes) and an output layer that uses softmax and has the number of nodes equal to number of possible predictions.
-
-The model is then trained on the data, learning the patterns in the sequences to be able to predict the next word in the sequence. Epochs and batchsize can be determines using the arguments (for more information, see section "Optional arguments").
-
-
+The model is then trained on the data, learning the patterns in the sequences to be able to predict the next word that would appear after the sequence. Epochs and batchsize for the model training can be determined using the arguments (see section "Optional arguments").
 
 <p align="center">
 <a href="https://github.com/emiltj/cds-language-exam/README_images/text_generative_models.png">
@@ -69,6 +66,10 @@ The model is then trained on the data, learning the patterns in the sequences to
 </a>
 
 <p align="center"><em>Visualization of the principle behind text generation algorithms. Image from blogpost by Harsh Basnal (https://bansalh944.medium.com/text-generation-using-lstm-b6ced8629b03) </em></p>
+
+The text generation method works by taking a sequence of tokens of the same length as the input layer (e.g. one of the sequences of 50 words that were used to train the model) and predict the next word using the trained model. This word prediction is the first word of sequence that is to be generated. The model then uses the 49 last words of the input sequence plus the newly predicted word to predict the next word. And so on an so forth, until the requirements for length of the generated sequence has been met.
+
+The script uses the above mentioned principle to generate new sequences. It randomly samples sequences from the training data to generate the new texts. The number of generated sequences can be specified using the argument _--ngenerate_.
 
 **On a more general level (this applies to all assignments):**
 
@@ -79,6 +80,27 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
+
+**Model training**
+
+The model achieved a training accuracy of 64% meaning that 64% of predictions were correct. Given the +2700 classes it can be said that the model performed quite well. Needless to say, this is certainly because the model learned patterns of this data that do not generalize to other texts. Evidently, the performance when predicting out of the training samples would drop significantly. However, the purpose of this model was not generalize to other texts and to achieve high out-of-sample accuracies, but rather to generate texts. But did the model train enough? From looking at the plot over training accuracy and loss over epochs, it appears that the model had diminishing returns as epochs increased and more epochs would likely not have increase performance much. Perhaps given a more complex architecture, the model have been able to perform even better on the training data given more epochs, though.
+
+<p align="center">
+<a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_7/out/training_hist.png">
+<img src="/out/training_hist.png" alt="Logo" width="860" height="296">
+</a>
+
+<p align="center">Training history of the model<em></em></p>
+
+**Generating text**
+_Insert generated text here_
+
+_Insert generated text here_
+
+The above word sequences are a few cherry picked results that the model ended up producing. Note that these have been manually changed by adding linebreaks, punctuation and by capitalizing letters after periods. The sentences mostly seem to apply to the rules of grammar although kjahdslkjahdslkahsdlkjdsaasdasdasdsa. Although the generated content had some merits in terms of grammar, all semantic coherence seems to be absent. This seems to be a general issue across the different methods used to generate new text - even for esteemed experts in RNNs such as the team behind TensorFlow (see their approach [here](https://www.tensorflow.org/text/tutorials/text_generation)). At present, text generative processes seem to be mostly useful for entertainment purposes, abstract poetry, or as a means to acquire inspirational content in an atypical way.
+
+When looking at the raw output of the script, it also becomes evident that this model lacks formatting - in terms of linebreaks and punctuation. The preprocessing of the data filtered away non-alphanumeric characters, but this may have been unnecessary. Had, for instance, periods been treated like tokens just as the words, the model may had been able to predict punctuation somewhat accurately. Pair this with linebreaks and quotation marks etc., and the output may had been better. Regex patterning could also have been applied to capitalize the first letter when it followed a period.
+
 
 |    |                                                               |                                                                                                                                                                            | 
 |----|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
