@@ -34,15 +34,9 @@
 <!-- ASSIGNMENT DESCRIPTION -->
 ## Assignment description
 
-<p align="center">
-<a href="https://github.com/emiltj/cds-language-exam/README_images/text_generation_pipeline.png">
-<img src="../README_images/text_generation_pipeline.png" alt="Logo" width="538" height="296">
-</a>
+This assignment seeks to generative new textual content by implementing a Recurrent Neural Network (RNN). More specifically, this assignment seeks see whether it is possible to generate new content in line with the folklore fairytales by written by the Brothers Grimm (Jacob Ludwig Karl Grimm and Wilhelm Carl Grimm).
 
-<p align="center">
-<a href="https://github.com/emiltj/cds-language-exam/README_images/text_generative_models.png">
-<img src="../README_images/text_generative_models.png" alt="Logo" width="860" height="296">
-</a>
+to train a LSTM model to learn the patterns in a corpus of fairytales written by
 
 <!-- METHODS -->
 ## Methods
@@ -50,6 +44,18 @@
 **Specifically for this assignment:**
 
 For this assignment
+
+<p align="center">
+<a href="https://github.com/emiltj/cds-language-exam/README_images/text_generation_pipeline.png">
+<img src="../README_images/text_generation_pipeline.png" alt="Logo" width="538" height="296">
+</a>
+  <em>Visualization of the text generation pipeline utilized in the script</em>
+  
+<p align="center">
+<a href="https://github.com/emiltj/cds-language-exam/README_images/text_generative_models.png">
+<img src="../README_images/text_generative_models.png" alt="Logo" width="860" height="296">
+</a>
+<em>Visualization of the principle behind text generation algorithms. Image from blogpost by [Harsh Basnal](https://bansalh944.medium.com/text-generation-using-lstm-b6ced8629b03)</em>
 
 **On a more general level (this applies to all assignments):**
 
