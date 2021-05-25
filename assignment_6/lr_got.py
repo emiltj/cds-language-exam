@@ -20,11 +20,12 @@ from sklearn import metrics
 import matplotlib.pyplot as plt
 
 ############################### Defining main function ###############################
-def main(inpath):
+def main(inpath, C):
     '''
     Main function of the script.
     
     inpath: Specifies path to the GoT script
+    c: Specifies the C parameter for the model
     '''
     # Load in the data:
     script = pd.read_csv(inpath)
@@ -32,8 +33,8 @@ def main(inpath):
     # Splitting into train and test sets
     X_train, X_test, y_train, y_test = train_test_split(script['Sentence'].values, # "Features" (sentences)
                                                         script['Season'].values, # Labels
-                                                        test_size = 0.15, 
-                                                        random_state = 42,
+                                                        test_size = 0.15, # Use 15% as test set, rest as training
+                                                        random_state = 42, # For replication purposes
                                                         stratify = script['Season'].values) # If full dataset has 12% sentences from season 1, have 12% of sentences in train + test
 
     # Instead of having sentences, get token count vectors
@@ -44,7 +45,7 @@ def main(inpath):
     
     # Basic logistic regression, train + predict
     # Define classifer
-    classifier = LogisticRegression(random_state = 42, max_iter = 1000) # With max iterations = 1000 to avoid convergence issues.
+    classifier = LogisticRegression(random_state = 42, C = C, max_iter = 1000) # With max iterations = 1000 to avoid convergence issues.
 
     # Train the model
     print(f"[INFO] Training logistic regression classifier ...") # Info to terminal
@@ -91,10 +92,19 @@ if __name__=="__main__":
         type = str,
         default = os.path.join("data", "Game_of_Thrones_Script.csv"),
         required = False,
-        help= "str - specifying inpath to Game of Thrones script")
+        help = "str - specifying inpath to Game of Thrones script")
+    
+    # Add c-parameter argument:
+    parser.add_argument(
+        "-C",
+        "--C", 
+        type = int,
+        default = 1,
+        required = False,
+        help = "int - specifying c parameter for the model")
     
     # Taking all the arguments we added to the parser and input into "args"
     args = parser.parse_args()
     
     # Performing main function
-    main(args.inpath)
+    main(args.inpath, args.C)

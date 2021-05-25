@@ -50,11 +50,13 @@ gdown https://drive.google.com/uc?id=1t-bb-bwh9BrnAcLBFngSVpcm-SI3VLVA
 printf "[INFO] The required data for assignment 6 has been downloaded successfully"
 
 # Download data for self-assigned
-#cd ../../../self-assigned
-#mkdir data
-#cd data
-#printf "\n\n[INFO] Downloading data for self-assigned assignment ...\n\n"
-#for f in ___ ____ ____ ___ ; do gdown $f; done
-#printf "[INFO] The required data for the self-assigned assignment has been downloaded successfully"
-
+cd ../../../assignment_7
+mkdir data
+cd data
+printf "\n\n[INFO] Downloading data for assignment_7 (self-assigned) ...\n\n"
+gdown https://drive.google.com/uc?id=1_VMsre7E2PvBtuivCnvE0SHjkMAOqRMF
+unzip archive.zip
+rm archive.zip
+printf "[INFO] The required data for assignment 7 has been downloaded successfully"
+printf "\n\n[INFO] All data has been downloaded, script stopping"
 cd ../..

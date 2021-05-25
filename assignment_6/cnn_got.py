@@ -160,7 +160,7 @@ def main(inpath, epoch, batchsize, glovedim, embeddingdim):
     X_train, X_test = apply_padding(X_train_tokens, X_test_tokens, maxlen, "post")
 
     # Get labelnames before we binarize labels
-    labelnames = set(y_train)
+    labelnames = sorted(set(y_train))
 
     # Binarize labels
     lb = LabelBinarizer()
@@ -195,7 +195,7 @@ def main(inpath, epoch, batchsize, glovedim, embeddingdim):
     model.add(Conv1D(8, 3, activation='relu'))
     model.add(GlobalMaxPool1D())
     model.add(Dense(16, kernel_regularizer = L2(0.1), activation = 'relu'))
-    model.add(Dense(8,  activation = 'softmax')) # softmax because multiclass
+    model.add(Dense(8,  activation = 'softmax')) # Multiclass classification needs softmax in the final activation layer
     model.compile(loss = 'categorical_crossentropy', optimizer = opt, metrics = ['accuracy']) # Compile model (loss categorical - multiple classes)
 
     # Train model
@@ -215,7 +215,6 @@ def main(inpath, epoch, batchsize, glovedim, embeddingdim):
     predictions = model.predict(X_test)
     
     # Evaluation (classification report and confusion matrix)
-
     # Get classification report from predictions
     classif_report = pd.DataFrame(classification_report(y_test_encoded.argmax(axis = 1),
                                     predictions.argmax(axis = 1),
