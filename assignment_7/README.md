@@ -57,7 +57,7 @@ For this assignment
 <img src="../README_images/text_generative_models.png" alt="Logo" width="860" height="296">
 </a>
 
-<p align="center"><em>Visualization of the principle behind text generation algorithms. Image from blogpost by </em>[Harsh Basnal](https://bansalh944.medium.com/text-generation-using-lstm-b6ced8629b03)</p>
+<p align="center"><em>Visualization of the principle behind text generation algorithms. Image from blogpost by Harsh Basnal (https://bansalh944.medium.com/text-generation-using-lstm-b6ced8629b03) </em></p>
 
 **On a more general level (this applies to all assignments):**
 
