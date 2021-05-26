@@ -87,7 +87,7 @@ The model achieved a training accuracy of 64% - mean that more than half the of 
 
 <p align="center">
 <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_7/out/training_hist.png">
-<img src="out/training_hist.png" alt="Logo" width="860" height="296">
+<img src="out/training_hist.png" alt="Logo" width="300" height="200">
 </a>
 
 <p align="center">Training history of the model<em></em></p>
