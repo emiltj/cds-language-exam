@@ -96,26 +96,31 @@ The model achieved a training accuracy of 64% - mean that more than half the of 
 
 After manually altering two cherry-picked results that the model ended up producing, we're left with two examples:
 
-<p align="center">
+
 > [...] He took them a powerful gold, lying on the floor and nailed them free. 
 > The fifth in day, she went to bed then he went into the kitchen and said to him: "Can you light nothing but set me free". Wash it sleeping and did not believe that it might soon as it were. [...]"
 
-<em>Example 1</em>
+
+<p align="center"><em>Example 1, formatted</em></a>
 
 > [...] "The sun soon wanted to drink. The door was a poor pity, and he got up into the room and wanted to have", said the king. 
 > As he came towards it and sat down on her head and did not fly about, the wolf knocked into the water and kill her. [...]
 
-<em>Example 2</em>
-</p>
+
+<p align="center"><em>Example 2, formatted</em></a>
 
 Note that these have been manually altered by adding linebreaks, punctuation and by capitalizing letters after periods. The sentences seem to apply to some rules of grammar; verbs seem to be produce in the context of nouns while the determiner "the" seems to accurately preceeed nouns. Although the generated content had some merits in terms of grammatic structure, semantic coherence seems to be absent. A sentence such as "The sun soon wanted to drink." does not make much sense - it is even a bit farfetched when viewed in the context of fairy tales, which is what the text is meant to resemble.
 Lack of semantic coherence seems to be a general issue across the different methods used to generate new text - even for esteemed experts in RNNs such as the team behind TensorFlow (see their approach [here](https://www.tensorflow.org/text/tutorials/text_generation)). At present, text generative processes seem to be mostly useful for entertainment purposes, abstract poetry, or as a means to acquire inspirational content in an atypical way. When looking at the raw output of the script, it also becomes evident that this model lacks the formatting that was manually applied in the two previous examples - things suchs as linebreaks, punctuation and capitalization of letters after periods. Take a look at the examples in their unformatted raw version below (for the entire output, see [generated_sequences.csv](https://github.com/emiltj/cds-language-exam/blob/main/assignment_7/out/generated_sequences.csv)).
 
 > [...] he took them a powerful gold lying on the floor and nailed them free the fifth in day she went to bed then he went into the kitchen and said to him can you light nothing but set me free wash it sleeping and did not believe that it might soon as it were [...]
-<em>Example 1</em>
+
+
+<p align="center"><em>Example 1, raw</em></a>
 
 > [...] the sun soon wanted to drink the door was a poor pity and he got up into the room and wanted to have said the king as he came towards it and sat down on her head and did not fly about the wolf knocked into the water and kill her [...]
-<em>Example 2</em>
+
+
+<p align="center"><em>Example 2, raw</em></a>
 
 The results leave us with some information to answer the two questions posed in the description of the project: "_How well can a neural network learn the patterns of the writings of the Brothers Grimm?_" and "_Using the trained model - is it possible to generate new textual content that could have been something you read in an old fairy tale?_". It seems that this specific neural network can learn some patterns of fairy tales and of language in general. Given that the model has had no hard-coded rules implemented it can be thought impressive that it was able to produce sequences of text with a least some grammatical structure. However, it is clear that the model is not able to generate new textual content that one might have read in a fairy tale from the 1810s, as there seems to be little to no meaning in the produced texts. Moreover, the preprocessing of the data filtered away non-alphanumeric characters and this may have been unnecessary. Had, for instance, periods been treated like tokens just as the words, the model may had been able to predict punctuation somewhat accurately. Pair this with linebreaks and quotation marks etc., and the output produced may have resembled text in fairy tales slightly more accurately. Other measures might also have been taken, such as applying regex patterning to capitalize the first letter following a period.
 
