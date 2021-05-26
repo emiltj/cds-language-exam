@@ -5,7 +5,7 @@
     <img src="../README_images/lang_logo.png" alt="Logo" width="100" height="100">
   </a>
   
-  <h2 align="center">LSTM models for text generation</h2>
+  <h2 align="center">LSTM models for text generation (self-assigned)</h2>
 
   <p align="center">
     Assignment 7
