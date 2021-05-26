@@ -92,7 +92,7 @@ The model achieved a training accuracy of 64% - mean that more than half the of 
 
 <p align="center"><em>Training history of the model</em></p>
 
-**Generating text**
+**Generated text output**
 
 After manually altering two cherry-picked results that the model ended up producing, we're left with two examples:
 
@@ -114,8 +114,7 @@ When looking at the raw output of the script, it also becomes evident that this 
 
 > [...] the sun soon wanted to drink the door was a poor pity and he got up into the room and wanted to have said the king as he came towards it and sat down on her head and did not fly about the wolf knocked into the water and kill her [...]
 
-The preprocessing of the data filtered away non-alphanumeric characters, but this may have been unnecessary. Had, for instance, periods been treated like tokens just as the words, the model may had been able to predict punctuation somewhat accurately. Pair this with linebreaks and quotation marks etc., and the output produced may have resembled text in fairy tales more accurately. Other measures might also have been taken, such as applying regex patterning to capitalize the first letter following a period.
-
+The results leave us with some information to answer the two questions posed in the description of the project: "_How well can a neural network learn the patterns of the writings of the Brothers Grimm?_" and "_Using the trained model - is it possible to generate new textual content that could have been something you read in an old fairy tale?_". It seems that this specific neural network can learn some patterns of fairy tales and of language in general. Given that the model has had no hard-coded rules implemented it can be thought impressive that it was able to produce sequences of text with a least some grammatical structure. However, it is clear that the model is not able to generate new textual content that one might have read in a fairy tale from the 1810s, as there seems to be little to no meaning in the produced texts. Moreover, the preprocessing of the data filtered away non-alphanumeric characters and this may have been unnecessary. Had, for instance, periods been treated like tokens just as the words, the model may had been able to predict punctuation somewhat accurately. Pair this with linebreaks and quotation marks etc., and the output produced may have resembled text in fairy tales slightly more accurately. Other measures might also have been taken, such as applying regex patterning to capitalize the first letter following a period.
 
 |    |                                                               |                                                                                                                                                                            | 
 |----|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
@@ -126,6 +125,7 @@ The preprocessing of the data filtered away non-alphanumeric characters, but thi
 | 3  | foot and limped hobblety jib hobblety and when he came        | him joy at once the king had a great thirst and mother so she sat down by the fields and then he ran back to her grave and said what                                       | 
 | 4  | and when he had gone on her she walked out                    | dead an old fox too for she began to bewail them began with gold and sleep dogs yet fiddle and then her mother should find him as he could even                            | 
 | 5  | place and when he saw the bridegroom screamed out and         | after something but that you can have my thirst but happen to said the youth and was travelling dead cup to the bottom of the movements door remained a raven              | 
+
 
 <!-- USAGE -->
 ## Usage
