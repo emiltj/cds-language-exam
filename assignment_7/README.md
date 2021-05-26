@@ -55,7 +55,7 @@ The first 50 words in each tokenized sequence would be used as features for the 
 <img src="../README_images/text_generation_pipeline.png" alt="Logo" width="538" height="296">
 </a>
 
-<p align="center"><em>Visualization of the text generation pipeline utilized in the script</em></p>
+<p align="center"><em>Visualization of the pipeline used for text generation</em></p>
 
 The model consists of an embedding layer followed by two LTSM layers of depth 128 and 100 as per default. Using the argument --l, one may specify another structure for the LTSM layers. The model implements LTSM layers due to their way of handling the vanishing gradient problem (the problem of shrinking gradients over time in backpropagation) that is prevalent in traditional RNNs. It does so by the use of feedback connections called gates. The LTSM layers are succeeded by a dense layer (32 nodes) and an output layer that uses softmax and has the number of nodes equal to number of possible predictions (number of unique words in the corpus).
 The model is then trained on the data, learning the patterns in the sequences to be able to predict the next token that would appear after each sequence of 50 tokens. Epochs and batchsize for the model training can be determined using the arguments (see section "Optional arguments").
