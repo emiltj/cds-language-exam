@@ -13,7 +13,7 @@
     <a href="https://github.com/emiltj/cds-language-exam/issues">Report Bug</a>
     ·
     <a href="https://github.com/emiltj/cds-language-exam/issues">Request Feature</a>
-  </p>
+  </p><
 </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -34,7 +34,7 @@
 <!-- ASSIGNMENT DESCRIPTION -->
 ## Assignment description
 
-This assignment seeks to generative new textual content by implementing a Recurrent Neural Network (RNN). More specifically, this assignment seeks see whether it is possible to generate new textual content in line with the text from [the corpus](https://www.kaggle.com/tschomacker/grimms-fairy-tales) of folklore fairytales written by the Brothers Grimm (Jacob Ludwig Karl Grimm and Wilhelm Carl Grimm). The project intends to investigate the questions: _How well can a neural network learn the patterns of the writings of the Brothers Grimm?_ and _Using the trained model - is it possible to generate new textual content that could have been something you read in an old fairytale?_.
+This assignment seeks to generative new textual content by implementing a Recurrent Neural Network (RNN). More specifically, this assignment seeks see whether it is possible to generate new textual content in line with the text from [the corpus](https://www.kaggle.com/tschomacker/grimms-fairy-tales) of folklore fairy tales written by the Brothers Grimm (Jacob Ludwig Karl Grimm and Wilhelm Carl Grimm). The project intends to investigate the questions: _How well can a neural network learn the patterns of the writings of the Brothers Grimm?_ and _Using the trained model - is it possible to generate new textual content that could have been something you read in an old fairy tale?_.
 
 Try using a text generative approach that learns and predicts on word-level, rather than on a character-level.
 
@@ -47,7 +47,7 @@ Try using a text generative approach that learns and predicts on word-level, rat
 
 **Specifically for this assignment:**
 
-For this assignment I started out by loading in the text corpus. The text was then preprocessed; the strings that each contained a fairytale were appended to one long list of strings (each item in the list being one word). During preprocessing non-alphanumeric characters and linebreaks were also removed. I then defined and made use of a function retrieves word sequences using a moving window (e.g. ["once", "upon", "a", "time", "in"] becomes the sequences: [["once upon a"], ["upon a time"], ["a time in"]] when using window size = 3 and step size = 1). I chose to retrieve sequences of size 51.  The sequences were then tokenized meaning that each word was replaced by an integer and that the specific integer also functions as an ID in a saved vocabulary list. Having the text sequences as this array allow the model to train on the data. 
+For this assignment I started out by loading in the text corpus. The text was then preprocessed; the strings that each contained a fairy tale were appended to one long list of strings (each item in the list being one word). During preprocessing non-alphanumeric characters and linebreaks were also removed. I then defined and made use of a function retrieves word sequences using a moving window (e.g. ["once", "upon", "a", "time", "in"] becomes the sequences: [["once upon a"], ["upon a time"], ["a time in"]] when using window size = 3 and step size = 1). I chose to retrieve sequences of size 51.  The sequences were then tokenized meaning that each word was replaced by an integer and that the specific integer also functions as an ID in a saved vocabulary list. Having the text sequences as this array allow the model to train on the data. 
 The first 50 words in each tokenized sequence would be used as features for the model input, while the last word in the sequence would be what the model tries to predict. The list of tokens to predict are then one-hot encoded to match the shape for a keras model that uses categorical crossentropy as loss function and softmax activation for the final layer.
 
 <p align="center">
@@ -133,7 +133,7 @@ text_generator.py arguments for commandline to consider:
         type = str,
         default = os.path.join("data", "grimms_fairytales.csv"),
         required = False,
-        help = "str - specifying inpath to the Grimms fairytales")
+        help = "str - specifying inpath to the Grimms fairy tales")
 -       "-l",
         "--ltsmlayers", 
         type = list,
