@@ -148,10 +148,11 @@ text_generator.py arguments for commandline to consider:
         help = "str - specifying inpath to the Grimms fairy tales")
 -       "-l",
         "--ltsmlayers", 
-        type = list,
+        type = int,
+        nargs='+',
         default = [128, 100],
         required = False,
-        help = "list of integers - specifying number and depth of LTSM layers")
+        help = "list of integers - specifying number and depth of LTSM layers. e.g. --ltsmlayers 32, 64, 32")
 -       "-b",
         "--batchsize", 
         type = int,
