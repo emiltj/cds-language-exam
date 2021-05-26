@@ -29,7 +29,7 @@ import matplotlib.pyplot as plt
 ---------- Defining the main function of the script -----------
 ###############################################################
 '''
-def main(inpath):
+def main(inpath, C):
     '''
     Main function of the script.
     

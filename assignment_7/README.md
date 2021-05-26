@@ -103,7 +103,7 @@ After manually altering two cherry-picked results that the model ended up produc
 
 <p align="center"><em>Example 1 - formatted</em></a>
 
-> [...] "The sun soon wanted to drink. The door was a poor pity, and he got up into the room and wanted to have", said the king. 
+> [...] "The sun soon wanted to drink. The door was a poor pity and he got up into the room and wanted to have", said the king. 
 > As he came towards it and sat down on her head and did not fly about, the wolf knocked into the water and kill her. [...]
 
 
@@ -148,10 +148,11 @@ text_generator.py arguments for commandline to consider:
         help = "str - specifying inpath to the Grimms fairy tales")
 -       "-l",
         "--ltsmlayers", 
-        type = list,
+        type = int,
+        nargs='+',
         default = [128, 100],
         required = False,
-        help = "list of integers - specifying number and depth of LTSM layers")
+        help = "list of integers - specifying number and depth of LTSM layers. e.g. --ltsmlayers 32, 64, 32")
 -       "-b",
         "--batchsize", 
         type = int,

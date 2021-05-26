@@ -344,10 +344,11 @@ if __name__=="__main__":
     parser.add_argument(
         "-l",
         "--ltsmlayers", 
-        type = list,
+        type = int,
+        nargs='+',
         default = [128, 100],
         required = False,
-        help = "list of integers - specifying number and depth of LTSM layers")
+        help = "list of integers - specifying number and depth of LTSM layers. e.g. --ltsmlayers 32, 64, 32")
     
     # Add batchsize argument:
     parser.add_argument(
