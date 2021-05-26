@@ -93,9 +93,10 @@ The model achieved a training accuracy of 64% - mean that more than half the of 
 <p align="center"><em>Training history of the model</em></p>
 
 **Generating text**
-_Insert generated text here_
 
-_Insert generated text here_
+He took them, a powerful gold, lying on the floor and nailed them free. The fifth in day, she went to bed then he went into the kitchen and said to him: "Can you light nothing but set me free. Wash it sleeping and did not believe that it might soon as it were."
+
+"The sun soon wanted to drink. The door was a poor pity, and he got up into the room and wanted to have", said the king. As he came towards it and sat down on her head and did not fly about, the wolf knocked into the water and kill her.
 
 The above word sequences are a few cherry picked results that the model ended up producing. Note that these have been manually altered by adding linebreaks, punctuation and by capitalizing letters after periods. The sentences mostly seem to apply to the rules of grammar but  kjahdslkjahdslkahsdlkjdsaasdasdasdsa. Although the generated content had some merits in terms of grammar, all semantic coherence seems to be absent. This seems to be a general issue across the different methods used to generate new text - even for esteemed experts in RNNs such as the team behind TensorFlow (see their approach [here](https://www.tensorflow.org/text/tutorials/text_generation)). At present, text generative processes seem to be mostly useful for entertainment purposes, abstract poetry, or as a means to acquire inspirational content in an atypical way.
 
