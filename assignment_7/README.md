@@ -103,7 +103,7 @@ After manually altering two cherry-picked results that the model ended up produc
 
 <p align="center"><em>Example 1 - formatted</em></a>
 
-> [...] "The sun soon wanted to drink. The door was a poor pity, and he got up into the room and wanted to have", said the king. 
+> [...] "The sun soon wanted to drink. The door was a poor pity and he got up into the room and wanted to have", said the king. 
 > As he came towards it and sat down on her head and did not fly about, the wolf knocked into the water and kill her. [...]
 
 
