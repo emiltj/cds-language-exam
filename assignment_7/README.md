@@ -58,10 +58,7 @@ For this assignment I started out by loading in the text corpus. The text was th
 <p align="center"><em>Visualization of the text generation pipeline utilized in the script</em></p>
 
 The model consists of an embedding layer followed by two LTSM layers of depth 128 and 100 as per default. Using the argument --l, one may specify another structure for the LTSM layers, however. The model implements LTSM layers due to their way of handling the vanishing gradient problem (the problem of shrinking gradients over time in backpropagation), that is prevalent in traditional RNNs. It does so by the use of feedback connections called gates. The LTSM layers are succeeded by a dense layer (32 nodes) and an output layer that uses softmax and has the number of nodes equal to number of possible predictions.
-
-The model is then trained on the data, learning the patterns in the sequences to be able to predict the next word in the sequence. Epochs and batchsize can be determines using the arguments (for more information, see section "Optional arguments").
-
-
+The model is then trained on the data, learning the patterns in the sequences to be able to predict the next word that would appear after the sequence. Epochs and batchsize for the model training can be determined using the arguments (see section "Optional arguments").
 
 <p align="center">
 <a href="https://github.com/emiltj/cds-language-exam/README_images/text_generative_models.png">
@@ -69,6 +66,10 @@ The model is then trained on the data, learning the patterns in the sequences to
 </a>
 
 <p align="center"><em>Visualization of the principle behind text generation algorithms. Image from blogpost by Harsh Basnal (https://bansalh944.medium.com/text-generation-using-lstm-b6ced8629b03) </em></p>
+
+The text generation method works by taking a sequence of tokens of the same length as the input layer (e.g. one of the sequences of 50 words that were used to train the model) and predict the next word using the trained model. This word prediction is the first word of sequence that is to be generated. The model then uses the 49 last words of the input sequence plus the newly predicted word to predict the next word. And so on an so forth, until the requirements for length of the generated sequence has been met.
+
+The script uses the above mentioned principle to generate new sequences. It randomly samples sequences from the training data to generate the new texts. The number of generated sequences can be specified using the argument _--ngenerate_.
 
 **On a more general level (this applies to all assignments):**
 
@@ -80,6 +81,27 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 <!-- RESULTS AND DISCUSSION -->
 ## Results and discussion
 
+**Model training**
+
+The model achieved a training accuracy of 64% meaning that 64% of predictions were correct. Given the +2700 classes it can be said that the model performed quite well. Needless to say, this is certainly because the model learned patterns of this data that do not generalize to other texts. Evidently, the performance when predicting out of the training samples would drop significantly. However, the purpose of this model was not generalize to other texts and to achieve high out-of-sample accuracies, but rather to generate texts. But did the model train enough? From looking at the plot over training accuracy and loss over epochs, it appears that the model had diminishing returns as epochs increased and more epochs would likely not have increase performance much. Perhaps given a more complex architecture, the model have been able to perform even better on the training data given more epochs, though.
+
+<p align="center">
+<a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_7/out/training_hist.png">
+<img src="/out/training_hist.png" alt="Logo" width="860" height="296">
+</a>
+
+<p align="center">Training history of the model<em></em></p>
+
+**Generating text**
+_Insert generated text here_
+
+_Insert generated text here_
+
+The above word sequences are a few cherry picked results that the model ended up producing. Note that these have been manually changed by adding linebreaks, punctuation and by capitalizing letters after periods. The sentences mostly seem to apply to the rules of grammar although kjahdslkjahdslkahsdlkjdsaasdasdasdsa. Although the generated content had some merits in terms of grammar, all semantic coherence seems to be absent. This seems to be a general issue across the different methods used to generate new text - even for esteemed experts in RNNs such as the team behind TensorFlow (see their approach [here](https://www.tensorflow.org/text/tutorials/text_generation)). At present, text generative processes seem to be mostly useful for entertainment purposes, abstract poetry, or as a means to acquire inspirational content in an atypical way.
+
+When looking at the raw output of the script, it also becomes evident that this model lacks formatting - in terms of linebreaks and punctuation. The preprocessing of the data filtered away non-alphanumeric characters, but this may have been unnecessary. Had, for instance, periods been treated like tokens just as the words, the model may had been able to predict punctuation somewhat accurately. Pair this with linebreaks and quotation marks etc., and the output may had been better. Regex patterning could also have been applied to capitalize the first letter when it followed a period.
+
+
 |    |                                                               |                                                                                                                                                                            | 
 |----|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
 |    | length_10                                                     | length_50                                                                                                                                                                  | 
@@ -89,51 +111,6 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 | 3  | foot and limped hobblety jib hobblety and when he came        | him joy at once the king had a great thirst and mother so she sat down by the fields and then he ran back to her grave and said what                                       | 
 | 4  | and when he had gone on her she walked out                    | dead an old fox too for she began to bewail them began with gold and sleep dogs yet fiddle and then her mother should find him as he could even                            | 
 | 5  | place and when he saw the bridegroom screamed out and         | after something but that you can have my thirst but happen to said the youth and was travelling dead cup to the bottom of the movements door remained a raven              | 
-| 6  | man reappeared is all said the king will keep awake           | the head and every day was a great thing that was called someone and he did not know what to do what they darling sighing and shoes held over the                          | 
-| 7  | brought it up and then went to the old fox                    | it about and the cook heard all they heard him much that nevertheless on sides before it to pass but dame than it and was very tired she sat herself                       | 
-| 8  | behind the end of the wood the dwarf went into                | the only elder must have carried up one rich calling to her there lies the nightingale was disenchanted for the house of the sun it said must have a false                 | 
-| 9  | in use of where he were going loudly before at                | ought to have any purpose in the court can be gone and speak very drop and was carried up into the mountains and dig him singing to pry and chanticleer                    | 
-| 10 | away one night the king drew the order down the               | dressed themselves on the shore soon said queen aloud depend for here trip bound to procure get at the table and when he awoke from the meantime window he thought         | 
-| 11 | however in the middle of the well briar opened the            | content as soon as he had heard all many that they had been the power of the chickens and were sentenced birth to a gardener and went to bed then                          | 
-| 12 | ought to see her and the limbs was promised two               | blood on heaven and was very fond of his finger and took after a white stable from his pipe by the courtyard and chambers long calling and while the daughter              | 
-| 13 | floor till the spot he called her horse and turned            | white as that i will get the water for have been handling one of these with your way so she took the first bar of his legs and partlet saw                                 | 
-| 14 | bear took him out of the stream and called behind             | stays are laced let me lace them down with my shoes as if you want to learn to the third little cat is no longer said she and gold am                                      | 
-| 15 | cried out because i should have no good and when              | that he went on and took a hatchet and ate before her and complained that day was a wonderful mountain wretch that he found a hair looking down but the                    | 
-| 16 | bring out the most beautiful day there and said her           | to the castle of their palace or she went once over the way and to the little tailor how he had no heads hour wretch happy get rid of him                                  | 
-| 17 | and haughty and conceited that care not drop and going        | presents my own and i will come back to me indeed not turn with you so weigh them badly said the boy but you shall let him thatsome wretch enough                          | 
-| 18 | a special dwelling was assigned him the soldiers however were | since the moon however was angels of fire and said will sew big and was to be expected and come then the east peeped up to her own room and                                | 
-| 19 | went a horse on his tail and the miller said                  | slipped out and cried you will do the water of life so he said to the shepherd knocked at the door and thought to himself you have cooked it but                           | 
-| 20 | search of wood said he has fallen asleep and will             | asked him what he should get with the little tailor however were sitting behind a fire in order to have no purpose without be your husband said me i have                  | 
-| 21 | gone seeking two soul princess who started and said you       | to the roof and the king was not living carried to dry away on his knees from his chamber and at last however his father asked gretel really sadly would                   | 
-| 22 | thorns to seek that the judge replied his wife will           | in danger of fur ravens why are you meddling and go in and the bird knew no what a second in good kinds of mankind this time yet to fight                                  | 
-| 23 | roof of which it was curdken once everything the old          | amazed you my wish to grant me he glared by the roof but went into her bosom came into her stomach passed into the stream and forgot the prince called                     | 
-| 24 | over me and took my bones that they might lie                 | tree and as she said to him is not heavy for these a plank in bridge far that they know what could i have had said the fish in the                                         | 
-| 25 | a faithful in a cage frightened the smell of the              | my then there was great rejoicing and the farmer often started with it the fox however came from herself into the kitchen for which the king had brought with her          | 
-| 26 | cold and to work to thee you but i shall                      | does not swallow that rattled the door knowing alas if it is a quarter of the window the bird said has just to herself and hungry or i will give                           | 
-| 27 | then he went to bed after that was left and                   | asked but yourself was baked through the trees but the princess drew out threepence called his cheeks the giant begged and the king took her and tapped his wedding behind | 
-| 28 | has settled two servants and steal will make me dresses       | said am fond of butter and that you will not give me three luck there stay said the man your father and will perhaps raise on the same road forth                          | 
-| 29 | what of your geese you will give you my daughter              | said the little tailor do you yet i will eat anything why the old king said wish you do something more we want to look at the fish and heaven                              | 
-| 30 | see things this continued deer might will be said the         | together so quickly to her glass of his following horse again much in great pair of the wind and when he was so good and she was not at home                               | 
-| 31 | you see the sun he gave it something and chanticleer          | of their fiery eyes he began to snuff through the rapidity that was a very good one again to the sake time the dwarf thought of it striding young redcap                   | 
-| 32 | two bride but would not see no wicked things you              | of wishing and i am to anyone who does unless you wicked friend i have had the confidential task came he did not come back however they might be very                      | 
-| 33 | that many things truly wished by many years and at            | him and so she went and cut off a blow and hung the silken by the coachhouse chanticleer put the blue beast round out his horse asked him whether of                       | 
-| 34 | coming now put it down again at once the thieves              | so she took stock the spit and attendants in the crowd chattering off and said ha him is again in vain that you is three hard and to feed if                               | 
-| 35 | him she saw that the task shall sometimes more haughtily      | were found to be the remembrance of a hair which the king closed and said want it is the matter and say have my holiness my and trample my strangers                       | 
-| 36 | at last the little princess prayed will talk her when         | that was celebrated and all the land to whom the miser upstairs began to fire and when he had gone but the king saw lord that he had walked for                            | 
-| 37 | should come swimming at her the kingdom has carried into      | till he had that one wished and walked up their shoes and dragged on cakes and he shot them over her and thought of them mrs fox my treasures spring                       | 
-| 38 | any then the wolf ran home in the courtyard and               | the little beasts said to the miller were close then she went to sleep again and when he came to the third castle he called out this household if of                       | 
-| 39 | the prisoner clung to the table and when the peasant          | on two and the other fur knew a great thing standing in the fire and did her more words and said of length when he came towards the tree to                                | 
-| 40 | began to wander so fast that the blood ran out                | want to have a one seen than cannot work let me open the peasant and said may go into the cellar and be rowing with it and have asked me                                   | 
-| 41 | the floor and he offered a bird for red as                    | you to work said the king said to the shepherd riding will be a pioneer for this time and a waggoner as iron as you will not have another riches                           | 
-| 42 | the air flying slowly round and the horse scrambled merrily   | she was forced to put a heads in great face and a while he gave her a piece of wood suddenly after that land seeking two to live in and                                    | 
-| 43 | cannot will keep you tonight that you will give thee          | the old king did not know what to pay for his comrade by the princesses said to the giant you may have a charm for the glass of the youth                                  | 
-| 44 | could no longer prevent all his money was sure that           | with it but the princess find upstairs as before the mayor who must be sit in your head cannot reach on the steps but not and when promise to plant                        | 
-| 45 | husband then the fox came and said am the said                | merrily by them and the cock came and the king who was very tired she took their den her deliverer who had been forced to take a stones that dragging                      | 
-| 46 | his mouth and cried out shall shake me give you               | married tom began to serve on her and took the lid heart was play in two then he took her time from her head and after it was near she                                     | 
-| 47 | he went out and said must not give so the                     | let them do what the fox were angels with its lips and binds up her skin and his constable and paid that revived so while the cock agreed to have                          | 
-| 48 | or what a costly grasshopper merchant is here and yet         | see that the work was quite granted but when she saw a large grasshopper sun he gave her a little hind too gift was a road outside her way had                             | 
-| 49 | when he got up the cock hands and said are                    | and wonderful as big cannot make you asked to have your the other another discovered in manner of but the king had been afraid that was not one of a                       | 
-
 
 **Topic prevalence in schools of philosophical thought**
 <p align="center">
