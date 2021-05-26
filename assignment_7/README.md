@@ -94,19 +94,20 @@ The model achieved a training accuracy of 64% - mean that more than half the of 
 
 **Generating text**
 
+After manually altering two cherry-picked results that the model ended up producing, we're left with two examples:
+
 <p align="center">
   
-> He took them, a powerful gold, lying on the floor and nailed them free. 
-> The fifth in day, she went to bed then he went into the kitchen and said to him: "Can you light nothing but set me free. Wash it sleeping and did not believe that it might soon as it were."
+> [...] He took them, a powerful gold, lying on the floor and nailed them free. 
+> The fifth in day, she went to bed then he went into the kitchen and said to him: "Can you light nothing but set me free. Wash it sleeping and did not believe that it might soon as it were. [...]"
 
-
-> "The sun soon wanted to drink. The door was a poor pity, and he got up into the room and wanted to have", said the king. 
-> As he came towards it and sat down on her head and did not fly about, the wolf knocked into the water and kill her.
+> [...] "The sun soon wanted to drink. The door was a poor pity, and he got up into the room and wanted to have", said the king. 
+> As he came towards it and sat down on her head and did not fly about, the wolf knocked into the water and kill her. [...]
 </p>
 
-The above word sequences are a few cherry picked results that the model ended up producing. Note that these have been manually altered by adding linebreaks, punctuation and by capitalizing letters after periods. The sentences mostly seem to apply to the rules of grammar but  kjahdslkjahdslkahsdlkjdsaasdasdasdsa. Although the generated content had some merits in terms of grammar, all semantic coherence seems to be absent. This seems to be a general issue across the different methods used to generate new text - even for esteemed experts in RNNs such as the team behind TensorFlow (see their approach [here](https://www.tensorflow.org/text/tutorials/text_generation)). At present, text generative processes seem to be mostly useful for entertainment purposes, abstract poetry, or as a means to acquire inspirational content in an atypical way.
+Note that these have been manually altered by adding linebreaks, punctuation and by capitalizing letters after periods. The sentences seem to apply to some rules of grammar; nouns and verbs are linked and words such as asdjkashdkjahsdlkjahdslkjahsdlkjahds to the rules of grammar but  kjahdslkjahdslkahsdlkjdsaasdasdasdsa. Although the generated content had some merits in terms of grammar, semantic coherence seems to be absent. This seems to be a general issue across the different methods used to generate new text - even for esteemed experts in RNNs such as the team behind TensorFlow (see their approach [here](https://www.tensorflow.org/text/tutorials/text_generation)). At present, text generative processes seem to be mostly useful for entertainment purposes, abstract poetry, or as a means to acquire inspirational content in an atypical way.
 
-When looking at the raw output of the script, it also becomes evident that this model lacks formatting - in terms of linebreaks and punctuation. The preprocessing of the data filtered away non-alphanumeric characters, but this may have been unnecessary. Had, for instance, periods been treated like tokens just as the words, the model may had been able to predict punctuation somewhat accurately. Pair this with linebreaks and quotation marks etc., and the output may have been better. Regex patterning could also have been applied to capitalize the first letter when following a period.
+When looking at the raw output of the script, it also becomes evident that this model lacks the formatting that was manually applied in the two previous examples - things suchs as linebreaks, punctuation and capitalization of letters after periods. The preprocessing of the data filtered away non-alphanumeric characters, but this may have been unnecessary. Had, for instance, periods been treated like tokens just as the words, the model may had been able to predict punctuation somewhat accurately. Pair this with linebreaks and quotation marks etc., and the output may have been better. Regex patterning could also have been applied to capitalize the first letter when following a period.
 
 
 |    |                                                               |                                                                                                                                                                            | 
