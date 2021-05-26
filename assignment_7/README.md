@@ -95,10 +95,10 @@ The model achieved a training accuracy of 64% - mean that more than half the of 
 **Generating text**
 
 <p align="center">
-He took them, a powerful gold, lying on the floor and nailed them free. 
-The fifth in day, she went to bed then he went into the kitchen and said to him: "Can you light nothing but set me free. Wash it sleeping and did not believe that it might soon as it were."
+> He took them, a powerful gold, lying on the floor and nailed them free. The fifth in day, she went to bed then he went into the kitchen and said to him: "Can you light nothing but set me free. Wash it sleeping and did not believe that it might soon as it were."
 
-"The sun soon wanted to drink. The door was a poor pity, and he got up into the room and wanted to have", said the king. 
+
+> "The sun soon wanted to drink. The door was a poor pity, and he got up into the room and wanted to have", said the king. 
 As he came towards it and sat down on her head and did not fly about, the wolf knocked into the water and kill her.
 </p>
 
