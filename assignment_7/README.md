@@ -90,7 +90,7 @@ The model achieved a training accuracy of 64% - mean that more than half the of 
 <img src="out/training_hist.png" alt="Logo" width="300" height="200">
 </a>
 
-<p align="center">Training history of the model<em></em></p>
+<p align="center"><em>Training history of the model</em></p>
 
 **Generating text**
 _Insert generated text here_
