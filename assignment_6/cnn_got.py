@@ -33,9 +33,9 @@ from tensorflow.keras.regularizers import L2
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import (Dense, Embedding, 
-                                     Flatten, GlobalMaxPool1D, Conv1D)
 from tensorflow.keras.optimizers import SGD, Adam
+from tensorflow.keras.layers import (Dense, Embedding, Flatten, GlobalMaxPool1D, Conv1D)
+
 
 # matplotlib
 import matplotlib.pyplot as plt

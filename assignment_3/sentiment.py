@@ -41,7 +41,6 @@ def convert_to_datetime(date_col):
     # Return the data in datetime format
     return dates
 
-# Calculate sentiment scores for each headline
 def calc_sentiment(text_col):
     '''
     Function that calculates sentiment scores for a column of strings.
@@ -60,7 +59,6 @@ def calc_sentiment(text_col):
     # Return the sentiment score
     return sentiment_score
 
-# Calculate daily average sentiment scores. Also smoothed scores
 def calc_daily_avg_sentiment(date_col, sentiment_score_col):
     '''
     Function that calculates daily average sentiment scores from date column and sentiment score column. 
@@ -104,7 +102,6 @@ def calc_daily_avg_sentiment(date_col, sentiment_score_col):
     # Return df
     return df_daily
 
-# Plotting the scores
 def plot_sentiment(df):
     '''
     Function that plots sentiment scores.
