@@ -269,15 +269,6 @@ def main(inpath, lstmlayers, batchsize, epochs, ngenerate):
     # E.g. going from ["once upon a time in hollywood"] to ["once upon a", "upon a time", "a time in", "time in hollywood"]
     sequences = get_sequences_running_window(tokens, 51, 1)
 
-    # Initialize tokenizer
-    tokenizer = Tokenizer()
-
-    # Fit tokenizer to text (having every unique word assigned an integer for the model)
-    tokenizer.fit_on_texts(sequences)
-
-    # Have the sequences as integers (in a numpy array)
-    sequences_int = np.array(tokenizer.texts_to_sequences(sequences))
-
     # Vectorize the sequences
     sequences_int, tokenizer = vectorize_sequences(sequences)
 
@@ -311,15 +302,10 @@ def main(inpath, lstmlayers, batchsize, epochs, ngenerate):
     
     # Generate "ngenerate" sequences of length 50
     generated_sequences_30 = generate_sequences_multiple(model, ngenerate, 50, tokenizer, sequences)
-    
-    # Generate "ngenerate" sequences of length 200
-    generated_sequences_50 = generate_sequences_multiple(model, ngenerate, 200, tokenizer, sequences)
-    
+
     # Have the new sequences as dataframe
     df_seq = pd.DataFrame.from_dict({"length_10" : generated_sequences_10, 
-                                     "length_50" : generated_sequences_30,
-                                     "length_200" : generated_sequences_200
-                                    })
+                                     "length_50" : generated_sequences_30})
 
     # Saving output to out directory
     # Create out folder for the output
