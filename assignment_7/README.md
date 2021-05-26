@@ -98,16 +98,21 @@ After manually altering two cherry-picked results that the model ended up produc
 
 <p align="center">
   
-> [...] He took them, a powerful gold, lying on the floor and nailed them free. 
-> The fifth in day, she went to bed then he went into the kitchen and said to him: "Can you light nothing but set me free. Wash it sleeping and did not believe that it might soon as it were. [...]"
+> [...] He took them a powerful gold, lying on the floor and nailed them free. 
+> The fifth in day, she went to bed then he went into the kitchen and said to him: "Can you light nothing but set me free". Wash it sleeping and did not believe that it might soon as it were. [...]"
 
 > [...] "The sun soon wanted to drink. The door was a poor pity, and he got up into the room and wanted to have", said the king. 
 > As he came towards it and sat down on her head and did not fly about, the wolf knocked into the water and kill her. [...]
 </p>
 
-Note that these have been manually altered by adding linebreaks, punctuation and by capitalizing letters after periods. The sentences seem to apply to some rules of grammar; nouns and verbs are linked and words such as asdjkashdkjahsdlkjahdslkjahsdlkjahds to the rules of grammar but  kjahdslkjahdslkahsdlkjdsaasdasdasdsa. Although the generated content had some merits in terms of grammar, semantic coherence seems to be absent. This seems to be a general issue across the different methods used to generate new text - even for esteemed experts in RNNs such as the team behind TensorFlow (see their approach [here](https://www.tensorflow.org/text/tutorials/text_generation)). At present, text generative processes seem to be mostly useful for entertainment purposes, abstract poetry, or as a means to acquire inspirational content in an atypical way.
+Note that these have been manually altered by adding linebreaks, punctuation and by capitalizing letters after periods. The sentences seem to apply to some rules of grammar; verbs seem to be produce in the context of nouns while the determiner "the" seems to accurately preceeed nouns. Although the generated content had some merits in terms of grammatic structure, semantic coherence seems to be absent. A sentence such as "The sun soon wanted to drink." does not make much sense - it is even a bit farfetched when viewed in the context of fairy tales, which is what the text is meant to resemble.
+Lack of semantic coherence seems to be a general issue across the different methods used to generate new text - even for esteemed experts in RNNs such as the team behind TensorFlow (see their approach [here](https://www.tensorflow.org/text/tutorials/text_generation)). At present, text generative processes seem to be mostly useful for entertainment purposes, abstract poetry, or as a means to acquire inspirational content in an atypical way.
 
-When looking at the raw output of the script, it also becomes evident that this model lacks the formatting that was manually applied in the two previous examples - things suchs as linebreaks, punctuation and capitalization of letters after periods. The preprocessing of the data filtered away non-alphanumeric characters, but this may have been unnecessary. Had, for instance, periods been treated like tokens just as the words, the model may had been able to predict punctuation somewhat accurately. Pair this with linebreaks and quotation marks etc., and the output may have been better. Regex patterning could also have been applied to capitalize the first letter when following a period.
+When looking at the raw output of the script, it also becomes evident that this model lacks the formatting that was manually applied in the two previous examples - things suchs as linebreaks, punctuation and capitalization of letters after periods. Take a look at the unformatted raw output below.
+
+> [...] he took them a powerful gold lying on the floor and nailed them free the fifth in day she went to bed then he went into the kitchen and said to him can you light nothing but set me free wash it sleeping and did not believe that it might soon as it were [...]
+
+The preprocessing of the data filtered away non-alphanumeric characters, but this may have been unnecessary. Had, for instance, periods been treated like tokens just as the words, the model may had been able to predict punctuation somewhat accurately. Pair this with linebreaks and quotation marks etc., and the output produced may have resembled text in fairy tales more accurately. Other measures might also have been taken, such as applying regex patterning to capitalize the first letter following a period.
 
 
 |    |                                                               |                                                                                                                                                                            | 
