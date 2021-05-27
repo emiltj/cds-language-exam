@@ -62,7 +62,7 @@ The first 50 words in each tokenized sequence would be used as features for the 
 <p align="center"><em>Visualization of the pipeline used for text generation</em></p>
 
 The model consists of an embedding layer followed by two LTSM layers of depth 128 and 100 as per default. Using the argument _--ltsmlayers_, one may specify another structure for the LTSM layers. The model implements LTSM layers due to their way of handling the vanishing gradient problem (the problem of shrinking gradients over time in backpropagation) that is prevalent in traditional RNNs. It does so by the use of feedback connections called gates. The LTSM layers are succeeded by a dense layer of 32 nodes and an output layer with a softmax activation function with number of nodes equal to number of possible predictions (number of unique words in the corpus).
-During model training, the model adjusts its' weights in order to learn the patterns in the sequences. This enables it in predicting the next token that would appear after each sequence of 50 tokens. Epochs and batchsize for the model training can be determined using the arguments _--epochs_ _--batchsize_ (see section "Optional arguments" for more information).
+During model training, the model adjusts its' weights in order to learn the patterns in the sequences. This enables it in predicting the next token that would appear after each sequence of 50 tokens. Epochs and batchsize for the model training can be determined using the arguments _--epochs_ and _--batchsize_ (see section "Optional arguments" for more information).
 
 <p align="center">
 <a href="https://github.com/emiltj/cds-language-exam/README_images/text_generative_models.png">
@@ -71,9 +71,9 @@ During model training, the model adjusts its' weights in order to learn the patt
 
 <p align="center"><em>Visualization of the principle behind text generation algorithms. Image from blogpost by Harsh Basnal (https://bansalh944.medium.com/text-generation-using-lstm-b6ced8629b03) </em></p>
 
-The text generation method works by taking a sequence of tokens of the same length as the input layer (e.g. one of the sequences of 50 words that were used to train the model) and predict the next token using the trained model. This word prediction is the first token of the sequence that is to be generated. The model then uses the 49 last tokens of the input sequence plus the newly predicted token to predict the next token. And so on an so forth, until the requirements for length of the generated sequence has been met. Since the tokens all carry a unique ID, the actual words that the point to can be identified using the saved ID-word dictionary. 
+How can a model that classifies the next word in a sequence be used to generate new text? A visualization of text generation approach used in this script can be seen above. First it takes a sequence of words (a seed-sequence) and predict which word is the most likely to succeed. The model then uses all words in the seed-sequence except the first, plus the newly predicted word to predict another new word. Followed by a new prediction of the seed-sequence except the first two first, plus the two newly predicted words. This continues until the model has predicted and thus generated a new sequence of some specified length. It must be mentioned that the model does not do this with words, but rather with the integer values as the strings have been vectorized. Upon the completion of generating a new sequence in vector format, the tokens that all carry a unique ID are converted back into words using the saved dictionary of integer ID to word.
 
-The script uses the above mentioned principle to generate new sequences. It randomly samples sequences from the training data to generate the new texts. The number of generated sequences can be specified using the argument _--ngenerate_.
+The seed-sequences used to generate text in this script are the same sequences that were used to train the model. When generating a new sequence the script samples from these sequences random. The number of generated sequences can be specified using the argument _--ngenerate_.
 
 **On a more general level (this applies to all assignments):**
 
@@ -87,7 +87,7 @@ I have tried to as accessible and user-friendly as possible. This has been attem
 
 **Model training**
 
-The model achieved a training accuracy of 64% - mean that more than half the of the word predictions were correct. Given the +2700 classes (unique words to predict) it can be said that the model performed quite well. Needless to say, this is certainly because the model overfit to this data, be learning patterns that are specific to this data set. Evidently, the performance when predicting out of the training samples would drop significantly as the model would not generalize well. However, the purpose of this model was not generalize to other texts and to achieve high out-of-sample accuracies, but rather to generate texts. But did the model train enough? From looking at the plot over training accuracy and loss over epochs, it appears that the model had diminishing returns as epochs increased and more epochs would likely not have increase performance much. Although perhaps given a more complex architecture, the model have been able to perform even better on the training data given more epochs.
+The model achieved a training accuracy of 64% which means that more than half of the word predictions were correct. Given the +2700 classes (unique words, possible to predict) it can be said that the model performed quite well. Needless to say, this is certainly because the model overfit the the data set. It learned patterns that are specific to these texts, rather than patterns that would apply to all texts. If tested on out-of-sample texts, the performance would evidently drop significantly as a result of the low generalizability. However, the purpose of this model was not generalize to other texts and to achieve high out-of-sample performance, but rather to generate texts. But did the model train enough? From looking at the plot over training accuracy and loss over epochs, it appears that the model had diminishing returns as epochs increased and more epochs would likely not have increase performance much. Given a more complex architecture, the ceiling effect of performance may have occurred later. If a more complex model had been trained for more epochs, the models may have been able to perform even better.
 
 <p align="center">
 <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_7/out/training_hist.png">
@@ -98,7 +98,7 @@ The model achieved a training accuracy of 64% - mean that more than half the of 
 
 **Generated text output**
 
-After manually altering two cherry-picked results that the model ended up producing, we're left with two examples:
+After manually altering two cherry-picked results that the model ended up producing, here are two examples of the output
 
 
 > [...] He took them a powerful gold, lying on the floor and nailed them free. 
