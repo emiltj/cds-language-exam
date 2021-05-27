@@ -98,6 +98,8 @@ The model achieved a training accuracy of 64% which means that more than half of
 
 **Generated text output**
 
+For clarificational purposes, I will go through two examples of generated sequences for this section. The full output of generated sequences can be found in ```assignment_7/out/generated_sequences.csv``` and an excerpt of this table can be found at the bottom of this section.
+
 After manually altering two generated sequences that the model ended up producing, here are some examples of the output:
 
 > [...] He took them a powerful gold, lying on the floor and nailed them free. 
@@ -126,6 +128,27 @@ Lack of semantic coherence seems to be a general issue across the different meth
 <p align="center"><em>Example 2 - raw</em></a>
 
 The results leave us with some information to answer the two questions posed in the description of the project: "_How well can a neural network learn the patterns of the writings of the Brothers Grimm?_" and "_Using the trained model - is it possible to generate new textual content that could have been something you read in an old fairy tale?_". It seems that this specific neural network can learn some patterns of fairy tales and of language in general. Given that the model has had no hard-coded rules implemented it can be thought impressive that it was able to produce sequences of text with a least some grammatical structure. However, it is clear that the model is not able to generate new textual content that one might have read in a fairy tale from the 1810s, as there seems to be little to no meaning in the produced texts. Moreover, the preprocessing of the data filtered away non-alphanumeric characters and this may have been unnecessary. Had, for instance, periods been treated like tokens just as the words, the model may had been able to predict punctuation somewhat accurately. Pair this with line breaks and quotation marks etc., and the output produced may have resembled text in fairy tales slightly more accurately. Other measures might also have been taken, such as applying Regex patterning to capitalize the first letter following a period.
+
+
+|    |                                                               |                                                                                                                                                                            | 
+|----|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+|    | length_10                                                     | length_50                                                                                                                                                                  | 
+| 0  | from whence his wealth came to see them to the                | her own child will for this then the king went shivering and looked up and saw that their hair her sister loved his bread she thought each man caused found                | 
+| 1  | cried is himself give me my head then the king                | brought two far in the window and the man came with pale and diamonds equipped a thousand folk this cages loudly and as he saw a white snake lying coiled                  | 
+| 2  | kitchen and shook out the willowwren flew up to his           | has supported me down into the cellar and see where my father grieved when we to eat of the sexton came to the door he leapt into the inn there                            | 
+| 3  | foot and limped hobblety jib hobblety and when he came        | him joy at once the king had a great thirst and mother so she sat down by the fields and then he ran back to her grave and said what                                       | 
+| 4  | and when he had gone on her she walked out                    | dead an old fox too for she began to bewail them began with gold and sleep dogs yet fiddle and then her mother should find him as he could even                            | 
+| 5  | place and when he saw the bridegroom screamed out and         | after something but that you can have my thirst but happen to said the youth and was travelling dead cup to the bottom of the movements door remained a raven              | 
+| 6  | man reappeared is all said the king will keep awake           | the head and every day was a great thing that was called someone and he did not know what to do what they darling sighing and shoes held over the                          | 
+| 7  | brought it up and then went to the old fox                    | it about and the cook heard all they heard him much that nevertheless on sides before it to pass but dame than it and was very tired she sat herself                       | 
+| 8  | behind the end of the wood the dwarf went into                | the only elder must have carried up one rich calling to her there lies the nightingale was disenchanted for the house of the sun it said must have a false                 | 
+| 9  | in use of where he were going loudly before at                | ought to have any purpose in the court can be gone and speak very drop and was carried up into the mountains and dig him singing to pry and chanticleer                    | 
+| 10 | away one night the king drew the order down the               | dressed themselves on the shore soon said queen aloud depend for here trip bound to procure get at the table and when he awoke from the meantime window he thought         | 
+| 11 | however in the middle of the well briar opened the            | content as soon as he had heard all many that they had been the power of the chickens and were sentenced birth to a gardener and went to bed then                          | 
+| 12 | ought to see her and the limbs was promised two               | blood on heaven and was very fond of his finger and took after a white stable from his pipe by the courtyard and chambers long calling and while the daughter              | 
+| 13 | floor till the spot he called her horse and turned            | white as that i will get the water for have been handling one of these with your way so she took the first bar of his legs and partlet saw                                 | 
+| 14 | bear took him out of the stream and called behind             | stays are laced let me lace them down with my shoes as if you want to learn to the third little cat is no longer said she and gold am                                      | 
+| 15 | cried out because i should have no good and when              | that he went on and took a hatchet and ate before her and complained that day was a wonderful mountain wretch that he found a hair looking down but the                    | 
 
 <!-- USAGE -->
 ## Usage
