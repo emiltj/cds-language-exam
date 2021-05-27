@@ -329,7 +329,7 @@ def main(inpath, lstmlayers, batchsize, epochs, ngenerate):
 '''
 if __name__=="__main__":
     # Initialise ArgumentParser class
-    parser = argparse.ArgumentParser(description = "[SCRIPT DESCRIPTION] Trains a recurrent neural network on the Grimms fairytales and generates new textual sequences in line with the original fairytales")
+    parser = argparse.ArgumentParser(description = "[SCRIPT DESCRIPTION] Trains a recurrent neural network using LTSM on the Grimms fairy tales. Generates new text sequences in line with the original fairytales")
     
     # Add inpath argument
     parser.add_argument(
@@ -345,8 +345,8 @@ if __name__=="__main__":
         "-l",
         "--ltsmlayers", 
         type = int,
-        nargs='+',
-        default = [128, 100],
+        nargs='+', # Allow for multiple integers
+        default = [128, 100], # Default LTSM layer structure
         required = False,
         help = "list of integers - specifying number and depth of LTSM layers. e.g. --ltsmlayers 32, 64, 32")
     
