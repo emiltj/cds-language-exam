@@ -34,12 +34,15 @@
 <!-- ASSIGNMENT DESCRIPTION -->
 ## Assignment description
 
-This assignment seeks to generative new textual content by implementing a Recurrent Neural Network (RNN). More specifically, this assignment seeks see whether it is possible to generate new textual content in line with the text from [the corpus](https://www.kaggle.com/tschomacker/grimms-fairy-tales) of folklore fairy tales written by the Brothers Grimm (Jacob Ludwig Karl Grimm and Wilhelm Carl Grimm). The project intends to investigate the questions: _How well can a neural network learn the patterns of the writings of the Brothers Grimm?_ and _Using the trained model - is it possible to generate new textual content that could have been something you read in an old fairy tale?_
+This assignment seeks to investigate an approach to generate new textual content. It implements a Recurrent Neural Network (RNN) to learn word sequence patterns. Using the trained model new word sequences are generated.
+
+More specifically, this assignment seeks see whether it is possible to generate new textual content in line with the text from [the corpus](https://www.kaggle.com/tschomacker/grimms-fairy-tales) of folklore fairy tales written by the Brothers Grimm (Jacob Ludwig Karl Grimm and Wilhelm Carl Grimm). The project intends to investigate the questions: _How well can a neural network learn the patterns of the writings of the Brothers Grimm?_ and _Using the trained model - is it possible to generate new textual content that could have been something you might read in an old fairy tale?_
 
 Try using a text generative approach that learns and predicts on word-level, rather than on a character-level.
 
 * Train a Long Short-Term Memory (LTSM) artificial Recurrent Neural Network (RNN) on the corpus
 * Use sequences of 50 words as input for the model
+* Generate new sequences of texts, using the trained model
 * Bonus task: include arguments that let you specify model training parameters and LTSM model architecture (LTSM layers, epochs and batch size). You might also want to specify options for the text generation - how many text chunks should be generated?
 
 <!-- METHODS -->
@@ -47,8 +50,9 @@ Try using a text generative approach that learns and predicts on word-level, rat
 
 **Specifically for this assignment:**
 
-For this assignment I started out by loading in the text corpus. The text was then preprocessed; the strings that each contained a fairy tale were appended to one long list of strings (each item in the list being one word). During preprocessing non-alphanumeric characters and line breaks were also removed. I then defined and made use of a function retrieves word sequences using a moving window (e.g. ["once", "upon", "a", "time", "in"] becomes the sequences: [["once upon a"], ["upon a time"], ["a time in"]] when using window size = 3 and step size = 1). I chose to retrieve sequences of size 51.  The sequences were then tokenized meaning that each word was replaced by an integer and that the specific integer also functions as an ID in a saved vocabulary list. Having the text sequences as this array allow the model to train on the data. 
-The first 50 words in each tokenized sequence would be used as features for the model input, while the last word in the sequence would be what the model tries to predict. The list of tokens to predict are then one-hot encoded to match the shape for a keras model that uses categorical crossentropy as loss function and softmax activation for the final layer.
+For this assignment I started out by loading in the text corpus. The text was then preprocessed; the strings that each contained a fairy tale were combined into a single string, which was divided up into a list of words. The preprocessing also entailed the removement of non-alphanumeric characters which meant that line breaks, punctuation and quotations marks were removed. I then defined and made use of a function which retrieves word sequences using a moving window, this function took window-size and step-size as arguments. To give an example: Given window-size = 3 and step-size = 1, it would retrieve the sequences [["once upon a"], ["upon a time"], ["a time in"]] from the text ["once", "upon", "a", "time", "in"].
+For this analysis, the sequences retrieved from the Grimms' fairy tales would be of length 51 and would move by a single word at a time. The sequences were then tokenized meaning that the list of words was converted into a vector. The integers of the vector were unique for each word and functioned as an ID in a saved vocabulary list, enabling the vectors to be converted back into words. Having the text sequences as vectors allow the model in training on the data. 
+The first 50 words in each tokenized sequence would be used as features for the model input, while the last word in the sequence would be what the model tries to predict. Before training, the tokens to be predicted were one-hot encoded, to allow for the model to use categorical crossentropy as loss function and softmax activation for the final layer. This way, the model would return an array of the probability of each of the possible predictions. The word with the highest probability would then be used as the prediction of the model.
 
 <p align="center">
 <a href="https://github.com/emiltj/cds-language-exam/README_images/text_generation_pipeline.png">
@@ -57,8 +61,8 @@ The first 50 words in each tokenized sequence would be used as features for the 
 
 <p align="center"><em>Visualization of the pipeline used for text generation</em></p>
 
-The model consists of an embedding layer followed by two LTSM layers of depth 128 and 100 as per default. Using the argument --l, one may specify another structure for the LTSM layers. The model implements LTSM layers due to their way of handling the vanishing gradient problem (the problem of shrinking gradients over time in backpropagation) that is prevalent in traditional RNNs. It does so by the use of feedback connections called gates. The LTSM layers are succeeded by a dense layer (32 nodes) and an output layer that uses softmax and has the number of nodes equal to number of possible predictions (number of unique words in the corpus).
-The model is then trained on the data, learning the patterns in the sequences to be able to predict the next token that would appear after each sequence of 50 tokens. Epochs and batchsize for the model training can be determined using the arguments (see section "Optional arguments").
+The model consists of an embedding layer followed by two LTSM layers of depth 128 and 100 as per default. Using the argument _--ltsmlayers_, one may specify another structure for the LTSM layers. The model implements LTSM layers due to their way of handling the vanishing gradient problem (the problem of shrinking gradients over time in backpropagation) that is prevalent in traditional RNNs. It does so by the use of feedback connections called gates. The LTSM layers are succeeded by a dense layer of 32 nodes and an output layer with a softmax activation function with number of nodes equal to number of possible predictions (number of unique words in the corpus).
+During model training, the model adjusts its' weights in order to learn the patterns in the sequences. This enables it in predicting the next token that would appear after each sequence of 50 tokens. Epochs and batchsize for the model training can be determined using the arguments _--epochs_ _--batchsize_ (see section "Optional arguments" for more information).
 
 <p align="center">
 <a href="https://github.com/emiltj/cds-language-exam/README_images/text_generative_models.png">
