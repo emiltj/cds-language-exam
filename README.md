@@ -45,11 +45,11 @@ This README contains all the necessary information needed to get an overview of 
 <!-- GETTING STARTED -->
 ## Getting started
 
-For running my scripts I'd recommend following the below steps in your bash-terminal. This functions as a setup of the virtual environment, as well as an execution of a bash script that downloads all the data to the data folders respective to the assignments. 
+For running my scripts I'd recommend following the below steps in your bash-terminal. This functions as a setup of the virtual environment, as well as an execution of a bash script that downloads all the data to the data diretories respective to the assignments. 
 
 ### Cloning repository and creating virtual environment
 
-The below code will clone the repository, as well as create a virtual environment
+The below code will clone the repository, as well as create a virtual environment.
 
 __MAC/LINUX/WORKER02__
 ```bash
