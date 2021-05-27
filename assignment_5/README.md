@@ -93,9 +93,9 @@ When looking at the schools' topic prevalences the first thing that comes up is 
 <p align="center"><a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools.png"><img src="./out/pca_schools.png" alt="Logo" width="350" height="256"></a>   <a href="https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/pca_schools_agg.png"><img src="./out/pca_schools_agg.png" alt="Logo" width="350" height="256"></a></p>
 <p align="center"><em>Left: Plot of title topic prevalence (projected onto a 2D PCA space). Colored by school of thought. </em><p/> <p align="center"><em>Right: Plot of the mean topic prevalence for titles within a philosophical school (projected onto 2D PCA space)</em><p/>
 
-When plotting the different book titles' intertopic distance, we can see that there seem to be some clustering going on. A lot of texts appear at the bottom left and right, as well as at the top middle. There does not seem to be any clearcut clustering of the texts from the same philosophical school, which may lead us to believe that the topic prevalence doesn't fully correlate with philosophical school.
+When plotting the different book titles' intertopic distance, we can see that there seem to be some clustering going on. A lot of texts appear at the bottom left and right, as well as at the top middle. There does not seem to be any clearcut clustering of the texts from within the same philosophical school. This may lead us to believe that topic prevalence does not fully correlate with philosophical school.
 
-When plotting the different schools' intertopic distance (grouped by mean scores of each school) interesting relations become evident. The school of aristotle seemed to far from the other schools as far as intertopic distance goes. This makes good sense when taking the [plot over the topic prevalence in schools of philosophical thought](https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/plot_topic_prob.png) into account.
+When plotting the different schools' intertopic distance (grouped by mean scores of each school) interesting relations become evident. The school of aristotle seemed to far from the other schools as far as intertopic distance goes. When taking the fact that the school of aristotle also seemed to be an outlier in the [plot over the topic prevalence in schools of philosophical thought](https://github.com/emiltj/cds-language-exam/blob/main/assignment_5/out/plot_topic_prob.png), it makes good sense.
 
 **LDA html output**
 
@@ -104,11 +104,11 @@ When plotting the different schools' intertopic distance (grouped by mean scores
 </a>
 <p align="center">
   <em> 
-  Screenshot of the html showing which words make up the topics. NOTE: The topics are ordered by presence in the data which means that 1 does not cross-correspond to the previous plots.
+  Screenshot of the .html file showing which words make up the topics. NOTE: The topics are ordered by presence in the data. This means that topic 1 in the .html file does not cross-correspond to topic 1 in the other visualizations.
   </em>
 </a>
 
-The LDA html output provides information on which topics are most prevalent (size of circles) and also which words are most deemed most important for the topic (words on the right). Opening the file in your favorite HTML viewer would allow you interact, by pointing your mouse to a given topic. Please note that this plot have the topics ordered by presence in the data which means that 1 does not cross-correspond to the previous plots.
+The LDA .html output provides information on which topics are most prevalent (size of circles) and also which words are most deemed most important for the topic (words on the right). Opening the file in your favorite HTML viewer would allow you interact, by pointing your mouse to a given topic. Please note that this plot have the topics ordered by presence in the data. This means that e.g. topic 1 in the .html file does not cross-correspond to the previous plots.
 
 <!-- USAGE -->
 ## Usage
